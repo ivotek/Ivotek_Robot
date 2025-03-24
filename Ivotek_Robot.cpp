@@ -163,6 +163,29 @@ void Ivotek_Robot::backwards(int speed)
 
 }
 
+void Ivotek_Robot::turnRight(int speed)
+{
+    if(robotName == "default" || robotName == "explorer")
+    {
+         analogWrite(5,speed);
+         analogWrite(6,LOW);
+         analogWrite(9,LOW);
+         analogWrite(10,speed);
+    }
+
+}
+void Ivotek_Robot::turnLeft(int speed)
+{
+    if(robotName == "default" || robotName == "explorer")
+    {
+        analogWrite(5,LOW);
+        analogWrite(6,speed);
+        analogWrite(9,speed);
+        analogWrite(10,LOW);
+    }
+
+}
+
 void Ivotek_Robot::stop(void)
 {
     if(robotName == "default" || robotName == "explorer")
