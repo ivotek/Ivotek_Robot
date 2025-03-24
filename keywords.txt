@@ -1,0 +1,26 @@
+#######################################
+# Syntax Coloring Map For LEDLIB
+#######################################
+
+Ivotek_Robot	KEYWORD1
+
+initialization	KEYWORD2
+forwards		KEYWORD2
+backwards	    KEYWORD2
+right		    KEYWORD2
+left		    KEYWORD2
+stop            KEYWORD2
+button	    	KEYWORD2
+analog	    	KEYWORD2
+compass	    	KEYWORD2
+accelerometer	KEYWORD2
+ultrasound      KEYWORD2
+ultrasoundSx	KEYWORD2
+ultrasoundDx	KEYWORD2
+ultrasoundCx	KEYWORD2
+lightSx		    KEYWORD2
+lightCx		    KEYWORD2
+lightDx		    KEYWORD2
+battery		    KEYWORD2
+temperature 	KEYWORD2
+humidity	    KEYWORD2
