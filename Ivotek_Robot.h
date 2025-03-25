@@ -28,8 +28,8 @@ public:
     void turnLeft(int speedSx, int speedDx);
     void forwards(int speedSx, int speedDx);
     void backwards(int speedSx, int speedDx);
-    void forwards(int speed, int pin);
-    void backwards(int speed, int pin);
+    //void forwards(int speed, int pin);
+    //void backwards(int speed, int pin);
 
     void button(bool direction);
     void analog(double threshold);

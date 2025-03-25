@@ -174,7 +174,7 @@ void Ivotek_Robot::forwards(int speedSx, int speedDx)
     }
 
 }
-void Ivotek_Robot::backwards(int speedSx, int SpeedDx)
+void Ivotek_Robot::backwards(int speedSx, int speedDx)
 {
     if(robotName == "default" ||robotName == "explorer")
     {
@@ -247,8 +247,8 @@ void Ivotek_Robot::stop(void)
 }
 
 
-void Ivotek_Robot::forwards(int speed, int pin) {}
-void Ivotek_Robot::backwards(int speed, int pin) {}
+//void Ivotek_Robot::forwards(int speed, int pin) {}
+//void Ivotek_Robot::backwards(int speed, int pin) {}
 
 void Ivotek_Robot::button(bool direction) {}
 
