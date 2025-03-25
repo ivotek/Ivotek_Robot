@@ -7,8 +7,8 @@ Ivotek_Robot	KEYWORD1
 initialization	KEYWORD2
 forwards		KEYWORD2
 backwards	    KEYWORD2
-right		    KEYWORD2
-left		    KEYWORD2
+turnRight	    KEYWORD2
+turnLeft	    KEYWORD2
 stop            KEYWORD2
 button	    	KEYWORD2
 analog	    	KEYWORD2

@@ -9,7 +9,7 @@
 //
 //PIN per Snail
 //PIN 5 - 6  Motore sinistro
-//PIN 9 - 10 Morore destro
+//PIN 9 - 10 Motore destro
 //PIN A3 Sensore sinistro esterno
 //PIN A2 Sensore sinistro interno
 //PIN A1 Sensore destro interno
@@ -163,6 +163,29 @@ void Ivotek_Robot::backwards(int speed)
 
 }
 
+void Ivotek_Robot::forwards(int speedSx, int speedDx)
+{
+    if(robotName == "default" || robotName == "explorer")
+    {
+        analogWrite(5,speedSx);
+        analogWrite(6,LOW);
+        analogWrite(9,speedDx);
+        analogWrite(10,LOW);
+    }
+
+}
+void Ivotek_Robot::backwards(int speedSx, int SpeedDx)
+{
+    if(robotName == "default" ||robotName == "explorer")
+    {
+        analogWrite(5,LOW);
+        analogWrite(6,speedSx);
+        analogWrite(9,LOW);
+        analogWrite(10,speedDx);
+    }
+
+}
+
 void Ivotek_Robot::turnRight(int speed)
 {
     if(robotName == "default" || robotName == "explorer")
@@ -174,6 +197,7 @@ void Ivotek_Robot::turnRight(int speed)
     }
 
 }
+
 void Ivotek_Robot::turnLeft(int speed)
 {
     if(robotName == "default" || robotName == "explorer")
@@ -182,6 +206,30 @@ void Ivotek_Robot::turnLeft(int speed)
         analogWrite(6,speed);
         analogWrite(9,speed);
         analogWrite(10,LOW);
+    }
+
+}
+
+void Ivotek_Robot::turnLeft(int speedSx, int speedDx)
+{
+    if(robotName == "default" || robotName == "explorer")
+    {
+        analogWrite(5,LOW);
+        analogWrite(6,speedSx);
+        analogWrite(9,speedDx);
+        analogWrite(10,LOW);
+    }
+
+}
+
+void Ivotek_Robot::turnRight(int speedSx, int speedDx)
+{
+    if(robotName == "default" || robotName == "explorer")
+    {
+         analogWrite(5,speedSx);
+         analogWrite(6,LOW);
+         analogWrite(9,LOW);
+         analogWrite(10,speedDx);
     }
 
 }
