@@ -24,6 +24,8 @@ public:
     void backwards(int speed);
     void turnRight(int speed);
     void turnLeft(int speed);
+    void turnRight(int speedSx, int speedDx);
+    void turnLeft(int speedSx, int speedDx);
     void forwards(int speedSx, int speedDx);
     void backwards(int speedSx, int speedDx);
     void forwards(int speed, int pin);
