@@ -20,28 +20,28 @@ public:
     void turnLeft();
     void stop();
 
-    void forwards(int speed);
-    void backwards(int speed);
-    void turnRight(int speed);
-    void turnLeft(int speed);
-    void turnRight(int speedSx, int speedDx);
-    void turnLeft(int speedSx, int speedDx);
-    void forwards(int speedSx, int speedDx);
-    void backwards(int speedSx, int speedDx);
-    //void forwards(int speed, int pin);
-    //void backwards(int speed, int pin);
+    void forwards(byte speed);
+    void backwards(byte speed);
+    void turnRight(byte speed);
+    void turnLeft(byte speed);
+    void turnRight(byte speedSx, byte speedDx);
+    void turnLeft(byte speedSx, byte speedDx);
+    void forwards(byte speedSx, byte speedDx);
+    void backwards(byte speedSx, byte speedDx);
+    //void forwards(byte speed, byte pin);
+    //void backwards(byte speed, byte pin);
 
     void button(bool direction);
     void analog(double threshold);
 
     int compass();
-    int compass(int pin);
+    int compass(byte pin);
     int accelerometer();
-    int accelerometer(int pin);
+    int accelerometer(byte pin);
 
 
-    double ultrasound(int trigger, int ultrasound);
-    bool ultrasound (int trigger, int ultrasound, double threshold);
+    double ultrasound(byte trigger, byte ultrasound);
+    bool ultrasound (byte trigger, byte ultrasound, double threshold);
     double ultrasoundSx();
     bool ultrasoundSx(double threshold);
     double ultrasoundDx();
@@ -53,23 +53,23 @@ public:
     double lightSx();
     double lightCx();
     double lightDx();
-    double light(int pin);
-    bool light(int pin, double threshold);
+    double light(byte pin);
+    bool light(byte pin, double threshold);
     bool lightSx(double threshold);
     bool lightCx(double threshold);
     bool lightDx(double threshold);
 
     double battery();
-    double battery(int pin);
+    double battery(byte pin);
     bool battery(double threshold);
-    bool battery(int pin, double threshold);
+    bool battery(byte pin, double threshold);
 
-    int temperature();
-    int temperature(int pin);
-    bool temperature(int pin, double threshold);
+    byte temperature();
+    byte temperature(byte pin);
+    bool temperature(byte pin, double threshold);
     int humidity();
-    int humidity(int pin);
-    bool humidity(int pin, double threshold);
+    int humidity(byte pin);
+    bool humidity(byte pin, double threshold);
 
 
 

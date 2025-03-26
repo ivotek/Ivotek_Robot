@@ -140,7 +140,7 @@ void Ivotek_Robot::turnLeft(void)
 
 }
 
-void Ivotek_Robot::forwards(int speed)
+void Ivotek_Robot::forwards(byte speed)
 {
     if(robotName == "default" || robotName == "explorer")
     {
@@ -151,7 +151,7 @@ void Ivotek_Robot::forwards(int speed)
     }
 
 }
-void Ivotek_Robot::backwards(int speed)
+void Ivotek_Robot::backwards(byte speed)
 {
     if(robotName == "default" ||robotName == "explorer")
     {
@@ -163,7 +163,7 @@ void Ivotek_Robot::backwards(int speed)
 
 }
 
-void Ivotek_Robot::forwards(int speedSx, int speedDx)
+void Ivotek_Robot::forwards(byte speedSx, byte speedDx)
 {
     if(robotName == "default" || robotName == "explorer")
     {
@@ -174,7 +174,7 @@ void Ivotek_Robot::forwards(int speedSx, int speedDx)
     }
 
 }
-void Ivotek_Robot::backwards(int speedSx, int speedDx)
+void Ivotek_Robot::backwards(byte speedSx, byte speedDx)
 {
     if(robotName == "default" ||robotName == "explorer")
     {
@@ -186,7 +186,7 @@ void Ivotek_Robot::backwards(int speedSx, int speedDx)
 
 }
 
-void Ivotek_Robot::turnRight(int speed)
+void Ivotek_Robot::turnRight(byte speed)
 {
     if(robotName == "default" || robotName == "explorer")
     {
@@ -198,7 +198,7 @@ void Ivotek_Robot::turnRight(int speed)
 
 }
 
-void Ivotek_Robot::turnLeft(int speed)
+void Ivotek_Robot::turnLeft(byte speed)
 {
     if(robotName == "default" || robotName == "explorer")
     {
@@ -210,7 +210,7 @@ void Ivotek_Robot::turnLeft(int speed)
 
 }
 
-void Ivotek_Robot::turnLeft(int speedSx, int speedDx)
+void Ivotek_Robot::turnLeft(byte speedSx, byte speedDx)
 {
     if(robotName == "default" || robotName == "explorer")
     {
@@ -222,7 +222,7 @@ void Ivotek_Robot::turnLeft(int speedSx, int speedDx)
 
 }
 
-void Ivotek_Robot::turnRight(int speedSx, int speedDx)
+void Ivotek_Robot::turnRight(byte speedSx, byte speedDx)
 {
     if(robotName == "default" || robotName == "explorer")
     {
@@ -255,11 +255,11 @@ void Ivotek_Robot::button(bool direction) {}
 void Ivotek_Robot::analog(double threshold) {}
 
 int Ivotek_Robot::compass() {}
-int Ivotek_Robot::compass(int pin) {}
+int Ivotek_Robot::compass(byte pin) {}
 int Ivotek_Robot::accelerometer() {}
-int Ivotek_Robot::accelerometer(int pin) {}
+int Ivotek_Robot::accelerometer(byte pin) {}
 
-double Ivotek_Robot::ultrasound(int trigger, int ultrasound)
+double Ivotek_Robot::ultrasound(byte trigger, byte ultrasound)
 {
     double tempoEcho = 0;
 
@@ -302,7 +302,7 @@ double Ivotek_Robot::ultrasoundDx()
     }
 }
 
-bool Ivotek_Robot::ultrasound (int trigger, int ultrasound, double threshold)
+bool Ivotek_Robot::ultrasound (byte trigger, byte ultrasound, double threshold)
 {
     double distance = 0;
     distance = Ivotek_Robot::ultrasound(trigger, ultrasound);
@@ -334,7 +334,7 @@ bool Ivotek_Robot::ultrasoundDx (double threshold)
     return distance < threshold?true:false;
 }
 
-double Ivotek_Robot::light(int pin)
+double Ivotek_Robot::light(byte pin)
 {
     double vFoto = 0;
     vFoto = analogRead(pin);
@@ -368,7 +368,7 @@ double Ivotek_Robot::lightDx()
     }
 }
 
-bool Ivotek_Robot::light(int pin, double threshold)
+bool Ivotek_Robot::light(byte pin, double threshold)
 {
     double vFoto = 0;
     vFoto = light(pin);
@@ -409,7 +409,7 @@ double Ivotek_Robot::battery()
     return 0;
 }
 
-double Ivotek_Robot::battery(int pin)
+double Ivotek_Robot::battery(byte pin)
 {
     double alim_digit = 0;
     double alimentazione = 0;
@@ -434,7 +434,7 @@ bool Ivotek_Robot::battery(double threshold)
 }
 
 
-bool Ivotek_Robot::battery(int pin, double threshold)
+bool Ivotek_Robot::battery(byte pin, double threshold)
 {
     double trigger = 0;
 
@@ -443,9 +443,9 @@ bool Ivotek_Robot::battery(int pin, double threshold)
     return trigger < threshold?true:false;
 }
 
-int Ivotek_Robot::temperature() {}
-int Ivotek_Robot::temperature(int pin) {}
-bool Ivotek_Robot::temperature(int pin, double threshold) {}
+byte Ivotek_Robot::temperature() {}
+byte Ivotek_Robot::temperature(byte pin) {}
+bool Ivotek_Robot::temperature(byte pin, double threshold) {}
 int Ivotek_Robot::humidity() {}
-int Ivotek_Robot::humidity(int pin) {}
-bool Ivotek_Robot::humidity(int pin, double threshold) {}
+int Ivotek_Robot::humidity(byte pin) {}
+bool Ivotek_Robot::humidity(byte pin, double threshold) {}
