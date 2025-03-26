@@ -4,7 +4,7 @@
 //Realizzato da Daniele Loddo alias Ivotek
 //data: 25/08/2024
 //Versione 0.0.1
-//PSito web: www.ivotek.it
+//Sito web: www.ivotek.it
 //
 //
 //PIN per Snail
@@ -59,10 +59,10 @@ void Ivotek_Robot::initialization(String name)
 
     if(robotName=="snail")
     {
-        pinMode(A0,INPUT);
-        pinMode(A1,INPUT);
-        pinMode(A2,INPUT);
-        pinMode(A3,INPUT);
+        pinMode(A0,INPUT_PULLUP);
+        pinMode(A1,INPUT_PULLUP);
+        pinMode(A2,INPUT_PULLUP);
+        pinMode(A3,INPUT_PULLUP);
     }
 
     if(robotName=="poor")
@@ -71,24 +71,24 @@ void Ivotek_Robot::initialization(String name)
         pinMode(6,OUTPUT);
         pinMode(9,OUTPUT);
         pinMode(10,OUTPUT);
-        pinMode(A0,INPUT);
+        pinMode(A0,INPUT_PULLUP);
         pinMode(7,OUTPUT);
         pinMode(2,OUTPUT);
         pinMode(8,OUTPUT);
-        pinMode(A1,INPUT);
-        pinMode(A2,INPUT);
-        pinMode(A3,INPUT);
+        pinMode(A1,INPUT_PULLUP);
+        pinMode(A2,INPUT_PULLUP);
+        pinMode(A3,INPUT_PULLUP);
     }
-    
+
     if(robotName == "explorer")
     {
-        pinMode(4,INPUT);
-        pinMode(7,INPUT);
-        pinMode(2,INPUT);
-        pinMode(8,INPUT);
-        pinMode(A1,INPUT);
-        pinMode(A2,INPUT);
-        pinMode(A3,INPUT);
+        pinMode(4,INPUT_PULLUP);
+        pinMode(7,INPUT_PULLUP);
+        pinMode(2,INPUT_PULLUP);
+        pinMode(8,INPUT_PULLUP);
+        pinMode(A1,INPUT_PULLUP);
+        pinMode(A2,INPUT_PULLUP);
+        pinMode(A3,INPUT_PULLUP);
     }
 
 }
