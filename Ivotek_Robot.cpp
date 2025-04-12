@@ -39,8 +39,10 @@
 //PIN A1 fotoresistenza sinistra
 //PIN A2 fotoresistenza centrale
 //PIN A3 fotoresistenza destra
-//PIN 4 Contatto Dx
-//PIN 7 contatto Sx
+//PIN 4 Contatto Dx anteriore
+//PIN 7 contatto Sx anteriore
+//PIN 2 Contatto Dx posteriore
+//PIN 8 contatto Sx posteriore
 //*********************************************************
 
 #include "Ivotek_Robot.h"
@@ -93,6 +95,8 @@ void Ivotek_Robot::initialization(String name)
         pinMode(A3,INPUT_PULLUP);
         pinMode(4,INPUT_PULLUP);
         pinMode(7,INPUT_PULLUP);
+        pinMode(2,INPUT_PULLUP);
+        pinMode(8,INPUT_PULLUP);
     }
 
 }
@@ -447,7 +451,23 @@ bool Ivotek_Robot::battery(byte pin, double threshold)
     return trigger < threshold?true:false;
 }
 
-bool Ivotek_Robot::switchSx(){
+bool Ivotek_Robot::genericSwitch(byte pin){
+    bool value;
+    value = digitalRead(pin);
+    delay(10);
+    value = digitalRead(pin);
+    return value;
+}
+
+bool Ivotek_Robot::genericSwitch(bool invert, byte pin){
+    bool value;
+    value = digitalRead(pin);
+    delay(10);
+    value = digitalRead(pin);
+    return invert ? !value : value;
+}
+
+bool Ivotek_Robot::switchSxFront(){
     bool value;
     if(robotName=="explorer")
     {
@@ -460,7 +480,7 @@ bool Ivotek_Robot::switchSx(){
     return false;
 }
 
-bool Ivotek_Robot::switchDx(){
+bool Ivotek_Robot::switchDxFront(){
     bool value;
     if(robotName=="explorer")
     {
@@ -473,7 +493,7 @@ bool Ivotek_Robot::switchDx(){
     return false;
 }
 
-bool Ivotek_Robot::switchSx(bool invert){
+bool Ivotek_Robot::switchSxFront(bool invert){
     bool value;
     if(robotName=="explorer")
     {
@@ -486,13 +506,65 @@ bool Ivotek_Robot::switchSx(bool invert){
     return false;
 }
 
-bool Ivotek_Robot::switchDx(bool invert){
+bool Ivotek_Robot::switchDxFront(bool invert){
     bool value;
     if(robotName=="explorer")
     {
         value = digitalRead(4);
         delay(10);
         value = digitalRead(4);
+        return invert ? !value : value;
+    }
+
+    return false;
+}
+
+bool Ivotek_Robot::switchSxRear(){
+    bool value;
+    if(robotName=="explorer")
+    {
+        value = digitalRead(8);
+        delay(10);
+        value = digitalRead(8);
+        return value;
+    }
+
+    return false;
+}
+
+bool Ivotek_Robot::switchDxRear(){
+    bool value;
+    if(robotName=="explorer")
+    {
+        value = digitalRead(2);
+        delay(10);
+        value = digitalRead(2);
+        return value;
+    }
+
+    return false;
+}
+
+bool Ivotek_Robot::switchSxRear(bool invert){
+    bool value;
+    if(robotName=="explorer")
+    {
+        value = digitalRead(8);
+        delay(10);
+        value = digitalRead(8);
+        return invert ? !value : value;
+    }
+
+    return false;
+}
+
+bool Ivotek_Robot::switchDxRear(bool invert){
+    bool value;
+    if(robotName=="explorer")
+    {
+        value = digitalRead(2);
+        delay(10);
+        value = digitalRead(2);
         return invert ? !value : value;
     }
 
