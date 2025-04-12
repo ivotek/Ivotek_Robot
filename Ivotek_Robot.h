@@ -70,6 +70,11 @@ public:
     int humidity();
     int humidity(byte pin);
     bool humidity(byte pin, double threshold);
+    
+    bool switchSx();
+    bool switchDx();
+    bool switchSx(bool invert);
+    bool switchDx(bool invert);
 
 
 

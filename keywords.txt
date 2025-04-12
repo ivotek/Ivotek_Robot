@@ -24,3 +24,5 @@ lightDx		    KEYWORD2
 battery		    KEYWORD2
 temperature 	KEYWORD2
 humidity	    KEYWORD2
+switchSx        KEYWORD2
+switchDx        KEYWORD2

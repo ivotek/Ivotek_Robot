@@ -39,6 +39,8 @@
 //PIN A1 fotoresistenza sinistra
 //PIN A2 fotoresistenza centrale
 //PIN A3 fotoresistenza destra
+//PIN 4 Contatto Dx
+//PIN 7 contatto Sx
 //*********************************************************
 
 #include "Ivotek_Robot.h"
@@ -441,6 +443,58 @@ bool Ivotek_Robot::battery(byte pin, double threshold)
     trigger = battery(pin);
 
     return trigger < threshold?true:false;
+}
+
+bool Ivotek_Robot::switchSx(){
+    bool value;
+    if(robotName=="explorer")
+    {
+        value = digitalRead(7);
+        delay(10);
+        value = digitalRead(7);
+        return value;
+    }
+
+    return false;
+}
+
+bool Ivotek_Robot::switchDx(){
+    bool value;
+    if(robotName=="explorer")
+    {
+        value = digitalRead(4);
+        delay(10);
+        value = digitalRead(4);
+        return value;
+    }
+    
+    return false;
+}
+
+bool Ivotek_Robot::switchSx(bool invert){
+    bool value;
+    if(robotName=="explorer")
+    {
+        value = digitalRead(7);
+        delay(10);
+        value = digitalRead(7);
+        return invert ? !value : value;
+    }
+
+    return false;
+}
+
+bool Ivotek_Robot::switchDx(bool invert){
+    bool value;
+    if(robotName=="explorer")
+    {
+        value = digitalRead(4);
+        delay(10);
+        value = digitalRead(4);
+        return invert ? !value : value;
+    }
+
+    return false;
 }
 
 byte Ivotek_Robot::temperature() {}
