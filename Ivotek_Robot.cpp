@@ -91,6 +91,8 @@ void Ivotek_Robot::initialization(String name)
         pinMode(A1,INPUT_PULLUP);
         pinMode(A2,INPUT_PULLUP);
         pinMode(A3,INPUT_PULLUP);
+        pinMode(4,INPUT_PULLUP);
+        pinMode(7,INPUT_PULLUP);
     }
 
 }
