@@ -30,8 +30,8 @@
 //PIN A3 fotoresistenza destra
 
 // PIN per Explorer
-//PIN 5 - 6  Motore sinistro
-//PIN 9 - 10 Morore destro
+//PIN 5 - 6  Motore sinistro -- PA5 - PA6
+//PIN 9 - 10 Morore destro -- PA9 - PA10
 //PIN 3 Trigger ultrasuoni
 //PIN 11 Ultrasuoni sinistro
 //PIN 12 Ultrasuoni centrale
@@ -39,10 +39,10 @@
 //PIN A1 fotoresistenza sinistra
 //PIN A2 fotoresistenza centrale
 //PIN A3 fotoresistenza destra
-//PIN 4 Contatto Dx anteriore
-//PIN 7 contatto Sx anteriore
-//PIN 2 Contatto Dx posteriore
-//PIN 8 contatto Sx posteriore
+//PIN 4 Contatto Dx anteriore -- PA4
+//PIN 7 contatto Sx anteriore -- PA7
+//PIN 2 Contatto Dx posteriore -- PA2
+//PIN 8 contatto Sx posteriore -- PA8
 //*********************************************************
 
 #include "Ivotek_Robot.h"
@@ -407,6 +407,7 @@ bool Ivotek_Robot::lightDx(double threshold)
     }
 }
 
+/*
 double Ivotek_Robot::battery()
 {
     if(robotName=="poor")
@@ -429,6 +430,8 @@ double Ivotek_Robot::battery(byte pin)
     return alimentazione * 2;
 }
 
+
+
 bool Ivotek_Robot::battery(double threshold)
 {
     double trigger = 0;
@@ -441,7 +444,6 @@ bool Ivotek_Robot::battery(double threshold)
 
 }
 
-
 bool Ivotek_Robot::battery(byte pin, double threshold)
 {
     double trigger = 0;
@@ -450,6 +452,8 @@ bool Ivotek_Robot::battery(byte pin, double threshold)
 
     return trigger < threshold?true:false;
 }
+
+*/
 
 bool Ivotek_Robot::genericSwitch(byte pin){
     bool value;
