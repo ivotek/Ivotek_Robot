@@ -82,7 +82,7 @@ public:
     bool genericSwitch(byte pin);
     bool genericSwitch(bool invert, byte pin);
 
-
+    void getVersion();
 
 
 };

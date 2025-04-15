@@ -48,6 +48,7 @@
 #include "Ivotek_Robot.h"
 
 String robotName = "";
+String VERSION = "1.0.0";
 
 void Ivotek_Robot::initialization(String name)
 {
@@ -581,3 +582,9 @@ bool Ivotek_Robot::temperature(byte pin, double threshold) {}
 int Ivotek_Robot::humidity() {}
 int Ivotek_Robot::humidity(byte pin) {}
 bool Ivotek_Robot::humidity(byte pin, double threshold) {}
+
+void Ivotek_Robot::getVersion(){
+    Serial.begin(9600);
+    Serial.println(VERSION);
+
+}
