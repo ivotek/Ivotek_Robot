@@ -130,10 +130,10 @@ void Ivotek_Robot::turnRight(void)
 {
     if(robotName == "default" || robotName == "explorer")
     {
-         analogWrite(5,255);
-         analogWrite(6,LOW);
-         analogWrite(9,LOW);
-         analogWrite(10,255);
+        analogWrite(5,255);
+        analogWrite(6,LOW);
+        analogWrite(9,LOW);
+        analogWrite(10,255);
     }
 
 }
@@ -199,10 +199,10 @@ void Ivotek_Robot::turnRight(byte speed)
 {
     if(robotName == "default" || robotName == "explorer")
     {
-         analogWrite(5,speed);
-         analogWrite(6,LOW);
-         analogWrite(9,LOW);
-         analogWrite(10,speed);
+        analogWrite(5,speed);
+        analogWrite(6,LOW);
+        analogWrite(9,LOW);
+        analogWrite(10,speed);
     }
 
 }
@@ -235,10 +235,10 @@ void Ivotek_Robot::turnRight(byte speedSx, byte speedDx)
 {
     if(robotName == "default" || robotName == "explorer")
     {
-         analogWrite(5,speedSx);
-         analogWrite(6,LOW);
-         analogWrite(9,LOW);
-         analogWrite(10,speedDx);
+        analogWrite(5,speedSx);
+        analogWrite(6,LOW);
+        analogWrite(9,LOW);
+        analogWrite(10,speedDx);
     }
 
 }
@@ -456,7 +456,8 @@ bool Ivotek_Robot::battery(byte pin, double threshold)
 
 */
 
-bool Ivotek_Robot::genericSwitch(byte pin){
+bool Ivotek_Robot::genericSwitch(byte pin)
+{
     bool value;
     value = digitalRead(pin);
     delay(10);
@@ -464,7 +465,8 @@ bool Ivotek_Robot::genericSwitch(byte pin){
     return value;
 }
 
-bool Ivotek_Robot::genericSwitch(bool invert, byte pin){
+bool Ivotek_Robot::genericSwitch(bool invert, byte pin)
+{
     bool value;
     value = digitalRead(pin);
     delay(10);
@@ -472,7 +474,8 @@ bool Ivotek_Robot::genericSwitch(bool invert, byte pin){
     return invert ? !value : value;
 }
 
-bool Ivotek_Robot::switchSxFront(){
+bool Ivotek_Robot::switchSxFront()
+{
     bool value;
     if(robotName=="explorer")
     {
@@ -485,7 +488,8 @@ bool Ivotek_Robot::switchSxFront(){
     return false;
 }
 
-bool Ivotek_Robot::switchDxFront(){
+bool Ivotek_Robot::switchDxFront()
+{
     bool value;
     if(robotName=="explorer")
     {
@@ -494,11 +498,12 @@ bool Ivotek_Robot::switchDxFront(){
         value = digitalRead(4);
         return value;
     }
-    
+
     return false;
 }
 
-bool Ivotek_Robot::switchSxFront(bool invert){
+bool Ivotek_Robot::switchSxFront(bool invert)
+{
     bool value;
     if(robotName=="explorer")
     {
@@ -511,7 +516,8 @@ bool Ivotek_Robot::switchSxFront(bool invert){
     return false;
 }
 
-bool Ivotek_Robot::switchDxFront(bool invert){
+bool Ivotek_Robot::switchDxFront(bool invert)
+{
     bool value;
     if(robotName=="explorer")
     {
@@ -524,7 +530,8 @@ bool Ivotek_Robot::switchDxFront(bool invert){
     return false;
 }
 
-bool Ivotek_Robot::switchSxRear(){
+bool Ivotek_Robot::switchSxRear()
+{
     bool value;
     if(robotName=="explorer")
     {
@@ -537,7 +544,8 @@ bool Ivotek_Robot::switchSxRear(){
     return false;
 }
 
-bool Ivotek_Robot::switchDxRear(){
+bool Ivotek_Robot::switchDxRear()
+{
     bool value;
     if(robotName=="explorer")
     {
@@ -550,7 +558,8 @@ bool Ivotek_Robot::switchDxRear(){
     return false;
 }
 
-bool Ivotek_Robot::switchSxRear(bool invert){
+bool Ivotek_Robot::switchSxRear(bool invert)
+{
     bool value;
     if(robotName=="explorer")
     {
@@ -563,7 +572,8 @@ bool Ivotek_Robot::switchSxRear(bool invert){
     return false;
 }
 
-bool Ivotek_Robot::switchDxRear(bool invert){
+bool Ivotek_Robot::switchDxRear(bool invert)
+{
     bool value;
     if(robotName=="explorer")
     {
@@ -583,7 +593,8 @@ int Ivotek_Robot::humidity() {}
 int Ivotek_Robot::humidity(byte pin) {}
 bool Ivotek_Robot::humidity(byte pin, double threshold) {}
 
-void Ivotek_Robot::getVersion(){
+void Ivotek_Robot::getVersion()
+{
     Serial.begin(9600);
     Serial.println(VERSION);
 
