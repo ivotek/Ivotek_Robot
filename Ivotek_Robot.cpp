@@ -1,9 +1,9 @@
 //*********************************************************
-//Programma test per il controllo dei robot realizzati da Daniele Loddo alias Ivotek
+//Libreria per il controllo dei robot realizzati da Daniele Loddo alias Ivotek
 //
 //Realizzato da Daniele Loddo alias Ivotek
 //data: 25/08/2024
-//Versione 0.0.1
+//Versione 1.0.0
 //Sito web: www.ivotek.it
 //
 //
@@ -55,7 +55,7 @@ void Ivotek_Robot::initialization(String name)
     robotName = name;
     Serial.begin(9600);
 
-    if(robotName == "default" || robotName == "snail" || robotName == "explorer" )
+    if(robotName == "default" || robotName == "snail" || robotName == "explorer" || robotName == "poor2")
     {
         pinMode(5,OUTPUT);
         pinMode(6,OUTPUT);
@@ -63,7 +63,7 @@ void Ivotek_Robot::initialization(String name)
         pinMode(10,OUTPUT);
     }
 
-    if(robotName=="snail")
+    if(robotName=="snail" || robotName=="poor2")
     {
         pinMode(A0,INPUT_PULLUP);
         pinMode(A1,INPUT_PULLUP);
@@ -71,22 +71,7 @@ void Ivotek_Robot::initialization(String name)
         pinMode(A3,INPUT_PULLUP);
     }
 
-    if(robotName=="poor")
-    {
-        pinMode(5,OUTPUT);
-        pinMode(6,OUTPUT);
-        pinMode(9,OUTPUT);
-        pinMode(10,OUTPUT);
-        pinMode(A0,INPUT_PULLUP);
-        pinMode(7,OUTPUT);
-        pinMode(2,OUTPUT);
-        pinMode(8,OUTPUT);
-        pinMode(A1,INPUT_PULLUP);
-        pinMode(A2,INPUT_PULLUP);
-        pinMode(A3,INPUT_PULLUP);
-    }
-
-    if(robotName == "explorer")
+    if(robotName == "explorer" || robotName=="poor2")
     {
         pinMode(4,INPUT_PULLUP);
         pinMode(7,INPUT_PULLUP);
@@ -360,7 +345,7 @@ double Ivotek_Robot::light(byte pin)
 
 double Ivotek_Robot::lightSx()
 {
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return light(A1);
     }
@@ -368,7 +353,7 @@ double Ivotek_Robot::lightSx()
 
 double Ivotek_Robot::lightCx()
 {
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return light(A2);
     }
@@ -376,7 +361,7 @@ double Ivotek_Robot::lightCx()
 
 double Ivotek_Robot::lightDx()
 {
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return light(A3);
     }
@@ -392,7 +377,7 @@ bool Ivotek_Robot::light(byte pin, double threshold)
 
 bool Ivotek_Robot::lightSx(double threshold)
 {
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return light(A1,threshold);
     }
@@ -400,14 +385,14 @@ bool Ivotek_Robot::lightSx(double threshold)
 
 bool Ivotek_Robot::lightCx(double threshold)
 {
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return light(A2,threshold);
     }
 }
 bool Ivotek_Robot::lightDx(double threshold)
 {
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return light(A3,threshold);
     }
@@ -416,7 +401,7 @@ bool Ivotek_Robot::lightDx(double threshold)
 
 double Ivotek_Robot::batteryStatus()
 {
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return batteryStatus(A0);
     }
@@ -575,5 +560,6 @@ bool Ivotek_Robot::humidity(byte pin, double threshold) {}
 
 void Ivotek_Robot::getVersion()
 {
+    Serial.print("VERSION: ");
     Serial.println(VERSION);
 }

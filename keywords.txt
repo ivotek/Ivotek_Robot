@@ -21,7 +21,7 @@ ultrasoundCx	KEYWORD2
 lightSx		    KEYWORD2
 lightCx		    KEYWORD2
 lightDx		    KEYWORD2
-battery		    KEYWORD2
+batteryStatus	    KEYWORD2
 temperature 	KEYWORD2
 humidity	    KEYWORD2
 switchSxFront   KEYWORD2
