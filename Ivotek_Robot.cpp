@@ -53,6 +53,7 @@ String VERSION = "1.0.0";
 void Ivotek_Robot::initialization(String name)
 {
     robotName = name;
+    Serial.begin(9600);
 
     if(robotName == "default" || robotName == "snail" || robotName == "explorer" )
     {
@@ -476,13 +477,10 @@ bool Ivotek_Robot::genericSwitch(bool invert, byte pin)
 
 bool Ivotek_Robot::switchSxFront()
 {
-    bool value;
+
     if(robotName=="explorer")
     {
-        value = digitalRead(7);
-        delay(10);
-        value = digitalRead(7);
-        return value;
+        return genericSwitch(7);
     }
 
     return false;
@@ -490,13 +488,10 @@ bool Ivotek_Robot::switchSxFront()
 
 bool Ivotek_Robot::switchDxFront()
 {
-    bool value;
+
     if(robotName=="explorer")
     {
-        value = digitalRead(4);
-        delay(10);
-        value = digitalRead(4);
-        return value;
+        return genericSwitch(4);
     }
 
     return false;
@@ -504,13 +499,10 @@ bool Ivotek_Robot::switchDxFront()
 
 bool Ivotek_Robot::switchSxFront(bool invert)
 {
-    bool value;
+
     if(robotName=="explorer")
     {
-        value = digitalRead(7);
-        delay(10);
-        value = digitalRead(7);
-        return invert ? !value : value;
+       return genericSwitch(7,invert);
     }
 
     return false;
@@ -518,13 +510,10 @@ bool Ivotek_Robot::switchSxFront(bool invert)
 
 bool Ivotek_Robot::switchDxFront(bool invert)
 {
-    bool value;
+
     if(robotName=="explorer")
     {
-        value = digitalRead(4);
-        delay(10);
-        value = digitalRead(4);
-        return invert ? !value : value;
+        return genericSwitch(4,invert);
     }
 
     return false;
@@ -532,13 +521,10 @@ bool Ivotek_Robot::switchDxFront(bool invert)
 
 bool Ivotek_Robot::switchSxRear()
 {
-    bool value;
+
     if(robotName=="explorer")
     {
-        value = digitalRead(8);
-        delay(10);
-        value = digitalRead(8);
-        return value;
+        return genericSwitch(8);
     }
 
     return false;
@@ -546,13 +532,10 @@ bool Ivotek_Robot::switchSxRear()
 
 bool Ivotek_Robot::switchDxRear()
 {
-    bool value;
+
     if(robotName=="explorer")
     {
-        value = digitalRead(2);
-        delay(10);
-        value = digitalRead(2);
-        return value;
+        return genericSwitch(2);
     }
 
     return false;
@@ -560,13 +543,10 @@ bool Ivotek_Robot::switchDxRear()
 
 bool Ivotek_Robot::switchSxRear(bool invert)
 {
-    bool value;
+
     if(robotName=="explorer")
     {
-        value = digitalRead(8);
-        delay(10);
-        value = digitalRead(8);
-        return invert ? !value : value;
+        return genericSwitch(8, invert);
     }
 
     return false;
@@ -574,13 +554,10 @@ bool Ivotek_Robot::switchSxRear(bool invert)
 
 bool Ivotek_Robot::switchDxRear(bool invert)
 {
-    bool value;
+
     if(robotName=="explorer")
     {
-        value = digitalRead(2);
-        delay(10);
-        value = digitalRead(2);
-        return invert ? !value : value;
+        return genericSwitch(2, invert);
     }
 
     return false;
@@ -595,7 +572,5 @@ bool Ivotek_Robot::humidity(byte pin, double threshold) {}
 
 void Ivotek_Robot::getVersion()
 {
-    Serial.begin(9600);
     Serial.println(VERSION);
-
 }
