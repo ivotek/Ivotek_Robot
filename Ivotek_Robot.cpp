@@ -99,6 +99,10 @@ void Ivotek_Robot::initialization(String name)
         pinMode(7,INPUT_PULLUP);
         pinMode(2,INPUT_PULLUP);
         pinMode(8,INPUT_PULLUP);
+        pinMode(3,OUTPUT);
+        pinMode(11,INPUT_PULLUP);
+        pinMode(12,INPUT_PULLUP);
+        pinMode(13,INPUT_PULLUP);
     }
 
 }
@@ -291,7 +295,7 @@ double Ivotek_Robot::ultrasound(byte trigger, byte ultrasound)
 double Ivotek_Robot::ultrasoundSx()
 {
 
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return Ivotek_Robot::ultrasound(3, 11);
     }
@@ -299,14 +303,14 @@ double Ivotek_Robot::ultrasoundSx()
 
 double Ivotek_Robot::ultrasoundCx()
 {
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return Ivotek_Robot::ultrasound(3, 12);
     }
 }
 double Ivotek_Robot::ultrasoundDx()
 {
-    if(robotName=="poor")
+    if(robotName=="poor" || robotName=="explorer")
     {
         return Ivotek_Robot::ultrasound(3, 13);
     }
