@@ -409,18 +409,18 @@ bool Ivotek_Robot::lightDx(double threshold)
     }
 }
 
-/*
-double Ivotek_Robot::battery()
+
+double Ivotek_Robot::batteryStatus()
 {
     if(robotName=="poor")
     {
-        return battery(A0);
+        return batteryStatus(A0);
     }
 
     return 0;
 }
 
-double Ivotek_Robot::battery(byte pin)
+double Ivotek_Robot::batteryStatus(byte pin)
 {
     double alim_digit = 0;
     double alimentazione = 0;
@@ -432,8 +432,7 @@ double Ivotek_Robot::battery(byte pin)
     return alimentazione * 2;
 }
 
-
-
+/*
 bool Ivotek_Robot::battery(double threshold)
 {
     double trigger = 0;
@@ -446,7 +445,7 @@ bool Ivotek_Robot::battery(double threshold)
 
 }
 
-bool Ivotek_Robot::battery(byte pin, double threshold)
+bool Ivotek_Robot::batteryStatus(byte pin, double threshold)
 {
     double trigger = 0;
 
@@ -454,8 +453,8 @@ bool Ivotek_Robot::battery(byte pin, double threshold)
 
     return trigger < threshold?true:false;
 }
-
 */
+
 
 bool Ivotek_Robot::genericSwitch(byte pin)
 {

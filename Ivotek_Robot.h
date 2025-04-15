@@ -59,10 +59,10 @@ public:
     bool lightCx(double threshold);
     bool lightDx(double threshold);
 
-    double battery();
-    double battery(byte pin);
-    bool battery(double threshold);
-    bool battery(byte pin, double threshold);
+    double batteryStatus();
+    double batteryStatus(byte pin);
+    //bool batteryStatus(double threshold);
+    //bool batteryStatus(byte pin, double threshold);
 
     byte temperature();
     byte temperature(byte pin);
@@ -70,7 +70,7 @@ public:
     int humidity();
     int humidity(byte pin);
     bool humidity(byte pin, double threshold);
-    
+
     bool switchSxFront();
     bool switchDxFront();
     bool switchSxFront(bool invert);
