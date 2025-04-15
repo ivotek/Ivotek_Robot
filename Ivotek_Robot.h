@@ -9,7 +9,8 @@
 class Ivotek_Robot
 {
 private:
-    byte pinGlobal;  // Pin dove è collegato il led
+    String robotName = "";
+    String VERSION = "1.0.0";
 
 public:
     void initialization(String name);

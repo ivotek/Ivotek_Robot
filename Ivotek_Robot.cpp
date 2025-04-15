@@ -47,8 +47,8 @@
 
 #include "Ivotek_Robot.h"
 
-String robotName = "";
-String VERSION = "1.0.0";
+//String robotName = "";
+//String VERSION = "1.0.0";
 
 void Ivotek_Robot::initialization(String name)
 {
@@ -63,20 +63,13 @@ void Ivotek_Robot::initialization(String name)
         pinMode(10,OUTPUT);
     }
 
-    if(robotName=="snail" || robotName=="poor2")
-    {
-        pinMode(A0,INPUT_PULLUP);
-        pinMode(A1,INPUT_PULLUP);
-        pinMode(A2,INPUT_PULLUP);
-        pinMode(A3,INPUT_PULLUP);
-    }
-
-    if(robotName == "explorer" || robotName=="poor2")
+    if(robotName=="snail" || robotName == "explorer" || robotName=="poor2")
     {
         pinMode(4,INPUT_PULLUP);
         pinMode(7,INPUT_PULLUP);
         pinMode(2,INPUT_PULLUP);
         pinMode(8,INPUT_PULLUP);
+        pinMode(A0,INPUT_PULLUP);
         pinMode(A1,INPUT_PULLUP);
         pinMode(A2,INPUT_PULLUP);
         pinMode(A3,INPUT_PULLUP);
@@ -560,6 +553,8 @@ bool Ivotek_Robot::humidity(byte pin, double threshold) {}
 
 void Ivotek_Robot::getVersion()
 {
-    Serial.print("VERSION: ");
+    Serial.print("Robot: ");
+    Serial.print(robotName);
+    Serial.print(" -- Version: ");
     Serial.println(VERSION);
 }
