@@ -47,12 +47,10 @@
 
 #include "Ivotek_Robot.h"
 
-//String robotName = "";
-//String VERSION = "1.0.0";
-
-void Ivotek_Robot::initialization(String name)
+void Ivotek_Robot::initialization(String name, String board)
 {
     robotName = name;
+    boardName = board;
     Serial.begin(9600);
 
     if(robotName == "default" || robotName == "snail" || robotName == "explorer" || robotName == "poor2")
@@ -555,6 +553,8 @@ void Ivotek_Robot::getVersion()
 {
     Serial.print("Robot: ");
     Serial.print(robotName);
+    Serial.print(" -- Board: ");
+    Serial.print(boardName);
     Serial.print(" -- Version: ");
     Serial.println(VERSION);
 }

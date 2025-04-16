@@ -9,11 +9,12 @@
 class Ivotek_Robot
 {
 private:
-    String robotName = "";
+    String robotName = "default";
+    String boardName = "default";
     String VERSION = "1.0.0";
 
 public:
-    void initialization(String name);
+    void initialization(String name = "default", String board = "default");
 
     void forwards();
     void backwards();
