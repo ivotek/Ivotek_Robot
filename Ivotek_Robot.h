@@ -54,6 +54,14 @@ public:
 
     void button(bool direction);
     void analog(double threshold);
+    void pinHigh(byte pin);
+    void pinDown(byte pin);
+    void ledSoundOn();
+    void ledSoundOff();
+    void ledLightOn();
+    void ledLightOff();
+    void ledGasOn();
+    void ledGasOff();
 
     int compass();
     int compass(byte pin);
@@ -82,8 +90,8 @@ public:
 
     double batteryStatus();
     double batteryStatus(byte pin);
-    //bool batteryStatus(double threshold);
-    //bool batteryStatus(byte pin, double threshold);
+    bool batteryStatus(double threshold);
+    bool batteryStatus(byte pin, double threshold);
 
     byte temperature();
     byte temperature(byte pin);
