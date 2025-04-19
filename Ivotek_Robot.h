@@ -16,19 +16,13 @@ private:
     const int numADconvert = 1024;
     const int baudRateSerial = 9600;
 
-
-//#ifdef USE_ARDUINO_UNO
     byte arduinoDigit0 = 0;
     byte arduinoDigit1 = 1;
     byte arduinoDigit2 = 2;
     byte arduinoDigit3 = 3;
     byte arduinoDigit4 = 4;
-    byte arduinoDigit5 = 5;
-    byte arduinoDigit6 = 6;
     byte arduinoDigit7 = 7;
     byte arduinoDigit8 = 8;
-    byte arduinoDigit9 = 9;
-    byte arduinoDigit10 = 10;
     byte arduinoDigit11 = 11;
     byte arduinoDigit12 = 12;
     byte arduinoDigit13 = 13;
@@ -40,13 +34,17 @@ private:
     byte arduinoAnalog3 = A3;
     byte arduinoAnalog4 = A4;
     byte arduinoAnalog5 = A5;
-//#endif
 
-#ifdef USE_NUCLEO_F030R8
-    byte nucleoF030R8_Digit5 = PA5;
-    byte nucleoF030R8_Digit6 = PA6;
-    byte nucleoF030R8_Digit9 = PA9;
-    byte nucleoF030R8_Digit10 = PA10;
+#if BOARD == ARDUINO_UNO
+    byte arduinoDigit5 = 5;
+    byte arduinoDigit6 = 6;
+    byte arduinoDigit9 = 9;
+    byte arduinoDigit10 = 10;
+#elif BOARD == NUCLEO_F030R8
+    byte arduinoDigit5 = PA5;
+    byte arduinoDigit6 = PA6;
+    byte arduinoDigit9 = PA9;
+    byte arduinoDigit10 = PA10;
 #endif
 
 public:

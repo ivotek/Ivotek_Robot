@@ -55,18 +55,15 @@
 
 void Ivotek_Robot::initialization(String nameRobot)
 {
-#ifdef USE_ARDUINO_UNO
+#if BOARD == ARDUINO_UNO
     boardName = "ARDUINO_UNO";
-#endif
-#ifdef USE_NUCLEO_F030R8
+#elif BOARD == NUCLEO_F030R8
     boardName = "NUCLEO_F030R8";
 #endif
 
     nameRobot.toUpperCase();
     robotName = nameRobot;
     Serial.begin(baudRateSerial);
-
-#ifdef USE_ARDUINO_UNO
 
     if(robotName == "DEFAULT" || robotName == "SNAIL" || robotName == "EXPLORER" || robotName == "POORV2")
     {
@@ -91,17 +88,6 @@ void Ivotek_Robot::initialization(String nameRobot)
         pinMode(arduinoDigit12,INPUT_PULLUP);
         pinMode(arduinoDigit13,INPUT_PULLUP);
     }
-#endif
-
-#ifdef USE_NUCLEO_F030R8
-    if(robotName == "DEFAULT" || robotName == "SNAIL" || robotName == "EXPLORER" || robotName == "POORV2")
-    {
-        pinMode(nucleoF030R8_Digit5,OUTPUT);
-        pinMode(nucleoF030R8_Digit6,OUTPUT);
-        pinMode(nucleoF030R8_Digit9,OUTPUT);
-        pinMode(nucleoF030R8_Digit10,OUTPUT);
-    }
-#endif
 }
 
 void Ivotek_Robot::forwards(void)
