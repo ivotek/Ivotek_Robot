@@ -11,6 +11,10 @@ private:
     String robotName = "default";
     String boardName = "default";
     String VERSION = "1.0.0";
+    double voltageMCU = 5.0;
+    int numADconvert = 1024;
+    int baudRateSerial = 9600;
+
     byte digit0 = 0;
     byte digit1 = 1;
     byte digit2 = 2;
@@ -64,6 +68,11 @@ public:
     void pinAnalogOff(byte pin);
     void pinDigitalOn(byte pin);
     void pinDigitalOff(byte pin);
+    double pinAnalogRead(byte pin);
+    bool pinDigitalRead(byte pin);
+    void pinAnalogWrite(byte pin, double value);
+    void pinDigitalWrite(byte pin, bool value);
+
 
     int compass();
     int compass(byte pin);

@@ -56,9 +56,9 @@ void Ivotek_Robot::initialization(String name, String board)
 {
     robotName = name;
     boardName = board;
-    Serial.begin(9600);
+    Serial.begin(baudRateSerial);
 
-    if(robotName == "default" || robotName == "snail" || robotName == "explorer" || robotName == "poor2")
+    if(robotName == "default" || robotName == "snail" || robotName == "explorer" || robotName == "poorV2")
     {
         pinMode(digit5,OUTPUT);
         pinMode(digit6,OUTPUT);
@@ -66,7 +66,7 @@ void Ivotek_Robot::initialization(String name, String board)
         pinMode(digit10,OUTPUT);
     }
 
-    if(robotName=="snail" || robotName == "explorer" || robotName=="poor2")
+    if(robotName=="snail" || robotName == "explorer" || robotName=="poorV2")
     {
         pinMode(digit4,INPUT_PULLUP);
         pinMode(digit7,INPUT_PULLUP);
@@ -88,9 +88,9 @@ void Ivotek_Robot::forwards(void)
 {
     if(robotName == "default" || robotName == "explorer")
     {
-        analogWrite(digit5,255);
+        analogWrite(digit5,HIGH);
         analogWrite(digit6,LOW);
-        analogWrite(digit9,255);
+        analogWrite(digit9,HIGH);
         analogWrite(digit10,LOW);
     }
 
@@ -101,9 +101,9 @@ void Ivotek_Robot::backwards(void)
     if(robotName == "default" || robotName == "explorer")
     {
         analogWrite(digit5,LOW);
-        analogWrite(digit6,255);
+        analogWrite(digit6,HIGH);
         analogWrite(digit9,LOW);
-        analogWrite(digit10,255);
+        analogWrite(digit10,HIGH);
     }
 
 }
@@ -112,10 +112,10 @@ void Ivotek_Robot::turnRight(void)
 {
     if(robotName == "default" || robotName == "explorer")
     {
-        analogWrite(digit5,255);
+        analogWrite(digit5,HIGH);
         analogWrite(digit6,LOW);
         analogWrite(digit9,LOW);
-        analogWrite(digit10,255);
+        analogWrite(digit10,HIGH);
     }
 
 }
@@ -124,8 +124,8 @@ void Ivotek_Robot::turnLeft(void)
     if(robotName == "default" || robotName == "explorer")
     {
         analogWrite(digit5,LOW);
-        analogWrite(digit6,255);
-        analogWrite(digit9,255);
+        analogWrite(digit6,HIGH);
+        analogWrite(digit9,HIGH);
         analogWrite(digit10,LOW);
     }
 
@@ -268,7 +268,7 @@ double Ivotek_Robot::ultrasound(byte trigger, byte ultrasound)
 double Ivotek_Robot::ultrasoundSx()
 {
 
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return Ivotek_Robot::ultrasound(digit3, digit11);
     }
@@ -276,14 +276,14 @@ double Ivotek_Robot::ultrasoundSx()
 
 double Ivotek_Robot::ultrasoundCx()
 {
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return Ivotek_Robot::ultrasound(digit3, digit13);
     }
 }
 double Ivotek_Robot::ultrasoundDx()
 {
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return Ivotek_Robot::ultrasound(digit3, digit12);
     }
@@ -321,18 +321,36 @@ bool Ivotek_Robot::ultrasoundDx (double threshold)
     return distance < threshold && distance > 0?true:false;
 }
 
+double Ivotek_Robot::pinAnalogRead(byte pin){
+    return analogRead(pin);
+}
+
+bool Ivotek_Robot::pinDigitalRead(byte pin){
+    return digitalRead(pin);
+}
+
+void Ivotek_Robot::pinAnalogWrite(byte pin, double value){
+    return analogWrite(pin, value);
+}
+
+void Ivotek_Robot::pinDigitalWrite(byte pin, bool value){
+    return digitalWrite(pin, value);
+}
+
 double Ivotek_Robot::light(byte pin)
 {
     double vFoto = 0;
     vFoto = analogRead(pin);
 
-    return vFoto * (5.0 / 1024.0);
+    return vFoto * (voltageMCU / numADconvert);
 
 }
 
+//TODO Inserire inverisone del valore
+
 double Ivotek_Robot::lightSx()
 {
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return light(analog1);
     }
@@ -340,7 +358,7 @@ double Ivotek_Robot::lightSx()
 
 double Ivotek_Robot::lightCx()
 {
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return light(analog2);
     }
@@ -348,7 +366,7 @@ double Ivotek_Robot::lightCx()
 
 double Ivotek_Robot::lightDx()
 {
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return light(analog3);
     }
@@ -364,7 +382,7 @@ bool Ivotek_Robot::light(byte pin, double threshold)
 
 bool Ivotek_Robot::lightSx(double threshold)
 {
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return light(analog1,threshold);
     }
@@ -372,14 +390,14 @@ bool Ivotek_Robot::lightSx(double threshold)
 
 bool Ivotek_Robot::lightCx(double threshold)
 {
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return light(analog2,threshold);
     }
 }
 bool Ivotek_Robot::lightDx(double threshold)
 {
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return light(analog3,threshold);
     }
@@ -388,7 +406,7 @@ bool Ivotek_Robot::lightDx(double threshold)
 
 double Ivotek_Robot::batteryStatus()
 {
-    if(robotName=="poor" || robotName=="explorer")
+    if(robotName=="poorV2" || robotName=="explorer")
     {
         return batteryStatus(analog0);
     }
@@ -403,7 +421,7 @@ double Ivotek_Robot::batteryStatus(byte pin)
     //I take the data from the pin port to know the power level
     alim_digit = analogRead(pin);
     //Convert the binary code in analogic code
-    alimentazione= alim_digit * (5.0 / 1024.0);
+    alimentazione= alim_digit * (voltageMCU / numADconvert);
     //Multiply by two to get the battery pack voltage
     return alimentazione * 2;
 }
@@ -412,7 +430,7 @@ double Ivotek_Robot::batteryStatus(byte pin)
 bool Ivotek_Robot::batteryStatus(double threshold)
 {
     double trigger = 0;
-    if(robotName=="poor")
+    if(robotName=="poorV2")
     {
         trigger = batteryStatus(analog0);
     }

@@ -38,3 +38,7 @@ ledLightOn	KEYWORD2
 ledLightOff	KEYWORD2
 ledGasOn	KEYWORD2
 ledGasOff	KEYWORD2
+pinAnalogRead	KEYWORD2
+pinDigitalRead	KEYWORD2
+pinAnalogWrite	KEYWORD2
+pinDigitalWrite	KEYWORD2
