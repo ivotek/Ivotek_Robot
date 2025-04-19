@@ -4,17 +4,20 @@
 #define Ivotek_Robot_H
 
 #include "Arduino.h"
+#include "Config.h"
 
 class Ivotek_Robot
 {
 private:
     String robotName = "DEFAULT";
     String boardName = "DEFAULT";
-    String VERSION = "1.0.0";
-    double voltageMCU = 5.0;
-    int numADconvert = 1024;
-    int baudRateSerial = 9600;
+    const String VERSION = "1.0.0";
+    const double voltageMCU = 5.0;
+    const int numADconvert = 1024;
+    const int baudRateSerial = 9600;
 
+
+//#ifdef USE_ARDUINO_UNO
     byte arduinoDigit0 = 0;
     byte arduinoDigit1 = 1;
     byte arduinoDigit2 = 2;
@@ -37,9 +40,17 @@ private:
     byte arduinoAnalog3 = A3;
     byte arduinoAnalog4 = A4;
     byte arduinoAnalog5 = A5;
+//#endif
+
+#ifdef USE_NUCLEO_F030R8
+    byte nucleoF030R8_Digit5 = PA5;
+    byte nucleoF030R8_Digit6 = PA6;
+    byte nucleoF030R8_Digit9 = PA9;
+    byte nucleoF030R8_Digit10 = PA10;
+#endif
 
 public:
-    void initialization(String name = "default", String board = "default");
+    void initialization(String nameRobot = "default");
 
     void forwards();
     void backwards();
