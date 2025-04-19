@@ -60,183 +60,211 @@ void Ivotek_Robot::initialization(String name, String board)
     boardName = board;
     Serial.begin(baudRateSerial);
 
-    if(robotName == "DEFAULT" || robotName == "SNAIL" || robotName == "EXPLORER" || robotName == "POORV2")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        pinMode(digit5,OUTPUT);
-        pinMode(digit6,OUTPUT);
-        pinMode(digit9,OUTPUT);
-        pinMode(digit10,OUTPUT);
-    }
+        if(robotName == "DEFAULT" || robotName == "SNAIL" || robotName == "EXPLORER" || robotName == "POORV2")
+        {
+            pinMode(digit5,OUTPUT);
+            pinMode(digit6,OUTPUT);
+            pinMode(digit9,OUTPUT);
+            pinMode(digit10,OUTPUT);
+        }
 
-    if(robotName=="SNAIL" || robotName == "EXPLORER" || robotName=="POORV2")
-    {
-        pinMode(digit4,INPUT_PULLUP);
-        pinMode(digit7,INPUT_PULLUP);
-        pinMode(digit2,INPUT_PULLUP);
-        pinMode(digit8,INPUT_PULLUP);
-        pinMode(A0,INPUT_PULLUP);
-        pinMode(A1,INPUT_PULLUP);
-        pinMode(A2,INPUT_PULLUP);
-        pinMode(A3,INPUT_PULLUP);
-        pinMode(digit3,OUTPUT);
-        pinMode(digit11,INPUT_PULLUP);
-        pinMode(digit12,INPUT_PULLUP);
-        pinMode(digit13,INPUT_PULLUP);
+        if(robotName=="SNAIL" || robotName == "EXPLORER" || robotName=="POORV2")
+        {
+            pinMode(digit4,INPUT_PULLUP);
+            pinMode(digit7,INPUT_PULLUP);
+            pinMode(digit2,INPUT_PULLUP);
+            pinMode(digit8,INPUT_PULLUP);
+            pinMode(A0,INPUT_PULLUP);
+            pinMode(A1,INPUT_PULLUP);
+            pinMode(A2,INPUT_PULLUP);
+            pinMode(A3,INPUT_PULLUP);
+            pinMode(digit3,OUTPUT);
+            pinMode(digit11,INPUT_PULLUP);
+            pinMode(digit12,INPUT_PULLUP);
+            pinMode(digit13,INPUT_PULLUP);
+        }
     }
-
 }
 
 void Ivotek_Robot::forwards(void)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,HIGH);
-        analogWrite(digit6,LOW);
-        analogWrite(digit9,HIGH);
-        analogWrite(digit10,LOW);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,HIGH);
+            analogWrite(digit6,LOW);
+            analogWrite(digit9,HIGH);
+            analogWrite(digit10,LOW);
+        }
     }
-
 }
 
 void Ivotek_Robot::backwards(void)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,LOW);
-        analogWrite(digit6,HIGH);
-        analogWrite(digit9,LOW);
-        analogWrite(digit10,HIGH);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,LOW);
+            analogWrite(digit6,HIGH);
+            analogWrite(digit9,LOW);
+            analogWrite(digit10,HIGH);
+        }
     }
-
 }
 
 void Ivotek_Robot::turnRight(void)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,HIGH);
-        analogWrite(digit6,LOW);
-        analogWrite(digit9,LOW);
-        analogWrite(digit10,HIGH);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,HIGH);
+            analogWrite(digit6,LOW);
+            analogWrite(digit9,LOW);
+            analogWrite(digit10,HIGH);
+        }
     }
-
 }
 void Ivotek_Robot::turnLeft(void)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,LOW);
-        analogWrite(digit6,HIGH);
-        analogWrite(digit9,HIGH);
-        analogWrite(digit10,LOW);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,LOW);
+            analogWrite(digit6,HIGH);
+            analogWrite(digit9,HIGH);
+            analogWrite(digit10,LOW);
+        }
     }
-
 }
 
 void Ivotek_Robot::forwards(byte speed)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,speed);
-        analogWrite(digit6,LOW);
-        analogWrite(digit9,speed);
-        analogWrite(digit10,LOW);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,speed);
+            analogWrite(digit6,LOW);
+            analogWrite(digit9,speed);
+            analogWrite(digit10,LOW);
+        }
     }
-
 }
 void Ivotek_Robot::backwards(byte speed)
 {
-    if(robotName == "DEFAULT" ||robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,LOW);
-        analogWrite(digit6,speed);
-        analogWrite(digit9,LOW);
-        analogWrite(digit10,speed);
+        if(robotName == "DEFAULT" ||robotName == "EXPLORER")
+        {
+            analogWrite(digit5,LOW);
+            analogWrite(digit6,speed);
+            analogWrite(digit9,LOW);
+            analogWrite(digit10,speed);
+        }
     }
-
 }
 
 void Ivotek_Robot::forwards(byte speedSx, byte speedDx)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,speedSx);
-        analogWrite(digit6,LOW);
-        analogWrite(digit9,speedDx);
-        analogWrite(digit10,LOW);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,speedSx);
+            analogWrite(digit6,LOW);
+            analogWrite(digit9,speedDx);
+            analogWrite(digit10,LOW);
+        }
     }
-
 }
 void Ivotek_Robot::backwards(byte speedSx, byte speedDx)
 {
-    if(robotName == "DEFAULT" ||robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,LOW);
-        analogWrite(digit6,speedSx);
-        analogWrite(digit9,LOW);
-        analogWrite(digit10,speedDx);
+        if(robotName == "DEFAULT" ||robotName == "EXPLORER")
+        {
+            analogWrite(digit5,LOW);
+            analogWrite(digit6,speedSx);
+            analogWrite(digit9,LOW);
+            analogWrite(digit10,speedDx);
+        }
     }
-
 }
 
 void Ivotek_Robot::turnRight(byte speed)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,speed);
-        analogWrite(digit6,LOW);
-        analogWrite(digit9,LOW);
-        analogWrite(digit10,speed);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,speed);
+            analogWrite(digit6,LOW);
+            analogWrite(digit9,LOW);
+            analogWrite(digit10,speed);
+        }
     }
-
 }
 
 void Ivotek_Robot::turnLeft(byte speed)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,LOW);
-        analogWrite(digit6,speed);
-        analogWrite(digit9,speed);
-        analogWrite(digit10,LOW);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,LOW);
+            analogWrite(digit6,speed);
+            analogWrite(digit9,speed);
+            analogWrite(digit10,LOW);
+        }
     }
-
 }
 
 void Ivotek_Robot::turnLeft(byte speedSx, byte speedDx)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,LOW);
-        analogWrite(digit6,speedSx);
-        analogWrite(digit9,speedDx);
-        analogWrite(digit10,LOW);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,LOW);
+            analogWrite(digit6,speedSx);
+            analogWrite(digit9,speedDx);
+            analogWrite(digit10,LOW);
+        }
     }
-
 }
 
 void Ivotek_Robot::turnRight(byte speedSx, byte speedDx)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,speedSx);
-        analogWrite(digit6,LOW);
-        analogWrite(digit9,LOW);
-        analogWrite(digit10,speedDx);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,speedSx);
+            analogWrite(digit6,LOW);
+            analogWrite(digit9,LOW);
+            analogWrite(digit10,speedDx);
+        }
     }
-
 }
 
 void Ivotek_Robot::stop(void)
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        analogWrite(digit5,LOW);
-        analogWrite(digit6,LOW);
-        analogWrite(digit9,LOW);
-        analogWrite(digit10,LOW);
+        if(robotName == "DEFAULT" || robotName == "EXPLORER")
+        {
+            analogWrite(digit5,LOW);
+            analogWrite(digit6,LOW);
+            analogWrite(digit9,LOW);
+            analogWrite(digit10,LOW);
+        }
     }
-
 }
 
 void Ivotek_Robot::button(bool direction) {}
@@ -250,310 +278,404 @@ int Ivotek_Robot::accelerometer(byte pin) {}
 
 double Ivotek_Robot::ultrasound(byte trigger, byte ultrasound)
 {
-    double tempoEcho = 0;
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        double tempoEcho = 0;
 
-    //I generate a 10 micro second pulse for the trigger
-    digitalWrite(trigger, LOW );     //Reset output
-    delayMicroseconds(3);		    //Wait 3 microseconds
-    digitalWrite(trigger, HIGH );    //Up level
-    delayMicroseconds(10);          //Wait 10 microseconds
-    digitalWrite(trigger, LOW );     //Reset output
-    //Get the sensor time
-    tempoEcho = pulseIn( ultrasound, HIGH,38000 );
-    delay(10);
+        //I generate a 10 micro second pulse for the trigger
+        digitalWrite(trigger, LOW );     //Reset output
+        delayMicroseconds(3);		    //Wait 3 microseconds
+        digitalWrite(trigger, HIGH );    //Up level
+        delayMicroseconds(10);          //Wait 10 microseconds
+        digitalWrite(trigger, LOW );     //Reset output
+        //Get the sensor time
+        tempoEcho = pulseIn( ultrasound, HIGH,38000 );
+        delay(10);
 
-    //Convert the time in centimeter
-    return 0.034 * tempoEcho / 2;
-
+        //Convert the time in centimeter
+        return 0.034 * tempoEcho / 2;
+    }
 }
 
 double Ivotek_Robot::ultrasoundSx()
 {
-
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return Ivotek_Robot::ultrasound(digit3, digit11);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return Ivotek_Robot::ultrasound(digit3, digit11);
+        }
     }
 }
 
 double Ivotek_Robot::ultrasoundCx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return Ivotek_Robot::ultrasound(digit3, digit13);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return Ivotek_Robot::ultrasound(digit3, digit13);
+        }
     }
 }
 double Ivotek_Robot::ultrasoundDx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return Ivotek_Robot::ultrasound(digit3, digit12);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return Ivotek_Robot::ultrasound(digit3, digit12);
+        }
     }
 }
 
 bool Ivotek_Robot::ultrasound (byte trigger, byte echo, double threshold)
 {
-    double distance = 0;
-    distance = Ivotek_Robot::ultrasound(trigger, echo);
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        double distance = 0;
+        distance = Ivotek_Robot::ultrasound(trigger, echo);
 
-    return distance < threshold && distance > 0 ?true:false;
+        return distance < threshold && distance > 0 ?true:false;
+    }
 }
 
 bool Ivotek_Robot::ultrasoundSx (double threshold)
 {
-    double distance = 0;
-    distance = ultrasoundSx();
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        double distance = 0;
+        distance = ultrasoundSx();
 
-    return distance < threshold && distance > 0 ?true:false;
+        return distance < threshold && distance > 0 ?true:false;
+    }
 }
 
 bool Ivotek_Robot::ultrasoundCx (double threshold)
 {
-    double distance = 0;
-    distance = ultrasoundCx();
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        double distance = 0;
+        distance = ultrasoundCx();
 
-    return distance < threshold && distance > 0 ?true:false;
+        return distance < threshold && distance > 0 ?true:false;
+    }
 }
 
 bool Ivotek_Robot::ultrasoundDx (double threshold)
 {
-    double distance = 0;
-    distance = ultrasoundDx();
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        double distance = 0;
+        distance = ultrasoundDx();
 
-    return distance < threshold && distance > 0?true:false;
+        return distance < threshold && distance > 0?true:false;
+    }
 }
 
-double Ivotek_Robot::pinAnalogRead(byte pin){
-    return analogRead(pin);
+double Ivotek_Robot::pinAnalogRead(byte pin)
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        return analogRead(pin);
+    }
 }
 
-bool Ivotek_Robot::pinDigitalRead(byte pin){
-    return digitalRead(pin);
+bool Ivotek_Robot::pinDigitalRead(byte pin)
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        return digitalRead(pin);
+    }
 }
 
-void Ivotek_Robot::pinAnalogWrite(byte pin, double value){
-    return analogWrite(pin, value);
+void Ivotek_Robot::pinAnalogWrite(byte pin, double value)
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        return analogWrite(pin, value);
+    }
 }
 
-void Ivotek_Robot::pinDigitalWrite(byte pin, bool value){
-    return digitalWrite(pin, value);
+void Ivotek_Robot::pinDigitalWrite(byte pin, bool value)
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        return digitalWrite(pin, value);
+    }
 }
 
 double Ivotek_Robot::light(byte pin)
 {
-    double vFoto = 0;
-    vFoto = analogRead(pin);
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        double vFoto = 0;
+        vFoto = analogRead(pin);
 
-    return vFoto * (voltageMCU / numADconvert);
-
+        return vFoto * (voltageMCU / numADconvert);
+    }
 }
 
 //TODO Inserire inverisone del valore
 
 double Ivotek_Robot::lightSx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return light(analog1);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return light(analog1);
+        }
     }
 }
 
 double Ivotek_Robot::lightCx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return light(analog2);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return light(analog2);
+        }
     }
 }
 
 double Ivotek_Robot::lightDx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return light(analog3);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return light(analog3);
+        }
     }
 }
 
 bool Ivotek_Robot::light(byte pin, double threshold)
 {
-    double vFoto = 0;
-    vFoto = light(pin);
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        double vFoto = 0;
+        vFoto = light(pin);
 
-    return vFoto < threshold ? true: false;
+        return vFoto < threshold ? true: false;
+    }
 }
 
 bool Ivotek_Robot::lightSx(double threshold)
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return light(analog1,threshold);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return light(analog1,threshold);
+        }
+
     }
 }
 
 bool Ivotek_Robot::lightCx(double threshold)
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return light(analog2,threshold);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return light(analog2,threshold);
+        }
     }
 }
 bool Ivotek_Robot::lightDx(double threshold)
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return light(analog3,threshold);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return light(analog3,threshold);
+        }
     }
 }
 
 
 double Ivotek_Robot::batteryStatus()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return batteryStatus(analog0);
+        if(robotName=="POORV2" || robotName=="EXPLORER")
+        {
+            return batteryStatus(analog0);
+        }
     }
-
     return 0;
 }
 
 double Ivotek_Robot::batteryStatus(byte pin)
 {
-    double alim_digit = 0;
-    double alimentazione = 0;
-    //I take the data from the pin port to know the power level
-    alim_digit = analogRead(pin);
-    //Convert the binary code in analogic code
-    alimentazione= alim_digit * (voltageMCU / numADconvert);
-    //Multiply by two to get the battery pack voltage
-    return alimentazione * 2;
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        double alim_digit = 0;
+        double alimentazione = 0;
+        //I take the data from the pin port to know the power level
+        alim_digit = analogRead(pin);
+        //Convert the binary code in analogic code
+        alimentazione= alim_digit * (voltageMCU / numADconvert);
+        //Multiply by two to get the battery pack voltage
+        return alimentazione * 2;
+    }
 }
 
 
 bool Ivotek_Robot::batteryStatus(double threshold)
 {
-    double trigger = 0;
-    if(robotName=="POORV2")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        trigger = batteryStatus(analog0);
+        double trigger = 0;
+        if(robotName=="POORV2")
+        {
+            trigger = batteryStatus(analog0);
+        }
+
+        return trigger < threshold?true:false;
     }
-
-    return trigger < threshold?true:false;
-
 }
 
 bool Ivotek_Robot::batteryStatus(byte pin, double threshold)
 {
-    double trigger = 0;
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        double trigger = 0;
 
-    trigger = batteryStatus(pin);
+        trigger = batteryStatus(pin);
 
-    return trigger < threshold?true:false;
+        return trigger < threshold?true:false;
+    }
 }
 
 bool Ivotek_Robot::genericSwitch(byte pin)
 {
-    bool value;
-    value = digitalRead(pin);
-    delay(10);
-    value = digitalRead(pin);
-    return value;
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        bool value;
+        value = digitalRead(pin);
+        delay(10);
+        value = digitalRead(pin);
+        return value;
+    }
 }
 
 bool Ivotek_Robot::genericSwitch(bool invert, byte pin)
 {
-    bool value;
-    value = digitalRead(pin);
-    delay(10);
-    value = digitalRead(pin);
-    return invert ? !value : value;
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        bool value;
+        value = digitalRead(pin);
+        delay(10);
+        value = digitalRead(pin);
+        return invert ? !value : value;
+    }
 }
 
 bool Ivotek_Robot::switchSxFront()
 {
-
-    if(robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return genericSwitch(digit7);
-    }
+        if(robotName=="EXPLORER")
+        {
+            return genericSwitch(digit7);
+        }
 
-    return false;
+        return false;
+    }
 }
 
 bool Ivotek_Robot::switchDxFront()
 {
-
-    if(robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return genericSwitch(digit4);
-    }
+        if(robotName=="EXPLORER")
+        {
+            return genericSwitch(digit4);
+        }
 
-    return false;
+        return false;
+    }
 }
 
 bool Ivotek_Robot::switchSxFront(bool invert)
 {
-
-    if(robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-       return genericSwitch(digit7,invert);
-    }
+        if(robotName=="EXPLORER")
+        {
+            return genericSwitch(digit7,invert);
+        }
 
-    return false;
+        return false;
+    }
 }
 
 bool Ivotek_Robot::switchDxFront(bool invert)
 {
-
-    if(robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return genericSwitch(digit4,invert);
-    }
+        if(robotName=="EXPLORER")
+        {
+            return genericSwitch(digit4,invert);
+        }
 
-    return false;
+        return false;
+    }
 }
 
 bool Ivotek_Robot::switchSxRear()
 {
-
-    if(robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return genericSwitch(digit8);
-    }
+        if(robotName=="EXPLORER")
+        {
+            return genericSwitch(digit8);
+        }
 
-    return false;
+        return false;
+    }
 }
 
 bool Ivotek_Robot::switchDxRear()
 {
-
-    if(robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return genericSwitch(digit2);
-    }
+        if(robotName=="EXPLORER")
+        {
+            return genericSwitch(digit2);
+        }
 
-    return false;
+        return false;
+    }
 }
 
 bool Ivotek_Robot::switchSxRear(bool invert)
 {
-
-    if(robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return genericSwitch(digit8, invert);
-    }
+        if(robotName=="EXPLORER")
+        {
+            return genericSwitch(digit8, invert);
+        }
 
-    return false;
+        return false;
+    }
 }
 
 bool Ivotek_Robot::switchDxRear(bool invert)
 {
-
-    if(robotName=="EXPLORER")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
-        return genericSwitch(digit2, invert);
-    }
+        if(robotName=="EXPLORER")
+        {
+            return genericSwitch(digit2, invert);
+        }
 
-    return false;
+        return false;
+    }
 }
 
 byte Ivotek_Robot::temperature() {}
@@ -563,44 +685,84 @@ int Ivotek_Robot::humidity() {}
 int Ivotek_Robot::humidity(byte pin) {}
 bool Ivotek_Robot::humidity(byte pin, double threshold) {}
 
-void Ivotek_Robot::pinAnalogOn(byte pin){
-    analogWrite(pin, HIGH);
+void Ivotek_Robot::pinAnalogOn(byte pin)
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        analogWrite(pin, HIGH);
+    }
 }
 
-void Ivotek_Robot::pinAnalogOff(byte pin){
-    analogWrite(pin, LOW);
+void Ivotek_Robot::pinAnalogOff(byte pin)
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        analogWrite(pin, LOW);
+    }
 }
 
-void Ivotek_Robot::pinDigitalOn(byte pin){
-    digitalWrite(pin, HIGH);
+void Ivotek_Robot::pinDigitalOn(byte pin)
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        digitalWrite(pin, HIGH);
+    }
 }
 
-void Ivotek_Robot::pinDigitalOff(byte pin){
-    digitalWrite(pin, LOW);
+void Ivotek_Robot::pinDigitalOff(byte pin)
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        digitalWrite(pin, LOW);
+    }
 }
 
-void Ivotek_Robot::ledSoundOn(){
-    pinDigitalOn(digit0);
+void Ivotek_Robot::ledSoundOn()
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        pinDigitalOn(digit0);
+    }
 }
 
-void Ivotek_Robot::ledSoundOff(){
-    pinDigitalOff(digit0);
+void Ivotek_Robot::ledSoundOff()
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        pinDigitalOff(digit0);
+    }
 }
 
-void Ivotek_Robot::ledLightOn(){
-    pinDigitalOn(digit1);
+void Ivotek_Robot::ledLightOn()
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        pinDigitalOn(digit1);
+    }
 }
 
-void Ivotek_Robot::ledLightOff(){
-    pinDigitalOff(digit1);
+void Ivotek_Robot::ledLightOff()
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        pinDigitalOff(digit1);
+    }
 }
 
-void Ivotek_Robot::ledGasOn(){
-    pinAnalogOn(analog0);
+void Ivotek_Robot::ledGasOn()
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        pinAnalogOn(analog0);
+    }
 }
 
-void Ivotek_Robot::ledGasOff(){
-    pinAnalogOff(analog0);
+void Ivotek_Robot::ledGasOff()
+{
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
+    {
+        pinAnalogOff(analog0);
+    }
 }
 
 void Ivotek_Robot::getVersion()
