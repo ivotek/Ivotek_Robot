@@ -30,3 +30,11 @@ switchSxRear    KEYWORD2
 switchDxRear    KEYWORD2
 genericSwitch   KEYWORD2
 getVersion      KEYWORD2
+pinAnalogOn	KEYWORD2
+pinAnalogOff	KEYWORD2
+ledSoundOn	KEYWORD2
+ledSoundOff	KEYWORD2
+ledLightOn	KEYWORD2
+ledLightOff	KEYWORD2
+ledGasOn	KEYWORD2
+ledGasOff	KEYWORD2

@@ -334,7 +334,7 @@ double Ivotek_Robot::lightSx()
 {
     if(robotName=="poor" || robotName=="explorer")
     {
-        return light(A1);
+        return light(analog1);
     }
 }
 
@@ -342,7 +342,7 @@ double Ivotek_Robot::lightCx()
 {
     if(robotName=="poor" || robotName=="explorer")
     {
-        return light(A2);
+        return light(analog2);
     }
 }
 
@@ -350,7 +350,7 @@ double Ivotek_Robot::lightDx()
 {
     if(robotName=="poor" || robotName=="explorer")
     {
-        return light(A3);
+        return light(analog3);
     }
 }
 
@@ -366,7 +366,7 @@ bool Ivotek_Robot::lightSx(double threshold)
 {
     if(robotName=="poor" || robotName=="explorer")
     {
-        return light(A1,threshold);
+        return light(analog1,threshold);
     }
 }
 
@@ -374,14 +374,14 @@ bool Ivotek_Robot::lightCx(double threshold)
 {
     if(robotName=="poor" || robotName=="explorer")
     {
-        return light(A2,threshold);
+        return light(analog2,threshold);
     }
 }
 bool Ivotek_Robot::lightDx(double threshold)
 {
     if(robotName=="poor" || robotName=="explorer")
     {
-        return light(A3,threshold);
+        return light(analog3,threshold);
     }
 }
 
@@ -543,28 +543,44 @@ int Ivotek_Robot::humidity() {}
 int Ivotek_Robot::humidity(byte pin) {}
 bool Ivotek_Robot::humidity(byte pin, double threshold) {}
 
+void Ivotek_Robot::pinAnalogOn(byte pin){
+    analogWrite(pin, HIGH);
+}
+
+void Ivotek_Robot::pinAnalogOff(byte pin){
+    analogWrite(pin, LOW);
+}
+
+void Ivotek_Robot::pinDigitalOn(byte pin){
+    digitalWrite(pin, HIGH);
+}
+
+void Ivotek_Robot::pinDigitalOff(byte pin){
+    digitalWrite(pin, LOW);
+}
+
 void Ivotek_Robot::ledSoundOn(){
- digitalWrite(digit0, HIGH);
+    pinDigitalOn(digit0);
 }
 
 void Ivotek_Robot::ledSoundOff(){
-    digitalWrite(digit0, LOW);
+    pinDigitalOff(digit0);
 }
 
 void Ivotek_Robot::ledLightOn(){
-    digitalWrite(digit1, HIGH);
+    pinDigitalOn(digit1);
 }
 
 void Ivotek_Robot::ledLightOff(){
-    digitalWrite(digit1, LOW);
+    pinDigitalOff(digit1);
 }
 
 void Ivotek_Robot::ledGasOn(){
-    digitalWrite(analog0, HIGH);
+    pinAnalogOn(analog0);
 }
 
 void Ivotek_Robot::ledGasOff(){
-    digitalWrite(analog0, LOW);
+    pinAnalogOff(analog0);
 }
 
 void Ivotek_Robot::getVersion()

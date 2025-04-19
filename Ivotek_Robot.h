@@ -54,14 +54,16 @@ public:
 
     void button(bool direction);
     void analog(double threshold);
-    void pinHigh(byte pin);
-    void pinDown(byte pin);
     void ledSoundOn();
     void ledSoundOff();
     void ledLightOn();
     void ledLightOff();
     void ledGasOn();
     void ledGasOff();
+    void pinAnalogOn(byte pin);
+    void pinAnalogOff(byte pin);
+    void pinDigitalOn(byte pin);
+    void pinDigitalOff(byte pin);
 
     int compass();
     int compass(byte pin);
