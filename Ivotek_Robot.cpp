@@ -34,8 +34,8 @@
 //PIN 9 - 10 Morore destro -- PA9 - PA10
 //PIN 3 Trigger ultrasuoni
 //PIN 11 Ultrasuoni sinistro
-//PIN 12 Ultrasuoni centrale
-//PIN 13 Ultrasuoni destro
+//PIN 12 Ultrasuoni destro
+//PIN 13 Ultrasuoni entro
 //PIN A1 fotoresistenza sinistra
 //PIN A2 fotoresistenza centrale
 //PIN A3 fotoresistenza destra
@@ -236,10 +236,6 @@ void Ivotek_Robot::stop(void)
 
 }
 
-
-//void Ivotek_Robot::forwards(int speed, int pin) {}
-//void Ivotek_Robot::backwards(int speed, int pin) {}
-
 void Ivotek_Robot::button(bool direction) {}
 
 void Ivotek_Robot::analog(double threshold) {}
@@ -281,14 +277,14 @@ double Ivotek_Robot::ultrasoundCx()
 {
     if(robotName=="poor" || robotName=="explorer")
     {
-        return Ivotek_Robot::ultrasound(3, 12);
+        return Ivotek_Robot::ultrasound(3, 13);
     }
 }
 double Ivotek_Robot::ultrasoundDx()
 {
     if(robotName=="poor" || robotName=="explorer")
     {
-        return Ivotek_Robot::ultrasound(3, 13);
+        return Ivotek_Robot::ultrasound(3, 12);
     }
 }
 
@@ -329,7 +325,6 @@ double Ivotek_Robot::light(byte pin)
     double vFoto = 0;
     vFoto = analogRead(pin);
 
-    //Li converto in volt
     return vFoto * (5.0 / 1024.0);
 
 }

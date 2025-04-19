@@ -5,10 +5,10 @@
 Ivotek_Robot	KEYWORD1
 
 initialization	KEYWORD2
-forwards		KEYWORD2
-backwards	    KEYWORD2
-turnRight	    KEYWORD2
-turnLeft	    KEYWORD2
+forwards	KEYWORD2
+backwards	KEYWORD2
+turnRight	KEYWORD2
+turnLeft	KEYWORD2
 stop            KEYWORD2
 button	    	KEYWORD2
 analog	    	KEYWORD2
@@ -18,12 +18,12 @@ ultrasound      KEYWORD2
 ultrasoundSx	KEYWORD2
 ultrasoundDx	KEYWORD2
 ultrasoundCx	KEYWORD2
-lightSx		    KEYWORD2
-lightCx		    KEYWORD2
-lightDx		    KEYWORD2
-batteryStatus	    KEYWORD2
+lightSx		KEYWORD2
+lightCx		KEYWORD2
+lightDx		KEYWORD2
+batteryStatus	KEYWORD2
 temperature 	KEYWORD2
-humidity	    KEYWORD2
+humidity	KEYWORD2
 switchSxFront   KEYWORD2
 switchDxFront   KEYWORD2
 switchSxRear    KEYWORD2

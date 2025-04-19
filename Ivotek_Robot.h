@@ -3,7 +3,6 @@
 #ifndef Ivotek_Robot_H
 #define Ivotek_Robot_H
 
-//Includiamo la libreria di Arduino
 #include "Arduino.h"
 
 class Ivotek_Robot
@@ -12,6 +11,28 @@ private:
     String robotName = "default";
     String boardName = "default";
     String VERSION = "1.0.0";
+    byte digit0 = 0;
+    byte digit1 = 1;
+    byte digit2 = 2;
+    byte digit3 = 3;
+    byte digit4 = 4;
+    byte digit5 = 5;
+    byte digit6 = 6;
+    byte digit7 = 7;
+    byte digit8 = 8;
+    byte digit9 = 9;
+    byte digit10 = 10;
+    byte digit11 = 11;
+    byte digit12 = 12;
+    byte digit13 = 13;
+    byte digit14 = 14;
+    byte digit15 = 15;
+    byte analog0 = A0;
+    byte analog1 = A1;
+    byte analog2 = A2;
+    byte analog3 = A3;
+    byte analog4 = A4;
+    byte analog5 = A5;
 
 public:
     void initialization(String name = "default", String board = "default");
@@ -30,8 +51,6 @@ public:
     void turnLeft(byte speedSx, byte speedDx);
     void forwards(byte speedSx, byte speedDx);
     void backwards(byte speedSx, byte speedDx);
-    //void forwards(byte speed, byte pin);
-    //void backwards(byte speed, byte pin);
 
     void button(bool direction);
     void analog(double threshold);
