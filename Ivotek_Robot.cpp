@@ -7,7 +7,7 @@
 //Sito web: www.ivotek.it
 //
 //
-//PIN per Snail
+//PIN per SNAIL
 //PIN 5 - 6  Motore sinistro
 //PIN 9 - 10 Motore destro
 //PIN A3 Sensore sinistro esterno
@@ -29,7 +29,7 @@
 //PIN A2 fotoresistenza centrale
 //PIN A3 fotoresistenza destra
 
-// PIN per Explorer
+//PIN per Explorer
 //PIN 5 - 6  Motore sinistro -- PA5 - PA6
 //PIN 9 - 10 Morore destro -- PA9 - PA10
 //PIN 3 Trigger ultrasuoni in comune
@@ -54,11 +54,13 @@
 
 void Ivotek_Robot::initialization(String name, String board)
 {
+    name.toUpperCase();
+    board.toUpperCase();
     robotName = name;
     boardName = board;
     Serial.begin(baudRateSerial);
 
-    if(robotName == "default" || robotName == "snail" || robotName == "explorer" || robotName == "poorV2")
+    if(robotName == "DEFAULT" || robotName == "SNAIL" || robotName == "EXPLORER" || robotName == "POORV2")
     {
         pinMode(digit5,OUTPUT);
         pinMode(digit6,OUTPUT);
@@ -66,7 +68,7 @@ void Ivotek_Robot::initialization(String name, String board)
         pinMode(digit10,OUTPUT);
     }
 
-    if(robotName=="snail" || robotName == "explorer" || robotName=="poorV2")
+    if(robotName=="SNAIL" || robotName == "EXPLORER" || robotName=="POORV2")
     {
         pinMode(digit4,INPUT_PULLUP);
         pinMode(digit7,INPUT_PULLUP);
@@ -86,7 +88,7 @@ void Ivotek_Robot::initialization(String name, String board)
 
 void Ivotek_Robot::forwards(void)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,HIGH);
         analogWrite(digit6,LOW);
@@ -98,7 +100,7 @@ void Ivotek_Robot::forwards(void)
 
 void Ivotek_Robot::backwards(void)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,LOW);
         analogWrite(digit6,HIGH);
@@ -110,7 +112,7 @@ void Ivotek_Robot::backwards(void)
 
 void Ivotek_Robot::turnRight(void)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,HIGH);
         analogWrite(digit6,LOW);
@@ -121,7 +123,7 @@ void Ivotek_Robot::turnRight(void)
 }
 void Ivotek_Robot::turnLeft(void)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,LOW);
         analogWrite(digit6,HIGH);
@@ -133,7 +135,7 @@ void Ivotek_Robot::turnLeft(void)
 
 void Ivotek_Robot::forwards(byte speed)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,speed);
         analogWrite(digit6,LOW);
@@ -144,7 +146,7 @@ void Ivotek_Robot::forwards(byte speed)
 }
 void Ivotek_Robot::backwards(byte speed)
 {
-    if(robotName == "default" ||robotName == "explorer")
+    if(robotName == "DEFAULT" ||robotName == "EXPLORER")
     {
         analogWrite(digit5,LOW);
         analogWrite(digit6,speed);
@@ -156,7 +158,7 @@ void Ivotek_Robot::backwards(byte speed)
 
 void Ivotek_Robot::forwards(byte speedSx, byte speedDx)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,speedSx);
         analogWrite(digit6,LOW);
@@ -167,7 +169,7 @@ void Ivotek_Robot::forwards(byte speedSx, byte speedDx)
 }
 void Ivotek_Robot::backwards(byte speedSx, byte speedDx)
 {
-    if(robotName == "default" ||robotName == "explorer")
+    if(robotName == "DEFAULT" ||robotName == "EXPLORER")
     {
         analogWrite(digit5,LOW);
         analogWrite(digit6,speedSx);
@@ -179,7 +181,7 @@ void Ivotek_Robot::backwards(byte speedSx, byte speedDx)
 
 void Ivotek_Robot::turnRight(byte speed)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,speed);
         analogWrite(digit6,LOW);
@@ -191,7 +193,7 @@ void Ivotek_Robot::turnRight(byte speed)
 
 void Ivotek_Robot::turnLeft(byte speed)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,LOW);
         analogWrite(digit6,speed);
@@ -203,7 +205,7 @@ void Ivotek_Robot::turnLeft(byte speed)
 
 void Ivotek_Robot::turnLeft(byte speedSx, byte speedDx)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,LOW);
         analogWrite(digit6,speedSx);
@@ -215,7 +217,7 @@ void Ivotek_Robot::turnLeft(byte speedSx, byte speedDx)
 
 void Ivotek_Robot::turnRight(byte speedSx, byte speedDx)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,speedSx);
         analogWrite(digit6,LOW);
@@ -227,7 +229,7 @@ void Ivotek_Robot::turnRight(byte speedSx, byte speedDx)
 
 void Ivotek_Robot::stop(void)
 {
-    if(robotName == "default" || robotName == "explorer")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(digit5,LOW);
         analogWrite(digit6,LOW);
@@ -268,7 +270,7 @@ double Ivotek_Robot::ultrasound(byte trigger, byte ultrasound)
 double Ivotek_Robot::ultrasoundSx()
 {
 
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return Ivotek_Robot::ultrasound(digit3, digit11);
     }
@@ -276,14 +278,14 @@ double Ivotek_Robot::ultrasoundSx()
 
 double Ivotek_Robot::ultrasoundCx()
 {
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return Ivotek_Robot::ultrasound(digit3, digit13);
     }
 }
 double Ivotek_Robot::ultrasoundDx()
 {
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return Ivotek_Robot::ultrasound(digit3, digit12);
     }
@@ -350,7 +352,7 @@ double Ivotek_Robot::light(byte pin)
 
 double Ivotek_Robot::lightSx()
 {
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return light(analog1);
     }
@@ -358,7 +360,7 @@ double Ivotek_Robot::lightSx()
 
 double Ivotek_Robot::lightCx()
 {
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return light(analog2);
     }
@@ -366,7 +368,7 @@ double Ivotek_Robot::lightCx()
 
 double Ivotek_Robot::lightDx()
 {
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return light(analog3);
     }
@@ -382,7 +384,7 @@ bool Ivotek_Robot::light(byte pin, double threshold)
 
 bool Ivotek_Robot::lightSx(double threshold)
 {
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return light(analog1,threshold);
     }
@@ -390,14 +392,14 @@ bool Ivotek_Robot::lightSx(double threshold)
 
 bool Ivotek_Robot::lightCx(double threshold)
 {
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return light(analog2,threshold);
     }
 }
 bool Ivotek_Robot::lightDx(double threshold)
 {
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return light(analog3,threshold);
     }
@@ -406,7 +408,7 @@ bool Ivotek_Robot::lightDx(double threshold)
 
 double Ivotek_Robot::batteryStatus()
 {
-    if(robotName=="poorV2" || robotName=="explorer")
+    if(robotName=="POORV2" || robotName=="EXPLORER")
     {
         return batteryStatus(analog0);
     }
@@ -430,7 +432,7 @@ double Ivotek_Robot::batteryStatus(byte pin)
 bool Ivotek_Robot::batteryStatus(double threshold)
 {
     double trigger = 0;
-    if(robotName=="poorV2")
+    if(robotName=="POORV2")
     {
         trigger = batteryStatus(analog0);
     }
@@ -469,7 +471,7 @@ bool Ivotek_Robot::genericSwitch(bool invert, byte pin)
 bool Ivotek_Robot::switchSxFront()
 {
 
-    if(robotName=="explorer")
+    if(robotName=="EXPLORER")
     {
         return genericSwitch(digit7);
     }
@@ -480,7 +482,7 @@ bool Ivotek_Robot::switchSxFront()
 bool Ivotek_Robot::switchDxFront()
 {
 
-    if(robotName=="explorer")
+    if(robotName=="EXPLORER")
     {
         return genericSwitch(digit4);
     }
@@ -491,7 +493,7 @@ bool Ivotek_Robot::switchDxFront()
 bool Ivotek_Robot::switchSxFront(bool invert)
 {
 
-    if(robotName=="explorer")
+    if(robotName=="EXPLORER")
     {
        return genericSwitch(digit7,invert);
     }
@@ -502,7 +504,7 @@ bool Ivotek_Robot::switchSxFront(bool invert)
 bool Ivotek_Robot::switchDxFront(bool invert)
 {
 
-    if(robotName=="explorer")
+    if(robotName=="EXPLORER")
     {
         return genericSwitch(digit4,invert);
     }
@@ -513,7 +515,7 @@ bool Ivotek_Robot::switchDxFront(bool invert)
 bool Ivotek_Robot::switchSxRear()
 {
 
-    if(robotName=="explorer")
+    if(robotName=="EXPLORER")
     {
         return genericSwitch(digit8);
     }
@@ -524,7 +526,7 @@ bool Ivotek_Robot::switchSxRear()
 bool Ivotek_Robot::switchDxRear()
 {
 
-    if(robotName=="explorer")
+    if(robotName=="EXPLORER")
     {
         return genericSwitch(digit2);
     }
@@ -535,7 +537,7 @@ bool Ivotek_Robot::switchDxRear()
 bool Ivotek_Robot::switchSxRear(bool invert)
 {
 
-    if(robotName=="explorer")
+    if(robotName=="EXPLORER")
     {
         return genericSwitch(digit8, invert);
     }
@@ -546,7 +548,7 @@ bool Ivotek_Robot::switchSxRear(bool invert)
 bool Ivotek_Robot::switchDxRear(bool invert)
 {
 
-    if(robotName=="explorer")
+    if(robotName=="EXPLORER")
     {
         return genericSwitch(digit2, invert);
     }

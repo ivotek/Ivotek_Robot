@@ -8,8 +8,8 @@
 class Ivotek_Robot
 {
 private:
-    String robotName = "default";
-    String boardName = "default";
+    String robotName = "DEFAULT";
+    String boardName = "DEFAULT";
     String VERSION = "1.0.0";
     double voltageMCU = 5.0;
     int numADconvert = 1024;
