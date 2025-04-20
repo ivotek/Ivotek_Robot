@@ -27,6 +27,9 @@ private:
     byte arduinoDigit11 = 11;
     byte arduinoDigit12 = 12;
     byte arduinoDigit13 = 13;
+#endif // BOARD
+
+#if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO
     byte arduinoAnalog0 = A0;
     byte arduinoAnalog1 = A1;
     byte arduinoAnalog2 = A2;
@@ -38,11 +41,6 @@ private:
 #if BOARD == ARDUINO_NANO
     byte arduinoAnalog6 = A6;
     byte arduinoAnalog7 = A7;
-#endif // BOARD
-
-#if BOARD == ARDUINO_UNO
-    byte arduinoDigit14 = 14;
-    byte arduinoDigit15 = 15;
 #endif // BOARD
 
 #if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO
