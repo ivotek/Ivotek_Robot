@@ -96,10 +96,10 @@ void Ivotek_Robot::forwards(void)
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,HIGH);
-        analogWrite(arduinoDigit6,LOW);
-        analogWrite(arduinoDigit9,HIGH);
-        analogWrite(arduinoDigit10,LOW);
+        analogWrite(arduinoDigit5,255);
+        analogWrite(arduinoDigit6,0);
+        analogWrite(arduinoDigit9,255);
+        analogWrite(arduinoDigit10,0);
     }
 }
 
@@ -107,10 +107,10 @@ void Ivotek_Robot::backwards(void)
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,LOW);
-        analogWrite(arduinoDigit6,HIGH);
-        analogWrite(arduinoDigit9,LOW);
-        analogWrite(arduinoDigit10,HIGH);
+        analogWrite(arduinoDigit5,0);
+        analogWrite(arduinoDigit6,255);
+        analogWrite(arduinoDigit9,0);
+        analogWrite(arduinoDigit10,255);
     }
 }
 
@@ -118,10 +118,10 @@ void Ivotek_Robot::turnRight(void)
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,HIGH);
-        analogWrite(arduinoDigit6,LOW);
-        analogWrite(arduinoDigit9,LOW);
-        analogWrite(arduinoDigit10,HIGH);
+        analogWrite(arduinoDigit5,255);
+        analogWrite(arduinoDigit6,0);
+        analogWrite(arduinoDigit9,0);
+        analogWrite(arduinoDigit10,255);
     }
 }
 
@@ -129,10 +129,10 @@ void Ivotek_Robot::turnLeft(void)
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,LOW);
-        analogWrite(arduinoDigit6,HIGH);
-        analogWrite(arduinoDigit9,HIGH);
-        analogWrite(arduinoDigit10,LOW);
+        analogWrite(arduinoDigit5,0);
+        analogWrite(arduinoDigit6,255);
+        analogWrite(arduinoDigit9,255);
+        analogWrite(arduinoDigit10,0);
     }
 }
 
@@ -142,9 +142,9 @@ void Ivotek_Robot::forwards(byte speed)
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(arduinoDigit5,speed);
-        analogWrite(arduinoDigit6,LOW);
+        analogWrite(arduinoDigit6,0);
         analogWrite(arduinoDigit9,speed);
-        analogWrite(arduinoDigit10,LOW);
+        analogWrite(arduinoDigit10,0);
     }
 }
 
@@ -153,9 +153,9 @@ void Ivotek_Robot::backwards(byte speed)
 
     if(robotName == "DEFAULT" ||robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,LOW);
+        analogWrite(arduinoDigit5,0);
         analogWrite(arduinoDigit6,speed);
-        analogWrite(arduinoDigit9,LOW);
+        analogWrite(arduinoDigit9,0);
         analogWrite(arduinoDigit10,speed);
     }
 }
@@ -165,9 +165,9 @@ void Ivotek_Robot::forwards(byte speedSx, byte speedDx)
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(arduinoDigit5,speedSx);
-        analogWrite(arduinoDigit6,LOW);
+        analogWrite(arduinoDigit6,0);
         analogWrite(arduinoDigit9,speedDx);
-        analogWrite(arduinoDigit10,LOW);
+        analogWrite(arduinoDigit10,0);
     }
 }
 
@@ -175,9 +175,9 @@ void Ivotek_Robot::backwards(byte speedSx, byte speedDx)
 {
     if(robotName == "DEFAULT" ||robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,LOW);
+        analogWrite(arduinoDigit5,0);
         analogWrite(arduinoDigit6,speedSx);
-        analogWrite(arduinoDigit9,LOW);
+        analogWrite(arduinoDigit9,0);
         analogWrite(arduinoDigit10,speedDx);
     }
 }
@@ -187,8 +187,8 @@ void Ivotek_Robot::turnRight(byte speed)
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(arduinoDigit5,speed);
-        analogWrite(arduinoDigit6,LOW);
-        analogWrite(arduinoDigit9,LOW);
+        analogWrite(arduinoDigit6,0);
+        analogWrite(arduinoDigit9,0);
         analogWrite(arduinoDigit10,speed);
     }
 }
@@ -197,10 +197,10 @@ void Ivotek_Robot::turnLeft(byte speed)
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,LOW);
+        analogWrite(arduinoDigit5,0);
         analogWrite(arduinoDigit6,speed);
         analogWrite(arduinoDigit9,speed);
-        analogWrite(arduinoDigit10,LOW);
+        analogWrite(arduinoDigit10,0);
     }
 }
 
@@ -208,10 +208,10 @@ void Ivotek_Robot::turnLeft(byte speedSx, byte speedDx)
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,LOW);
+        analogWrite(arduinoDigit5,0);
         analogWrite(arduinoDigit6,speedSx);
         analogWrite(arduinoDigit9,speedDx);
-        analogWrite(arduinoDigit10,LOW);
+        analogWrite(arduinoDigit10,0);
     }
 }
 
@@ -220,8 +220,8 @@ void Ivotek_Robot::turnRight(byte speedSx, byte speedDx)
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         analogWrite(arduinoDigit5,speedSx);
-        analogWrite(arduinoDigit6,LOW);
-        analogWrite(arduinoDigit9,LOW);
+        analogWrite(arduinoDigit6,0);
+        analogWrite(arduinoDigit9,0);
         analogWrite(arduinoDigit10,speedDx);
     }
 }
@@ -230,10 +230,10 @@ void Ivotek_Robot::stop(void)
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,LOW);
-        analogWrite(arduinoDigit6,LOW);
-        analogWrite(arduinoDigit9,LOW);
-        analogWrite(arduinoDigit10,LOW);
+        analogWrite(arduinoDigit5,0);
+        analogWrite(arduinoDigit6,0);
+        analogWrite(arduinoDigit9,0);
+        analogWrite(arduinoDigit10,0);
     }
 }
 
