@@ -41,10 +41,8 @@
 //PIN A3 fotoresistenza destra
 //PIN 4 Contatto Dx anteriore -- PA4
 //PIN 7 Contatto Sx anteriore -- PA7
-//PIN 2 Contatto Dx posteriore -- PA2
-//PIN 8 Contatto Sx posteriore -- PA8
-//PIN 0 Led luce
-//PIN 1 Led suono
+//PIN 2 Led luce
+//PIN 8 Led suono
 //PIN A0 Led gas
 //PIN A4 Ricezione suono
 //PIN A5 Ricezione gas
@@ -67,7 +65,7 @@ void Ivotek_Robot::initialization(String nameRobot)
     robotName = nameRobot;
     Serial.begin(baudRateSerial);
 
-    if(robotName == "DEFAULT" || robotName == "SNAIL" || robotName == "EXPLORER" || robotName == "POORV2")
+    if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
         pinMode(arduinoDigit5,OUTPUT);
         pinMode(arduinoDigit6,OUTPUT);
@@ -75,13 +73,15 @@ void Ivotek_Robot::initialization(String nameRobot)
         pinMode(arduinoDigit10,OUTPUT);
     }
 
-    if(robotName=="SNAIL" || robotName == "EXPLORER" || robotName=="POORV2")
+    if(robotName == "EXPLORER")
     {
+        pinMode(arduinoDigit0,INPUT_PULLUP);
+        pinMode(arduinoDigit1,INPUT_PULLUP);
         pinMode(arduinoDigit4,INPUT_PULLUP);
         pinMode(arduinoDigit7,INPUT_PULLUP);
-        pinMode(arduinoDigit2,INPUT_PULLUP);
-        pinMode(arduinoDigit8,INPUT_PULLUP);
-        pinMode(A0,INPUT_PULLUP);
+        pinMode(arduinoDigit2,OUTPUT);
+        pinMode(arduinoDigit8,OUTPUT);
+        pinMode(A0,OUTPUT);
         pinMode(A1,INPUT_PULLUP);
         pinMode(A2,INPUT_PULLUP);
         pinMode(A3,INPUT_PULLUP);
@@ -501,6 +501,7 @@ bool Ivotek_Robot::switchDxFront(bool invert)
     return false;
 }
 
+/*
 bool Ivotek_Robot::switchSxRear()
 {
     if(robotName=="EXPLORER")
@@ -536,6 +537,7 @@ bool Ivotek_Robot::switchDxRear(bool invert)
     }
     return false;
 }
+*/
 
 byte Ivotek_Robot::temperature() {}
 byte Ivotek_Robot::temperature(byte pin) {}
@@ -546,12 +548,12 @@ bool Ivotek_Robot::humidity(byte pin, double threshold) {}
 
 void Ivotek_Robot::pinAnalogOn(byte pin)
 {
-    analogWrite(pin, HIGH);
+    analogWrite(pin, 255);
 }
 
 void Ivotek_Robot::pinAnalogOff(byte pin)
 {
-    analogWrite(pin, LOW);
+    analogWrite(pin, 0);
 }
 
 void Ivotek_Robot::pinDigitalOn(byte pin)
@@ -566,22 +568,22 @@ void Ivotek_Robot::pinDigitalOff(byte pin)
 
 void Ivotek_Robot::ledSoundOn()
 {
-    pinDigitalOn(arduinoDigit0);
+    pinDigitalOn(arduinoDigit8);
 }
 
 void Ivotek_Robot::ledSoundOff()
 {
-    pinDigitalOff(arduinoDigit0);
+    pinDigitalOff(arduinoDigit8);
 }
 
 void Ivotek_Robot::ledLightOn()
 {
-    pinDigitalOn(arduinoDigit1);
+    pinDigitalOn(arduinoDigit2);
 }
 
 void Ivotek_Robot::ledLightOff()
 {
-    pinDigitalOff(arduinoDigit1);
+    pinDigitalOff(arduinoDigit2);
 }
 
 void Ivotek_Robot::ledGasOn()

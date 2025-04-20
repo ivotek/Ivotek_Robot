@@ -1,7 +1,7 @@
 #include <Ivotek_Robot.h>
 
 Ivotek_Robot explorer;
-#define luxDx 1
+#define luxDx 2
 
 void setup() {
   explorer.initialization("explorer");
@@ -13,6 +13,7 @@ void loop() {
 
   double objectSx = explorer.ultrasoundSx();
   double objectDx = explorer.ultrasoundDx();
+  double lightDx = explorer.lightDx();
 
   if (explorer.ultrasoundSx(10)) {
     explorer.turnRight(100);
@@ -28,7 +29,7 @@ void loop() {
   //double lightDx = explorer.lightSx();
   //double lightCx = explorer.lightCx();
 
-  if (explorer.lightDx(luxDx)) {
+  if (lightDx < luxDx) {
     explorer.stop();
     explorer.ledLightOn();
     delay(3000);

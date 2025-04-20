@@ -77,6 +77,7 @@ public:
     void forwards(byte speedSx, byte speedDx);
     void backwards(byte speedSx, byte speedDx);
 
+    //TODO da sostituire o sistemare
     void button(bool direction);
     void analog(double threshold);
     void ledSoundOn();
@@ -136,10 +137,11 @@ public:
     bool switchDxFront();
     bool switchSxFront(bool invert);
     bool switchDxFront(bool invert);
-    bool switchSxRear();
-    bool switchDxRear();
-    bool switchSxRear(bool invert);
-    bool switchDxRear(bool invert);
+    //TODO Da reinserire
+    //bool switchSxRear();
+    //bool switchDxRear();
+    //bool switchSxRear(bool invert);
+    //bool switchDxRear(bool invert);
     bool genericSwitch(byte pin);
     bool genericSwitch(bool invert, byte pin);
 
