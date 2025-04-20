@@ -59,6 +59,8 @@ void Ivotek_Robot::initialization(String nameRobot)
     boardName = "ARDUINO_UNO";
 #elif BOARD == NUCLEO_F030R8
     boardName = "NUCLEO_F030R8";
+#elif BOARD == ARDUINO_NANO
+    boardName = "ARDUINO_NANO";
 #endif
 
     nameRobot.toUpperCase();

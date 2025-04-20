@@ -35,7 +35,7 @@ private:
     byte arduinoAnalog4 = A4;
     byte arduinoAnalog5 = A5;
 
-#if BOARD == ARDUINO_UNO
+#if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO
     byte arduinoDigit5 = 5;
     byte arduinoDigit6 = 6;
     byte arduinoDigit9 = 9;
