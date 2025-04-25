@@ -118,6 +118,9 @@ public:
     bool lightSx(double threshold);
     bool lightCx(double threshold);
     bool lightDx(double threshold);
+    double sound();
+    bool sound(double threshold);
+    bool sound(byte pin, double threshold);
 
     double batteryStatus();
     double batteryStatus(byte pin);

@@ -85,6 +85,7 @@ void Ivotek_Robot::initialization(String nameRobot)
         pinMode(A1,INPUT_PULLUP);
         pinMode(A2,INPUT_PULLUP);
         pinMode(A3,INPUT_PULLUP);
+        pinMode(A4,INPUT_PULLUP);
         pinMode(arduinoDigit3,OUTPUT);
         pinMode(arduinoDigit11,INPUT_PULLUP);
         pinMode(arduinoDigit12,INPUT_PULLUP);
@@ -290,7 +291,7 @@ double Ivotek_Robot::ultrasoundDx()
 
 bool Ivotek_Robot::ultrasound (byte trigger, byte echo, double threshold)
 {
-    if(boardName == "ARDUINO_AVR_UNO" || boardName == "DEFAULT")
+    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
     {
         double distance = 0;
         distance = Ivotek_Robot::ultrasound(trigger, echo);
@@ -323,10 +324,7 @@ bool Ivotek_Robot::ultrasoundDx (double threshold)
 
 double Ivotek_Robot::pinAnalogRead(byte pin)
 {
-    if(boardName == "ARDUINO_AVR_UNO" || boardName == "DEFAULT")
-    {
-        return analogRead(pin);
-    }
+    return analogRead(pin);
 }
 
 bool Ivotek_Robot::pinDigitalRead(byte pin)
@@ -595,6 +593,27 @@ void Ivotek_Robot::ledGasOff()
 {
     pinAnalogOff(arduinoAnalog0);
 }
+
+double Ivotek_Robot::sound()
+{
+    return pinAnalogRead(A4);
+}
+
+bool Ivotek_Robot::sound(double threshold)
+{
+    double trigger = 0;
+    trigger = sound();
+    return trigger < threshold?true:false;
+}
+
+bool Ivotek_Robot::sound(byte pin, double threshold)
+{
+    double trigger = 0;
+    trigger = pinAnalogRead(pin);
+    return trigger < threshold?true:false;
+}
+
+
 
 void Ivotek_Robot::getVersion()
 {
