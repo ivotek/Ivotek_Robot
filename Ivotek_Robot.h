@@ -120,7 +120,13 @@ public:
     bool lightDx(double threshold);
     double sound();
     bool sound(double threshold);
+    bool sound(double threshold, bool invert);
     bool sound(byte pin, double threshold);
+    double gasAlcool();
+    bool gasAlcool(double threshold);
+    bool gasAlcool(double threshold, bool invert);
+    bool gasAlcool(byte pin, double threshold);
+
 
     double batteryStatus();
     double batteryStatus(byte pin);

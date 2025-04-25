@@ -12,9 +12,6 @@ void loop() {
 
   explorer.forwards(100, 90);
 
-  double objectSx = explorer.ultrasoundSx();
-  double objectDx = explorer.ultrasoundDx();
-
   if (explorer.ultrasoundSx(10)) {
     explorer.turnRight(100);
     delay(250);
@@ -24,10 +21,6 @@ void loop() {
     explorer.turnLeft(100);
     delay(250);
   }
-
-  //double lightSx = explorer.lightDx();
-  //double lightDx = explorer.lightSx();
-  //double lightCx = explorer.lightCx();
 
   if (explorer.lightDx(luxDx)) {
     explorer.stop();

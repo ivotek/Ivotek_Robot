@@ -11,9 +11,6 @@ void loop() {
 
   explorer.forwards(100, 90);
 
-  double objectSx = explorer.ultrasoundSx();
-  double objectDx = explorer.ultrasoundDx();
-
   if (explorer.ultrasoundSx(10)) {
     explorer.turnRight(100);
     delay(250);

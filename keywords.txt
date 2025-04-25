@@ -42,3 +42,5 @@ pinAnalogRead	KEYWORD2
 pinDigitalRead	KEYWORD2
 pinAnalogWrite	KEYWORD2
 pinDigitalWrite	KEYWORD2
+sound		KEYWORD2
+gasAlcool	KEYWORD2

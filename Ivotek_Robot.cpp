@@ -86,6 +86,7 @@ void Ivotek_Robot::initialization(String nameRobot)
         pinMode(A2,INPUT_PULLUP);
         pinMode(A3,INPUT_PULLUP);
         pinMode(A4,INPUT_PULLUP);
+        pinMode(A5,INPUT_PULLUP);
         pinMode(arduinoDigit3,OUTPUT);
         pinMode(arduinoDigit11,INPUT_PULLUP);
         pinMode(arduinoDigit12,INPUT_PULLUP);
@@ -606,6 +607,21 @@ bool Ivotek_Robot::sound(double threshold)
     return trigger < threshold?true:false;
 }
 
+bool Ivotek_Robot::sound(double threshold, bool invert)
+{
+    double trigger = 0;
+    trigger = sound();
+    if(invert == false)
+    {
+        return trigger < threshold?true:false;
+    }
+    else
+    {
+        return trigger < threshold?false:true;
+    }
+
+}
+
 bool Ivotek_Robot::sound(byte pin, double threshold)
 {
     double trigger = 0;
@@ -613,7 +629,39 @@ bool Ivotek_Robot::sound(byte pin, double threshold)
     return trigger < threshold?true:false;
 }
 
+double Ivotek_Robot::gasAlcool()
+{
+    return pinAnalogRead(A5);
+}
 
+bool Ivotek_Robot::gasAlcool(double threshold)
+{
+    double trigger = 0;
+    trigger = sound();
+    return trigger < threshold?true:false;
+}
+
+bool Ivotek_Robot::gasAlcool(byte pin, double threshold)
+{
+    double trigger = 0;
+    trigger = pinAnalogRead(pin);
+    return trigger < threshold?true:false;
+}
+
+bool Ivotek_Robot::gasAlcool(double threshold, bool invert)
+{
+    double trigger = 0;
+    trigger = gasAlcool();
+    if(invert == false)
+    {
+        return trigger < threshold?true:false;
+    }
+    else
+    {
+        return trigger < threshold?false:true;
+    }
+
+}
 
 void Ivotek_Robot::getVersion()
 {
