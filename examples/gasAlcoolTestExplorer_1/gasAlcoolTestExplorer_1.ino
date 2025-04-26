@@ -3,6 +3,7 @@
 Ivotek_Robot explorer;
 #define luxDx 2
 #define soundLimit 500
+#define gasLimit 500
 
 void setup() {
   explorer.initialization("explorer");
@@ -11,6 +12,8 @@ void setup() {
 void loop() {
 
   explorer.forwards(100, 90);
+
+  double gas = explorer.gasAlcool();
 
   if (explorer.ultrasoundSx(10)) {
     explorer.turnRight(100);
@@ -31,7 +34,7 @@ void loop() {
     delay(1000);
   }
 
-  if (explorer.sound(soundLimit)) {
+  if (explorer.sound(500)) {
     explorer.stop();
     explorer.ledSoundOn();
     delay(3000);
@@ -39,4 +42,14 @@ void loop() {
     explorer.forwards(100, 90);
     delay(1000);
   }
+
+  if (gasLimit > gas) {
+    explorer.stop();
+    explorer.ledGasOn();
+    delay(3000);
+    explorer.ledGasOff();
+    explorer.forwards(100, 90);
+    delay(3000);
+  }
 }
+
