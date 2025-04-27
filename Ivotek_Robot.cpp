@@ -49,6 +49,8 @@
 
 //PIN A6 Ricezione suono_1
 //PIN A7 Ricezine gas_1
+//PIN PF5 NucleoSwitchSxRear
+//PIN PF4 NucleoSwitchDxRear
 //*********************************************************
 
 #include "Ivotek_Robot.h"
@@ -96,6 +98,12 @@ void Ivotek_Robot::initialization(String nameRobot)
         pinMode(arduinoAnalog5,INPUT_PULLUP);
         pinMode(arduinoAnalog6,INPUT_PULLUP);
         pinMode(arduinoAnalog7,INPUT_PULLUP);
+
+
+#if BOARD == NUCLEO_F030R8
+        pinMode(nucleoSwitchSxRear,INPUT_PULLUP);
+        pinMode(nucleoSwitchDxRear,INPUT_PULLUP);
+#endif // BOARD
 
     }
 }
@@ -353,7 +361,7 @@ double Ivotek_Robot::light(byte pin)
 {
     double vFoto = 0;
     vFoto = analogRead(pin);
-    return vFoto * (voltageMCU / numADconvert);
+    return vFoto * (voltageMCU / numADconvertArduinoUno);
 }
 
 //TODO Inserire inverisone del valore
@@ -426,11 +434,8 @@ double Ivotek_Robot::batteryStatus(byte pin)
 {
     double alim_digit = 0;
     double alimentazione = 0;
-    //I take the data from the pin port to know the power level
     alim_digit = analogRead(pin);
-    //Convert the binary code in analogic code
-    alimentazione= alim_digit * (voltageMCU / numADconvert);
-    //Multiply by two to get the battery pack voltage
+    alimentazione= alim_digit * (voltageMCU / numADconvertArduinoUno);
     return alimentazione * 2;
 }
 
@@ -506,12 +511,12 @@ bool Ivotek_Robot::switchDxFront(bool invert)
     return false;
 }
 
-/*
+#if BOARD == NUCLEO_F030R8
 bool Ivotek_Robot::switchSxRear()
 {
     if(robotName=="EXPLORER")
     {
-        return genericSwitch(arduinoDigit8);
+        return genericSwitch(nucleoSwitchSxRear);
     }
     return false;
 }
@@ -520,7 +525,7 @@ bool Ivotek_Robot::switchDxRear()
 {
     if(robotName=="EXPLORER")
     {
-        return genericSwitch(arduinoDigit2);
+        return genericSwitch(nucleoSwitchDxRear);
     }
     return false;
 }
@@ -529,7 +534,7 @@ bool Ivotek_Robot::switchSxRear(bool invert)
 {
     if(robotName=="EXPLORER")
     {
-        return genericSwitch(arduinoDigit8, invert);
+        return genericSwitch(nucleoSwitchSxRear, invert);
     }
     return false;
 }
@@ -538,11 +543,11 @@ bool Ivotek_Robot::switchDxRear(bool invert)
 {
     if(robotName=="EXPLORER")
     {
-        return genericSwitch(arduinoDigit2, invert);
+        return genericSwitch(nucleoSwitchDxRear, invert);
     }
     return false;
 }
-*/
+#endif // BOARD
 
 byte Ivotek_Robot::temperature() {}
 byte Ivotek_Robot::temperature(byte pin) {}

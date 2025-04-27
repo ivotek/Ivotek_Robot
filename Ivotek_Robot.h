@@ -13,7 +13,7 @@ private:
     String boardName = "DEFAULT";
     const String VERSION = "1.0.0";
     const double voltageMCU = 5.0;
-    const int numADconvert = 1024;
+    const int numADconvertArduinoUno = 1024;
     const int baudRateSerial = 9600;
     const byte ANALOG_MIN = 0;
     const byte ANALOG_MAX = 255;
@@ -49,6 +49,8 @@ private:
 #if BOARD == NUCLEO_F030R8
     int arduinoAnalog6 = PC2;
     int arduinoAnalog7 = PC3;
+    int nucleoSwitchSxRear = PF5;
+    int nucleoSwitchDxRear = PF4;
 #endif // BOARD
 
 public:
@@ -145,11 +147,10 @@ public:
     bool switchDxFront();
     bool switchSxFront(bool invert);
     bool switchDxFront(bool invert);
-    //TODO Da reinserire
-    //bool switchSxRear();
-    //bool switchDxRear();
-    //bool switchSxRear(bool invert);
-    //bool switchDxRear(bool invert);
+    bool switchSxRear();
+    bool switchDxRear();
+    bool switchSxRear(bool invert);
+    bool switchDxRear(bool invert);
     bool genericSwitch(byte pin);
     bool genericSwitch(bool invert, byte pin);
 
