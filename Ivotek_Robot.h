@@ -15,6 +15,8 @@ private:
     const double voltageMCU = 5.0;
     const int numADconvert = 1024;
     const int baudRateSerial = 9600;
+    const byte ANALOG_MIN = 0;
+    const byte ANALOG_MAX = 255;
 
 #if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
     byte arduinoDigit0 = 0;
@@ -22,40 +24,29 @@ private:
     byte arduinoDigit2 = 2;
     byte arduinoDigit3 = 3;
     byte arduinoDigit4 = 4;
+    byte arduinoDigit5 = 5;
+    byte arduinoDigit6 = 6;
     byte arduinoDigit7 = 7;
     byte arduinoDigit8 = 8;
+    byte arduinoDigit9 = 9;
+    byte arduinoDigit10 = 10;
     byte arduinoDigit11 = 11;
     byte arduinoDigit12 = 12;
     byte arduinoDigit13 = 13;
-#endif // BOARD
-
-#if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO
     byte arduinoAnalog0 = A0;
     byte arduinoAnalog1 = A1;
     byte arduinoAnalog2 = A2;
     byte arduinoAnalog3 = A3;
     byte arduinoAnalog4 = A4;
     byte arduinoAnalog5 = A5;
+
+
 #endif // BOARD
 
-#if BOARD == ARDUINO_NANO
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
     byte arduinoAnalog6 = A6;
     byte arduinoAnalog7 = A7;
 #endif // BOARD
-
-#if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO
-    byte arduinoDigit5 = 5;
-    byte arduinoDigit6 = 6;
-    byte arduinoDigit9 = 9;
-    byte arduinoDigit10 = 10;
-#endif
-
-#if BOARD == NUCLEO_F030R8
-    byte arduinoDigit5 = PA5;
-    byte arduinoDigit6 = PA6;
-    byte arduinoDigit9 = PA9;
-    byte arduinoDigit10 = PA10;
-#endif
 
 public:
     void initialization(String nameRobot = "default");
@@ -122,11 +113,18 @@ public:
     bool sound(double threshold);
     bool sound(double threshold, bool invert);
     bool sound(byte pin, double threshold);
+    double sound_1();
+    bool sound_1(double threshold);
+    bool sound_1(double threshold, bool invert);
+    bool sound_1(byte pin, double threshold);
     double gasAlcool();
     bool gasAlcool(double threshold);
     bool gasAlcool(double threshold, bool invert);
     bool gasAlcool(byte pin, double threshold);
-
+    double gasAlcool_1();
+    bool gasAlcool_1(double threshold);
+    bool gasAlcool_1(double threshold, bool invert);
+    bool gasAlcool_1(byte pin, double threshold);
 
     double batteryStatus();
     double batteryStatus(byte pin);

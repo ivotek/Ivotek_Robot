@@ -77,35 +77,39 @@ void Ivotek_Robot::initialization(String nameRobot)
     {
         pinMode(arduinoDigit0,INPUT_PULLUP);
         pinMode(arduinoDigit1,INPUT_PULLUP);
+        pinMode(arduinoDigit2,OUTPUT);
+        pinMode(arduinoDigit3,OUTPUT);
         pinMode(arduinoDigit4,INPUT_PULLUP);
         pinMode(arduinoDigit7,INPUT_PULLUP);
-        pinMode(arduinoDigit2,OUTPUT);
         pinMode(arduinoDigit8,OUTPUT);
-        pinMode(A0,OUTPUT);
-        pinMode(A1,INPUT_PULLUP);
-        pinMode(A2,INPUT_PULLUP);
-        pinMode(A3,INPUT_PULLUP);
-        pinMode(A4,INPUT_PULLUP);
-        pinMode(A5,INPUT_PULLUP);
-        pinMode(arduinoDigit3,OUTPUT);
         pinMode(arduinoDigit11,INPUT_PULLUP);
         pinMode(arduinoDigit12,INPUT_PULLUP);
         pinMode(arduinoDigit13,INPUT_PULLUP);
+        pinMode(arduinoAnalog0,OUTPUT);
+        pinMode(arduinoAnalog1,INPUT_PULLUP);
+        pinMode(arduinoAnalog2,INPUT_PULLUP);
+        pinMode(arduinoAnalog3,INPUT_PULLUP);
+        pinMode(arduinoAnalog4,INPUT_PULLUP);
+        pinMode(arduinoAnalog5,INPUT_PULLUP);
+        pinMode(arduinoAnalog6,INPUT_PULLUP);
+        pinMode(arduinoAnalog7,INPUT_PULLUP);
+
+
     }
 }
 
-void Ivotek_Robot::forwards(void)
+void Ivotek_Robot::forwards()
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
-        analogWrite(arduinoDigit5,255);
-        analogWrite(arduinoDigit6,0);
-        analogWrite(arduinoDigit9,255);
-        analogWrite(arduinoDigit10,0);
+        analogWrite(arduinoDigit5,ANALOG_MAX);
+        analogWrite(arduinoDigit6,ANALOG_MIN);
+        analogWrite(arduinoDigit9,ANALOG_MAX);
+        analogWrite(arduinoDigit10,ANALOG_MIN);
     }
 }
 
-void Ivotek_Robot::backwards(void)
+void Ivotek_Robot::backwards()
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
@@ -116,7 +120,7 @@ void Ivotek_Robot::backwards(void)
     }
 }
 
-void Ivotek_Robot::turnRight(void)
+void Ivotek_Robot::turnRight()
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
@@ -127,7 +131,7 @@ void Ivotek_Robot::turnRight(void)
     }
 }
 
-void Ivotek_Robot::turnLeft(void)
+void Ivotek_Robot::turnLeft()
 {
     if(robotName == "DEFAULT" || robotName == "EXPLORER")
     {
@@ -557,7 +561,7 @@ void Ivotek_Robot::pinAnalogOff(byte pin)
 
 void Ivotek_Robot::pinDigitalOn(byte pin)
 {
-    digitalWrite(pin, HIGH);
+    digitalWrite(pin, 255);
 }
 
 void Ivotek_Robot::pinDigitalOff(byte pin)
@@ -597,7 +601,7 @@ void Ivotek_Robot::ledGasOff()
 
 double Ivotek_Robot::sound()
 {
-    return pinAnalogRead(A4);
+    return pinAnalogRead(arduinoAnalog4);
 }
 
 bool Ivotek_Robot::sound(double threshold)
@@ -629,9 +633,44 @@ bool Ivotek_Robot::sound(byte pin, double threshold)
     return trigger < threshold?true:false;
 }
 
+#if BOARD == ARDUINO_NANO
+double Ivotek_Robot::sound_1()
+{
+    return pinAnalogRead(arduinoAnalog6);
+}
+
+bool Ivotek_Robot::sound_1(double threshold)
+{
+    double trigger = 0;
+    trigger = sound();
+    return trigger < threshold?true:false;
+}
+
+bool Ivotek_Robot::sound_1(double threshold, bool invert)
+{
+    double trigger = 0;
+    trigger = sound();
+    if(invert == false)
+    {
+        return trigger < threshold?true:false;
+    }
+    else
+    {
+        return trigger < threshold?false:true;
+    }
+}
+
+bool Ivotek_Robot::sound_1(byte pin, double threshold)
+{
+    double trigger = 0;
+    trigger = pinAnalogRead(pin);
+    return trigger < threshold?true:false;
+}
+#endif
+
 double Ivotek_Robot::gasAlcool()
 {
-    return pinAnalogRead(A5);
+    return pinAnalogRead(arduinoAnalog5);
 }
 
 bool Ivotek_Robot::gasAlcool(double threshold)
@@ -662,6 +701,42 @@ bool Ivotek_Robot::gasAlcool(double threshold, bool invert)
     }
 
 }
+
+#if BOARD == ARDUINO_NANO
+double Ivotek_Robot::gasAlcool_1()
+{
+    return pinAnalogRead(arduinoAnalog7);
+}
+
+bool Ivotek_Robot::gasAlcool_1(double threshold)
+{
+    double trigger = 0;
+    trigger = sound();
+    return trigger < threshold?true:false;
+}
+
+bool Ivotek_Robot::gasAlcool_1(byte pin, double threshold)
+{
+    double trigger = 0;
+    trigger = pinAnalogRead(pin);
+    return trigger < threshold?true:false;
+}
+
+bool Ivotek_Robot::gasAlcool_1(double threshold, bool invert)
+{
+    double trigger = 0;
+    trigger = gasAlcool();
+    if(invert == false)
+    {
+        return trigger < threshold?true:false;
+    }
+    else
+    {
+        return trigger < threshold?false:true;
+    }
+
+}
+#endif
 
 void Ivotek_Robot::getVersion()
 {
