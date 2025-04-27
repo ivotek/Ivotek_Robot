@@ -2,7 +2,7 @@
 //Libreria per il controllo dei robot realizzati da Daniele Loddo alias Ivotek
 //
 //Realizzato da Daniele Loddo alias Ivotek
-//data: 25/08/2024
+//Data ultimo aggiornamento: 27/04/2025
 //Versione 1.0.0
 //Sito web: www.ivotek.it
 //
@@ -46,6 +46,9 @@
 //PIN A0 Led gas
 //PIN A4 Ricezione suono
 //PIN A5 Ricezione gas
+
+//PIN A6 Ricezione suono_1
+//PIN A7 Ricezine gas_1
 //*********************************************************
 
 #include "Ivotek_Robot.h"
@@ -93,7 +96,6 @@ void Ivotek_Robot::initialization(String nameRobot)
         pinMode(arduinoAnalog5,INPUT_PULLUP);
         pinMode(arduinoAnalog6,INPUT_PULLUP);
         pinMode(arduinoAnalog7,INPUT_PULLUP);
-
 
     }
 }
@@ -327,7 +329,7 @@ bool Ivotek_Robot::ultrasoundDx (double threshold)
     return distance < threshold && distance > 0?true:false;
 }
 
-double Ivotek_Robot::pinAnalogRead(byte pin)
+double Ivotek_Robot::pinAnalogRead(int pin)
 {
     return analogRead(pin);
 }
@@ -626,14 +628,14 @@ bool Ivotek_Robot::sound(double threshold, bool invert)
 
 }
 
-bool Ivotek_Robot::sound(byte pin, double threshold)
+bool Ivotek_Robot::sound(int pin, double threshold)
 {
     double trigger = 0;
     trigger = pinAnalogRead(pin);
     return trigger < threshold?true:false;
 }
 
-#if BOARD == ARDUINO_NANO
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
 double Ivotek_Robot::sound_1()
 {
     return pinAnalogRead(arduinoAnalog6);
@@ -660,7 +662,7 @@ bool Ivotek_Robot::sound_1(double threshold, bool invert)
     }
 }
 
-bool Ivotek_Robot::sound_1(byte pin, double threshold)
+bool Ivotek_Robot::sound_1(int pin, double threshold)
 {
     double trigger = 0;
     trigger = pinAnalogRead(pin);
@@ -680,7 +682,7 @@ bool Ivotek_Robot::gasAlcool(double threshold)
     return trigger < threshold?true:false;
 }
 
-bool Ivotek_Robot::gasAlcool(byte pin, double threshold)
+bool Ivotek_Robot::gasAlcool(int pin, double threshold)
 {
     double trigger = 0;
     trigger = pinAnalogRead(pin);
@@ -702,7 +704,7 @@ bool Ivotek_Robot::gasAlcool(double threshold, bool invert)
 
 }
 
-#if BOARD == ARDUINO_NANO
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
 double Ivotek_Robot::gasAlcool_1()
 {
     return pinAnalogRead(arduinoAnalog7);
@@ -715,7 +717,7 @@ bool Ivotek_Robot::gasAlcool_1(double threshold)
     return trigger < threshold?true:false;
 }
 
-bool Ivotek_Robot::gasAlcool_1(byte pin, double threshold)
+bool Ivotek_Robot::gasAlcool_1(int pin, double threshold)
 {
     double trigger = 0;
     trigger = pinAnalogRead(pin);

@@ -39,13 +39,16 @@ private:
     byte arduinoAnalog3 = A3;
     byte arduinoAnalog4 = A4;
     byte arduinoAnalog5 = A5;
-
-
 #endif // BOARD
 
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
-    byte arduinoAnalog6 = A6;
-    byte arduinoAnalog7 = A7;
+#if BOARD == ARDUINO_NANO
+    int arduinoAnalog6 = A6;
+    int arduinoAnalog7 = A7;
+#endif // BOARD
+
+#if BOARD == NUCLEO_F030R8
+    int arduinoAnalog6 = PC2;
+    int arduinoAnalog7 = PC3;
 #endif // BOARD
 
 public:
@@ -79,7 +82,7 @@ public:
     void pinAnalogOff(byte pin);
     void pinDigitalOn(byte pin);
     void pinDigitalOff(byte pin);
-    double pinAnalogRead(byte pin);
+    double pinAnalogRead(int pin);
     bool pinDigitalRead(byte pin);
     void pinAnalogWrite(byte pin, double value);
     void pinDigitalWrite(byte pin, bool value);
@@ -112,19 +115,19 @@ public:
     double sound();
     bool sound(double threshold);
     bool sound(double threshold, bool invert);
-    bool sound(byte pin, double threshold);
+    bool sound(int pin, double threshold);
     double sound_1();
     bool sound_1(double threshold);
     bool sound_1(double threshold, bool invert);
-    bool sound_1(byte pin, double threshold);
+    bool sound_1(int pin, double threshold);
     double gasAlcool();
     bool gasAlcool(double threshold);
     bool gasAlcool(double threshold, bool invert);
-    bool gasAlcool(byte pin, double threshold);
+    bool gasAlcool(int pin, double threshold);
     double gasAlcool_1();
     bool gasAlcool_1(double threshold);
     bool gasAlcool_1(double threshold, bool invert);
-    bool gasAlcool_1(byte pin, double threshold);
+    bool gasAlcool_1(int pin, double threshold);
 
     double batteryStatus();
     double batteryStatus(byte pin);
