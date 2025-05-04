@@ -96,9 +96,11 @@ void Ivotek_Robot::initialization(String nameRobot)
         pinMode(arduinoAnalog3,INPUT_PULLUP);
         pinMode(arduinoAnalog4,INPUT_PULLUP);
         pinMode(arduinoAnalog5,INPUT_PULLUP);
+
+#if BOARD == ARDUINO_NANO
         pinMode(arduinoAnalog6,INPUT_PULLUP);
         pinMode(arduinoAnalog7,INPUT_PULLUP);
-
+#endif // BOARD
 
 #if BOARD == NUCLEO_F030R8
         pinMode(nucleoSwitchSxRear,INPUT_PULLUP);

@@ -11,7 +11,7 @@ class Ivotek_Robot
 private:
     String robotName = "DEFAULT";
     String boardName = "DEFAULT";
-    const String VERSION = "1.0.0";
+    const String VERSION = "1.0.1";
     const double voltageMCU = 5.0;
     const int numADconvertArduinoUno = 1024;
     const int baudRateSerial = 9600;
