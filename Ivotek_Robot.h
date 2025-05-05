@@ -11,14 +11,14 @@ class Ivotek_Robot
 private:
     String robotName = "DEFAULT";
     String boardName = "DEFAULT";
-    const String VERSION = "1.0.1";
+    const String VERSION = "1.0.2";
     const double voltageMCU = 5.0;
     const int numADconvertArduinoUno = 1024;
     const int baudRateSerial = 9600;
     const byte ANALOG_MIN = 0;
     const byte ANALOG_MAX = 255;
 
-#if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
+#if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
     byte arduinoDigit0 = 0;
     byte arduinoDigit1 = 1;
     byte arduinoDigit2 = 2;
@@ -46,11 +46,11 @@ private:
     int arduinoAnalog7 = A7;
 #endif // BOARD
 
-#if BOARD == NUCLEO_F030R8
+#if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
     int arduinoAnalog6 = PC2;
     int arduinoAnalog7 = PC3;
-    int nucleoSwitchSxRear = PF5;
-    int nucleoSwitchDxRear = PF4;
+    int nucleoSwitchSxRear = PC15;
+    int nucleoSwitchDxRear = PC14;
 #endif // BOARD
 
 public:

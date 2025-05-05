@@ -49,8 +49,8 @@
 
 //PIN A6 Ricezione suono_1
 //PIN A7 Ricezine gas_1
-//PIN PF5 NucleoSwitchSxRear
-//PIN PF4 NucleoSwitchDxRear
+//PIN PC15 NucleoSwitchSxRear
+//PIN PC14 NucleoSwitchDxRear
 //*********************************************************
 
 #include "Ivotek_Robot.h"
@@ -64,6 +64,8 @@ void Ivotek_Robot::initialization(String nameRobot)
     boardName = "NUCLEO_F030R8";
 #elif BOARD == ARDUINO_NANO
     boardName = "ARDUINO_NANO";
+#elif BOARD == NUCLEO_F401RE
+    boardName = "NUCLEO_F401RE"
 #endif
 
     nameRobot.toUpperCase();
@@ -102,7 +104,7 @@ void Ivotek_Robot::initialization(String nameRobot)
         pinMode(arduinoAnalog7,INPUT_PULLUP);
 #endif // BOARD
 
-#if BOARD == NUCLEO_F030R8
+#if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
         pinMode(nucleoSwitchSxRear,INPUT_PULLUP);
         pinMode(nucleoSwitchDxRear,INPUT_PULLUP);
 #endif // BOARD
@@ -513,7 +515,7 @@ bool Ivotek_Robot::switchDxFront(bool invert)
     return false;
 }
 
-#if BOARD == NUCLEO_F030R8
+#if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
 bool Ivotek_Robot::switchSxRear()
 {
     if(robotName=="EXPLORER")
@@ -642,7 +644,7 @@ bool Ivotek_Robot::sound(int pin, double threshold)
     return trigger < threshold?true:false;
 }
 
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
 double Ivotek_Robot::sound_1()
 {
     return pinAnalogRead(arduinoAnalog6);
@@ -711,7 +713,7 @@ bool Ivotek_Robot::gasAlcool(double threshold, bool invert)
 
 }
 
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
 double Ivotek_Robot::gasAlcool_1()
 {
     return pinAnalogRead(arduinoAnalog7);
