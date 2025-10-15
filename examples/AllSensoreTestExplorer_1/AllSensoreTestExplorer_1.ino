@@ -3,7 +3,7 @@
 Ivotek_Robot explorer;
 #define luxDx 2
 #define soundLimit 500
-#define gasLimit 500
+#define gasLimit 500.0
 
 void setup() {
   explorer.initialization("explorer");

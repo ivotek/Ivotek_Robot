@@ -1,7 +1,7 @@
 #include <Ivotek_Robot.h>
 
 Ivotek_Robot explorer;
-#define gasLimit 500
+#define gasLimit 500.0
 
 void setup() {
   explorer.initialization("explorer");
