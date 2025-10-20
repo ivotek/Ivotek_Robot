@@ -16,7 +16,7 @@ Fornisce funzionalità di basso livello per sensori, attuatori, controllo motori
 1. Clona questo repository:
    ```bash
    git clone https://github.com/ivotek/Ivotek_Robot.git
-````
+    ```
 
 2. Copia la cartella nella directory delle librerie del tuo ambiente di sviluppo (es. `libraries/` per Arduino).
 3. Includi la libreria nel tuo progetto:
@@ -45,7 +45,7 @@ void loop() {
 }
 ```
 
-> ⚠️ Gli esempi nella cartella `examples/` mostrano casi reali di utilizzo: movimento, lettura sensori, comportamento condizionale, ecc.
+> Gli esempi nella cartella `examples/` mostrano casi reali di utilizzo: movimento, lettura sensori, comportamento condizionale, ecc.
 
 ## Risorse utili
 
