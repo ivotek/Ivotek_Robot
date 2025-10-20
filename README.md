@@ -64,8 +64,9 @@ I contributi sono benvenuti!
 
 ## Licenza
 
-*(Da definire: MIT, GPL-3.0 o altra licenza open source consigliata)*
-Inserire qui i dettagli della licenza una volta scelta.
+La libreria è di proprietà di Daniele Loddo e non può essere venduta o utilizzata per scopi di lucro se
+non dietro autorizzazione dello stesso proprietario.
+
 
 ## Contatti
 
