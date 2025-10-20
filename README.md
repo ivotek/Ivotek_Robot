@@ -1,9 +1,4 @@
-Perfetto! Ecco il contenuto del `README.md` in formato **testo semplice**, pronto per essere copiato e incollato direttamente in un file `.md`:
-
----
-
-````markdown
-# Ivotek_Robot
+## Ivotek_Robot
 Libreria “robotica” per Ivotek – Ivotek Robot Library
 
 ## Descrizione
@@ -75,11 +70,4 @@ Inserire qui i dettagli della licenza una volta scelta.
 ## Contatti
 
 Per dubbi, suggerimenti o collaborazioni, contatta il team di Ivotek oppure apri una *Issue* su GitHub.
-
-```
-
----
-
-✅ Puoi copiare e incollare tutto questo contenuto in un file chiamato `README.md` all’interno della root del tuo repository.
-Se vuoi che inserisca anche la **licenza MIT**, fammi sapere e te la preparo.
-```
+ivotek@gmail.com
