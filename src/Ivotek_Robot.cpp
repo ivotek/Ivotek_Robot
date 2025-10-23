@@ -21,9 +21,21 @@ void Ivotek_Robot::initialization(String name) {
 }
 
 void Ivotek_Robot::forwards()  { if (robot) robot->forwards(); }
+void Ivotek_Robot::forwards(byte speed) { if (robot) robot->forwards(speed); }
+void Ivotek_Robot::forwards(byte speedSx, byte speedDx) { if (robot) robot->forwards(speedSx, speedDx); }
 void Ivotek_Robot::backwards() { if (robot) robot->backwards(); }
-void Ivotek_Robot::turnLeft()  { if (robot) robot->turnLeft(); }
+void Ivotek_Robot::backwards(byte speed) { if (robot) robot->backwards(speed); }
+void Ivotek_Robot::backwards(byte speedSx, byte speedDx) { if (robot) robot->backwards(speedSx, speedDx); }
 void Ivotek_Robot::turnRight() { if (robot) robot->turnRight(); }
+void Ivotek_Robot::turnRight(byte speed) { if (robot) robot->turnRight(speed); }
+
+
+
+
+void Ivotek_Robot::turnLeft()  { if (robot) robot->turnLeft(); }
+void Ivotek_Robot::turnLeft(byte speed)  { if (robot) robot->turnLeft(speed); }
+void Ivotek_Robot::turnLeft(byte speedSx, byte speedDx)  { if (robot) robot->turnLeft(speedSx, speedDx); }
+
 void Ivotek_Robot::stop()      { if (robot) robot->stop(); }
 void Ivotek_Robot::getVersion() { if (robot) robot->getVersion(); }
 

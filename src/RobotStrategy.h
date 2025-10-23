@@ -10,15 +10,24 @@ public:
     virtual void getVersion() = 0;
 
     virtual void initialize() = 0;
+
     virtual void forwards() = 0;
-    virtual void backwards() = 0;
-    virtual void turnLeft() = 0;
-    virtual void turnRight() = 0;
-    virtual void stop() = 0;
-    
-/*
     virtual void forwards(byte speed) = 0;
-    virtual void backwards(byte speed);
+    virtual void forwards(byte speedSx, byte speedDx) = 0;
+    virtual void backwards() = 0;
+    virtual void backwards(byte speed) = 0;
+    virtual void backwards(byte speedSx, byte speedDx) = 0;
+    virtual void turnRight() = 0;
+    virtual void turnRight(byte speed) = 0;
+
+
+    virtual void turnLeft() = 0;
+    virtual void turnLeft(byte speed) = 0;
+    virtual void turnLeft(byte speedSx, byte speedDx) = 0;
+
+    virtual void stop() = 0;
+
+/*
     virtual void turnRight(byte speed);
     virtual void turnLeft(byte speed);
     virtual void turnRight(byte speedSx, byte speedDx);
@@ -109,7 +118,7 @@ public:
     virtual bool genericSwitch(byte pin);
     virtual bool genericSwitch(bool invert, byte pin);
 */
-    
+
 };
 
 #endif
