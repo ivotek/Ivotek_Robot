@@ -24,11 +24,23 @@ public:
     void backwards(byte speedSx, byte speedDx);
     void turnRight();
     void turnRight(byte speed);
+    void turnRight(byte speedSx, byte speedDx);
     void turnLeft();
     void turnLeft(byte speed);
     void turnLeft(byte speedSx, byte speedDx);
-
     void stop();
+
+    void button(bool direction);
+    void analog(double threshold);
+
+    int compass();
+    int compass(byte pin);
+    int accelerometer();
+    int accelerometer(byte pin);
+
+    double ultrasound(byte trigger, byte ultrasound);
+    double ultrasoundSx();
+
 };
 
 #endif

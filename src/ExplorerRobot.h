@@ -4,9 +4,11 @@
 #include "RobotStrategy.h"
 #include "../Config/RobotPins.h"
 
-class ExplorerRobot : public RobotStrategy {
+class ExplorerRobot : public RobotStrategy
+{
 private:
-    RobotPins pins;
+    ArduinoPins arduinoPins;
+    STNucleoPins stNucleoPins;
 
 public:
     ExplorerRobot(); // Costruttore
@@ -21,15 +23,22 @@ public:
     void backwards(byte speedSx, byte speedDx) override;
     void turnRight() override;
     void turnRight(byte speed) override;
-
+    void turnRight(byte speedSx, byte speedDx) override;
     void turnLeft() override;
     void turnLeft(byte speed) override;
     void turnLeft(byte speedSx,byte speedDx) override;
-
-
-
-
     void stop() override;
+
+    void button(bool direction) override;
+    void analog(double threshold) override;
+    int compass() override;
+    int compass(byte pin) override;
+    int accelerometer() override;
+    int accelerometer(byte pin) override;
+
+    double ultrasound(byte trigger, byte ultrasound) override;
+    double ultrasoundSx() override;
+
     void getVersion() override;
 };
 

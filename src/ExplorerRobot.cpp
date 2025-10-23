@@ -6,145 +6,149 @@ ExplorerRobot::ExplorerRobot()
 {
     // Inizializzazione dei pin
 #if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
-    pins.arduinoDigit5 = 5;
-    pins.arduinoDigit6 = 6;
-    pins.arduinoDigit9 = 9;
-    pins.arduinoDigit10 = 10;
+    arduinoPins.d5 = 5;
+    arduinoPins.d6 = 6;
+    arduinoPins.d9 = 9;
+    arduinoPins.d10 = 10;
 #endif
 
 #if BOARD == ARDUINO_NANO
-    pins.arduinoAnalog6 = A6;
-    pins.arduinoAnalog7 = A7;
+    arduinoPins.a6 = A6;
+    arduinoPins.a7 = A7;
 #endif
 
 #if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
-    pins.arduinoAnalog6 = PC2;
-    pins.arduinoAnalog7 = PC3;
-    pins.nucleoSwitchSxRear = PC15;
-    pins.nucleoSwitchDxRear = PC14;
+    stNucleoPins.pc2 = PC2;
+    stNucleoPins.pc3 = PC3;
+    stNucleoPins.pc15 = PC15;
+    stNucleoPins.pc14 = PC14;
 #endif
-    //#else
-    //    #error "The selected card is not supported. Please choose a card from the config.h file.."
-    //#endif
+
 }
 
 void ExplorerRobot::initialize()
 {
-    pinMode(pins.arduinoDigit5, OUTPUT);
-    pinMode(pins.arduinoDigit6, OUTPUT);
-    pinMode(pins.arduinoDigit9, OUTPUT);
-    pinMode(pins.arduinoDigit10, OUTPUT);
+    pinMode(arduinoPins.d5, OUTPUT);
+    pinMode(arduinoPins.d6, OUTPUT);
+    pinMode(arduinoPins.d9, OUTPUT);
+    pinMode(arduinoPins.d10, OUTPUT);
 }
 
 void ExplorerRobot::forwards()
 {
-    analogWrite(pins.arduinoDigit5, 255);
-    analogWrite(pins.arduinoDigit6, 0);
-    analogWrite(pins.arduinoDigit9, 255);
-    analogWrite(pins.arduinoDigit10, 0);
+    analogWrite(arduinoPins.d5, 255);
+    analogWrite(arduinoPins.d6, 0);
+    analogWrite(arduinoPins.d9, 255);
+    analogWrite(arduinoPins.d10, 0);
 }
 
 void ExplorerRobot::forwards(byte speed)
 {
-    analogWrite(pins.arduinoDigit5,speed);
-    analogWrite(pins.arduinoDigit6,0);
-    analogWrite(pins.arduinoDigit9,speed);
-    analogWrite(pins.arduinoDigit10,0);
+    analogWrite(arduinoPins.d5,speed);
+    analogWrite(arduinoPins.d6,0);
+    analogWrite(arduinoPins.d9,speed);
+    analogWrite(arduinoPins.d10,0);
 }
 
 void ExplorerRobot::forwards(byte speedSx, byte speedDx)
 {
-    analogWrite(pins.arduinoDigit5,speedSx);
-    analogWrite(pins.arduinoDigit6,0);
-    analogWrite(pins.arduinoDigit9,speedDx);
-    analogWrite(pins.arduinoDigit10,0);
+    analogWrite(arduinoPins.d5,speedSx);
+    analogWrite(arduinoPins.d6,0);
+    analogWrite(arduinoPins.d9,speedDx);
+    analogWrite(arduinoPins.d10,0);
 
 }
 
 void ExplorerRobot::backwards()
 {
-    analogWrite(pins.arduinoDigit5, 0);
-    analogWrite(pins.arduinoDigit6, 255);
-    analogWrite(pins.arduinoDigit9, 0);
-    analogWrite(pins.arduinoDigit10, 255);
+    analogWrite(arduinoPins.d5, 0);
+    analogWrite(arduinoPins.d6, 255);
+    analogWrite(arduinoPins.d9, 0);
+    analogWrite(arduinoPins.d10, 255);
 }
 
 
 void ExplorerRobot::backwards(byte speed)
 {
-    analogWrite(pins.arduinoDigit5,0);
-    analogWrite(pins.arduinoDigit6,speed);
-    analogWrite(pins.arduinoDigit9,0);
-    analogWrite(pins.arduinoDigit10,speed);
+    analogWrite(arduinoPins.d5,0);
+    analogWrite(arduinoPins.d6,speed);
+    analogWrite(arduinoPins.d9,0);
+    analogWrite(arduinoPins.d10,speed);
 }
 
 void ExplorerRobot::backwards(byte speedSx, byte speedDx)
 {
-    analogWrite(pins.arduinoDigit5,0);
-    analogWrite(pins.arduinoDigit6,speedSx);
-    analogWrite(pins.arduinoDigit9,0);
-    analogWrite(pins.arduinoDigit10,speedDx);
+    analogWrite(arduinoPins.d5,0);
+    analogWrite(arduinoPins.d6,speedSx);
+    analogWrite(arduinoPins.d9,0);
+    analogWrite(arduinoPins.d10,speedDx);
 }
 
+void ExplorerRobot::turnRight()
+{
+    analogWrite(arduinoPins.d5, 255);
+    analogWrite(arduinoPins.d6, 0);
+    analogWrite(arduinoPins.d9, 0);
+    analogWrite(arduinoPins.d10, 255);
+}
 
 void ExplorerRobot::turnRight(byte speed)
 {
-    analogWrite(pins.arduinoDigit5,speed);
-    analogWrite(pins.arduinoDigit6,0);
-    analogWrite(pins.arduinoDigit9,0);
-    analogWrite(pins.arduinoDigit10,speed);
+    analogWrite(arduinoPins.d5,speed);
+    analogWrite(arduinoPins.d6,0);
+    analogWrite(arduinoPins.d9,0);
+    analogWrite(arduinoPins.d10,speed);
+}
+
+void ExplorerRobot::turnRight(byte speedSx, byte speedDx)
+{
+    analogWrite(arduinoPins.d5,speedSx);
+    analogWrite(arduinoPins.d6,0);
+    analogWrite(arduinoPins.d9,0);
+    analogWrite(arduinoPins.d10,speedDx);
+}
+
+void ExplorerRobot::turnLeft()
+{
+    analogWrite(arduinoPins.d5, 0);
+    analogWrite(arduinoPins.d6, 255);
+    analogWrite(arduinoPins.d9, 255);
+    analogWrite(arduinoPins.d10, 0);
 }
 
 void ExplorerRobot::turnLeft(byte speed)
 {
-    analogWrite(pins.arduinoDigit5,0);
-    analogWrite(pins.arduinoDigit6,speed);
-    analogWrite(pins.arduinoDigit9,speed);
-    analogWrite(pins.arduinoDigit10,0);
+    analogWrite(arduinoPins.d5,0);
+    analogWrite(arduinoPins.d6,speed);
+    analogWrite(arduinoPins.d9,speed);
+    analogWrite(arduinoPins.d10,0);
 }
 
 void ExplorerRobot::turnLeft(byte speedSx, byte speedDx)
 {
-    analogWrite(pins.arduinoDigit5,0);
-    analogWrite(pins.arduinoDigit6,speedSx);
-    analogWrite(pins.arduinoDigit9,speedDx);
-    analogWrite(pins.arduinoDigit10,0);
+    analogWrite(arduinoPins.d5,0);
+    analogWrite(arduinoPins.d6,speedSx);
+    analogWrite(arduinoPins.d9,speedDx);
+    analogWrite(arduinoPins.d10,0);
 }
 
-
-/*
-void Ivotek_Robot::turnRight(byte speedSx, byte speedDx)
+void ExplorerRobot::stop()
 {
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
-    {
-        analogWrite(arduinoDigit5,speedSx);
-        analogWrite(arduinoDigit6,0);
-        analogWrite(arduinoDigit9,0);
-        analogWrite(arduinoDigit10,speedDx);
-    }
+    analogWrite(arduinoPins.d5, 0);
+    analogWrite(arduinoPins.d6, 0);
+    analogWrite(arduinoPins.d9, 0);
+    analogWrite(arduinoPins.d10, 0);
 }
 
-void Ivotek_Robot::stop(void)
-{
-    if(robotName == "DEFAULT" || robotName == "EXPLORER")
-    {
-        analogWrite(arduinoDigit5,0);
-        analogWrite(arduinoDigit6,0);
-        analogWrite(arduinoDigit9,0);
-        analogWrite(arduinoDigit10,0);
-    }
-}
+void ExplorerRobot::button(bool direction) {}
+void ExplorerRobot::analog(double threshold) {}
+int ExplorerRobot::compass() {}
+int ExplorerRobot::compass(byte pin) {}
+int ExplorerRobot::accelerometer() {}
+int ExplorerRobot::accelerometer(byte pin) {}
 
-void Ivotek_Robot::button(bool direction) {}
 
-void Ivotek_Robot::analog(double threshold) {}
-
-int Ivotek_Robot::compass() {}
-int Ivotek_Robot::compass(byte pin) {}
-int Ivotek_Robot::accelerometer() {}
-int Ivotek_Robot::accelerometer(byte pin) {}
-
-double Ivotek_Robot::ultrasound(byte trigger, byte ultrasound)
+double ExplorerRobot::ultrasound(byte trigger, byte ultrasound)
 {
     double tempoEcho = 0;
 
@@ -162,19 +166,17 @@ double Ivotek_Robot::ultrasound(byte trigger, byte ultrasound)
     return 0.034 * tempoEcho / 2;
 }
 
-double Ivotek_Robot::ultrasoundSx()
+double ExplorerRobot::ultrasoundSx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return Ivotek_Robot::ultrasound(arduinoDigit3, arduinoDigit11);
-    }
+    return ExplorerRobot::ultrasound(arduinoPins.d3, arduinoPins.d11);
 }
 
+/*
 double Ivotek_Robot::ultrasoundCx()
 {
     if(robotName=="POORV2" || robotName=="EXPLORER")
     {
-        return Ivotek_Robot::ultrasound(arduinoDigit3, arduinoDigit13);
+        return Ivotek_Robot::ultrasound(d3, d13);
     }
 }
 
@@ -182,7 +184,7 @@ double Ivotek_Robot::ultrasoundDx()
 {
     if(robotName=="POORV2" || robotName=="EXPLORER")
     {
-        return Ivotek_Robot::ultrasound(arduinoDigit3, arduinoDigit12);
+        return Ivotek_Robot::ultrasound(d3, d12);
     }
 }
 
@@ -252,7 +254,7 @@ double Ivotek_Robot::lightSx()
 {
     if(robotName=="POORV2" || robotName=="EXPLORER")
     {
-        return light(arduinoAnalog1);
+        return light(a1);
     }
 }
 
@@ -260,7 +262,7 @@ double Ivotek_Robot::lightCx()
 {
     if(robotName=="POORV2" || robotName=="EXPLORER")
     {
-        return light(arduinoAnalog2);
+        return light(a2);
     }
 }
 
@@ -268,7 +270,7 @@ double Ivotek_Robot::lightDx()
 {
     if(robotName=="POORV2" || robotName=="EXPLORER")
     {
-        return light(arduinoAnalog3);
+        return light(a3);
     }
 }
 
@@ -283,7 +285,7 @@ bool Ivotek_Robot::lightSx(double threshold)
 {
     if(robotName=="POORV2" || robotName=="EXPLORER")
     {
-        return light(arduinoAnalog1,threshold);
+        return light(a1,threshold);
     }
 }
 
@@ -291,7 +293,7 @@ bool Ivotek_Robot::lightCx(double threshold)
 {
     if(robotName=="POORV2" || robotName=="EXPLORER")
     {
-        return light(arduinoAnalog2,threshold);
+        return light(a2,threshold);
     }
 }
 
@@ -299,7 +301,7 @@ bool Ivotek_Robot::lightDx(double threshold)
 {
     if(robotName=="POORV2" || robotName=="EXPLORER")
     {
-        return light(arduinoAnalog3,threshold);
+        return light(a3,threshold);
     }
 }
 
@@ -307,7 +309,7 @@ double Ivotek_Robot::batteryStatus()
 {
     if(robotName=="POORV2" || robotName=="EXPLORER")
     {
-        return batteryStatus(arduinoAnalog0);
+        return batteryStatus(a0);
     }
     return 0;
 }
@@ -326,7 +328,7 @@ bool Ivotek_Robot::batteryStatus(double threshold)
     double trigger = 0;
     if(robotName=="POORV2")
     {
-        trigger = batteryStatus(arduinoAnalog0);
+        trigger = batteryStatus(a0);
     }
     return trigger < threshold?true:false;
 }
@@ -361,7 +363,7 @@ bool Ivotek_Robot::switchSxFront()
 {
     if(robotName=="EXPLORER")
     {
-        return genericSwitch(arduinoDigit7);
+        return genericSwitch(d7);
     }
     return false;
 }
@@ -370,7 +372,7 @@ bool Ivotek_Robot::switchDxFront()
 {
     if(robotName=="EXPLORER")
     {
-        return genericSwitch(arduinoDigit4);
+        return genericSwitch(d4);
     }
     return false;
 }
@@ -379,7 +381,7 @@ bool Ivotek_Robot::switchSxFront(bool invert)
 {
     if(robotName=="EXPLORER")
     {
-        return genericSwitch(arduinoDigit7,invert);
+        return genericSwitch(d7,invert);
     }
     return false;
 }
@@ -388,7 +390,7 @@ bool Ivotek_Robot::switchDxFront(bool invert)
 {
     if(robotName=="EXPLORER")
     {
-        return genericSwitch(arduinoDigit4,invert);
+        return genericSwitch(d4,invert);
     }
     return false;
 }
@@ -460,37 +462,37 @@ void Ivotek_Robot::pinDigitalOff(byte pin)
 
 void Ivotek_Robot::ledSoundOn()
 {
-    pinDigitalOn(arduinoDigit8);
+    pinDigitalOn(d8);
 }
 
 void Ivotek_Robot::ledSoundOff()
 {
-    pinDigitalOff(arduinoDigit8);
+    pinDigitalOff(d8);
 }
 
 void Ivotek_Robot::ledLightOn()
 {
-    pinDigitalOn(arduinoDigit2);
+    pinDigitalOn(d2);
 }
 
 void Ivotek_Robot::ledLightOff()
 {
-    pinDigitalOff(arduinoDigit2);
+    pinDigitalOff(d2);
 }
 
 void Ivotek_Robot::ledGasOn()
 {
-    pinAnalogOn(arduinoAnalog0);
+    pinAnalogOn(a0);
 }
 
 void Ivotek_Robot::ledGasOff()
 {
-    pinAnalogOff(arduinoAnalog0);
+    pinAnalogOff(a0);
 }
 
 double Ivotek_Robot::sound()
 {
-    return pinAnalogRead(arduinoAnalog4);
+    return pinAnalogRead(a4);
 }
 
 bool Ivotek_Robot::sound(double threshold)
@@ -525,7 +527,7 @@ bool Ivotek_Robot::sound(int pin, double threshold)
 #if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
 double Ivotek_Robot::sound_1()
 {
-    return pinAnalogRead(arduinoAnalog6);
+    return pinAnalogRead(a6);
 }
 
 bool Ivotek_Robot::sound_1(double threshold)
@@ -559,7 +561,7 @@ bool Ivotek_Robot::sound_1(int pin, double threshold)
 
 double Ivotek_Robot::gasAlcool()
 {
-    return pinAnalogRead(arduinoAnalog5);
+    return pinAnalogRead(a5);
 }
 
 bool Ivotek_Robot::gasAlcool(double threshold)
@@ -594,7 +596,7 @@ bool Ivotek_Robot::gasAlcool(double threshold, bool invert)
 #if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
 double Ivotek_Robot::gasAlcool_1()
 {
-    return pinAnalogRead(arduinoAnalog7);
+    return pinAnalogRead(a7);
 }
 
 bool Ivotek_Robot::gasAlcool_1(double threshold)
@@ -638,29 +640,6 @@ void Ivotek_Robot::getVersion()
 }
 */
 
-void ExplorerRobot::turnLeft()
-{
-    analogWrite(pins.arduinoDigit5, 0);
-    analogWrite(pins.arduinoDigit6, 255);
-    analogWrite(pins.arduinoDigit9, 255);
-    analogWrite(pins.arduinoDigit10, 0);
-}
-
-void ExplorerRobot::turnRight()
-{
-    analogWrite(pins.arduinoDigit5, 255);
-    analogWrite(pins.arduinoDigit6, 0);
-    analogWrite(pins.arduinoDigit9, 0);
-    analogWrite(pins.arduinoDigit10, 255);
-}
-
-void ExplorerRobot::stop()
-{
-    analogWrite(pins.arduinoDigit5, 0);
-    analogWrite(pins.arduinoDigit6, 0);
-    analogWrite(pins.arduinoDigit9, 0);
-    analogWrite(pins.arduinoDigit10, 0);
-}
 
 void ExplorerRobot::getVersion()
 {

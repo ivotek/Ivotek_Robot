@@ -1,37 +1,39 @@
 // RobotPins.h
-#ifndef ROBOT_PINS_H
-#define ROBOT_PINS_H
+#ifndef ROBOTdPINSdH
+#define ROBOTdPINSdH
 
 #include <Arduino.h>
 
-struct RobotPins {
-    byte arduinoDigit0;
-    byte arduinoDigit1;
-    byte arduinoDigit2;
-    byte arduinoDigit3;
-    byte arduinoDigit4;
-    byte arduinoDigit5;
-    byte arduinoDigit6;
-    byte arduinoDigit7;
-    byte arduinoDigit8;
-    byte arduinoDigit9;
-    byte arduinoDigit10;
-    byte arduinoDigit11;
-    byte arduinoDigit12;
-    byte arduinoDigit13;
-    byte arduinoAnalog0;
-    byte arduinoAnalog1;
-    byte arduinoAnalog2;
-    byte arduinoAnalog3;
-    byte arduinoAnalog4;
-    byte arduinoAnalog5;
-    int arduinoAnalog6 = A6;
-    int arduinoAnalog7 = A7;
-    //int arduinoAnalog6 = PC2;
-    //int arduinoAnalog7 = PC3;
-    int nucleoSwitchSxRear = PC15;
-    int nucleoSwitchDxRear = PC14;
-    
+struct ArduinoPins {
+    byte d0;
+    byte d1;
+    byte d2;
+    byte d3;
+    byte d4;
+    byte d5;
+    byte d6;
+    byte d7;
+    byte d8;
+    byte d9;
+    byte d10;
+    byte d11;
+    byte d12;
+    byte d13;
+    byte a0;
+    byte a1;
+    byte a2;
+    byte a3;
+    byte a4;
+    byte a5;
+    byte a6;
+    byte a7;
+};
+
+struct STNucleoPins{
+    int pc2;
+    int pc3;
+    int pc15;
+    int pc14;
 };
 
 #endif
