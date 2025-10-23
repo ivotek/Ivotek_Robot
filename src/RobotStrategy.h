@@ -34,6 +34,22 @@ public:
 
     virtual double ultrasound(byte trigger, byte ultrasound) = 0;
     virtual double ultrasoundSx() = 0;
+    virtual double ultrasoundCx() = 0;
+    virtual double ultrasoundDx() = 0;
+    virtual bool ultrasound(byte trigger, byte echo, double threshold) = 0;
+    virtual bool ultrasoundSx(double threshold) = 0;
+    virtual bool ultrasoundCx(double threshold) = 0;
+    virtual bool ultrasoundDx(double threshold) = 0;
+
+    virtual double pinAnalogRead(int pin) = 0;
+    virtual bool pinDigitalRead(byte pin) = 0;
+    virtual void pinAnalogWrite(int pin, double value) = 0;
+    virtual void pinDigitalWrite(byte pin, bool value) = 0;
+
+    virtual double light(byte pin) = 0;
+    virtual double lightSx() = 0;
+    virtual double lightCx() = 0;
+    virtual double lightDx() = 0;
 
     virtual void stop() = 0;
 

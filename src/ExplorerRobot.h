@@ -38,6 +38,22 @@ public:
 
     double ultrasound(byte trigger, byte ultrasound) override;
     double ultrasoundSx() override;
+    double ultrasoundCx() override;
+    double ultrasoundDx() override;
+    bool ultrasound (byte trigger, byte echo, double threshold) override;
+    bool ultrasoundSx (double threshold) override;
+    bool ultrasoundCx (double threshold) override;
+    bool ultrasoundDx (double threshold) override;
+
+    double pinAnalogRead(int pin) override;
+    bool pinDigitalRead(byte pin) override;
+    void pinAnalogWrite(int pin, double value) override;
+    void pinDigitalWrite(byte pin, bool value) override;
+
+    double light(byte pin) override;
+    double lightSx() override;
+    double lightCx() override;
+    double lightDx() override;
 
     void getVersion() override;
 };

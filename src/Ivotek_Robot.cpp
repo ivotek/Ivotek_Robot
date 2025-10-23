@@ -44,6 +44,22 @@ int Ivotek_Robot::accelerometer(byte pin) { if (robot) robot->accelerometer(pin)
 
 double Ivotek_Robot::ultrasound(byte trigger, byte ultrasound) { if (robot) robot->ultrasound(trigger,ultrasound); }
 double Ivotek_Robot::ultrasoundSx() { if (robot) robot->ultrasoundSx(); }
+double Ivotek_Robot::ultrasoundCx() { if (robot) robot->ultrasoundCx(); }
+double Ivotek_Robot::ultrasoundDx() { if (robot) robot->ultrasoundDx(); }
+bool Ivotek_Robot::ultrasound(byte trigger, byte echo, double threshold) { if (robot) robot->ultrasound(trigger,echo, threshold); }
+bool Ivotek_Robot::ultrasoundSx(double threshold) { if (robot) robot->ultrasoundSx(threshold); }
+bool Ivotek_Robot::ultrasoundCx(double threshold) { if (robot) robot->ultrasoundCx(threshold); }
+bool Ivotek_Robot::ultrasoundDx(double threshold) { if (robot) robot->ultrasoundDx(threshold); }
+
+double Ivotek_Robot::pinAnalogRead(int pin) { if (robot) robot->pinAnalogRead(pin); };
+bool Ivotek_Robot::pinDigitalRead(byte pin) { if (robot) robot->pinDigitalRead(pin); };
+void Ivotek_Robot::pinAnalogWrite(int pin, double value) { if (robot) robot->pinAnalogWrite(pin, value); };
+void Ivotek_Robot::pinDigitalWrite(byte pin, bool value) { if (robot) robot->pinDigitalWrite(pin, value); };
+
+double Ivotek_Robot::light(byte pin) { if (robot) robot->light(pin); };;
+double Ivotek_Robot::lightSx() { if (robot) robot->lightSx(); };;
+double Ivotek_Robot::lightCx() { if (robot) robot->lightCx(); };;
+double Ivotek_Robot::lightDx() { if (robot) robot->lightDx(); };;
 
 void Ivotek_Robot::stop() { if (robot) robot->stop(); }
 void Ivotek_Robot::getVersion() { if (robot) robot->getVersion(); }

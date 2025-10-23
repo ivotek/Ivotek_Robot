@@ -40,6 +40,23 @@ public:
 
     double ultrasound(byte trigger, byte ultrasound);
     double ultrasoundSx();
+    double ultrasoundCx();
+    double ultrasoundDx();
+    bool ultrasound(byte trigger, byte echo, double threshold);
+    bool ultrasoundSx(double threshold);
+    bool ultrasoundCx(double threshold);
+    bool ultrasoundDx(double threshold);
+
+    double pinAnalogRead(int pin);
+    bool pinDigitalRead(byte pin);
+    void pinAnalogWrite(int pin, double value);
+    void pinDigitalWrite(byte pin, bool value);
+
+    double light(byte pin);
+    double lightSx();
+    double lightCx();
+    double lightDx();
+
 
 };
 

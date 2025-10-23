@@ -171,109 +171,93 @@ double ExplorerRobot::ultrasoundSx()
     return ExplorerRobot::ultrasound(arduinoPins.d3, arduinoPins.d11);
 }
 
-/*
-double Ivotek_Robot::ultrasoundCx()
+
+double ExplorerRobot::ultrasoundCx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return Ivotek_Robot::ultrasound(d3, d13);
-    }
+    return ExplorerRobot::ultrasound(arduinoPins.d3, arduinoPins.d13);
 }
 
-double Ivotek_Robot::ultrasoundDx()
+double ExplorerRobot::ultrasoundDx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return Ivotek_Robot::ultrasound(d3, d12);
-    }
+    return ExplorerRobot::ultrasound(arduinoPins.d3, arduinoPins.d12);
 }
 
-bool Ivotek_Robot::ultrasound (byte trigger, byte echo, double threshold)
+bool ExplorerRobot::ultrasound (byte trigger, byte echo, double threshold)
 {
-    if(boardName == "ARDUINO_UNO" || boardName == "DEFAULT")
-    {
-        double distance = 0;
-        distance = Ivotek_Robot::ultrasound(trigger, echo);
-        return distance < threshold && distance > 0 ?true:false;
-    }
+    double distance = 0;
+    distance = ExplorerRobot::ultrasound(trigger, echo);
+    return distance < threshold && distance > 0 ?true:false;
 }
 
-bool Ivotek_Robot::ultrasoundSx (double threshold)
+bool ExplorerRobot::ultrasoundSx (double threshold)
 {
     double distance = 0;
     distance = ultrasoundSx();
     return distance < threshold && distance > 0 ?true:false;
 }
 
-bool Ivotek_Robot::ultrasoundCx (double threshold)
+bool ExplorerRobot::ultrasoundCx (double threshold)
 {
     double distance = 0;
     distance = ultrasoundCx();
     return distance < threshold && distance > 0 ?true:false;
 }
 
-bool Ivotek_Robot::ultrasoundDx (double threshold)
+bool ExplorerRobot::ultrasoundDx (double threshold)
 {
 
     double distance = 0;
     distance = ultrasoundDx();
-
     return distance < threshold && distance > 0?true:false;
 }
 
-double Ivotek_Robot::pinAnalogRead(int pin)
+
+double ExplorerRobot::pinAnalogRead(int pin)
 {
     return analogRead(pin);
 }
 
-bool Ivotek_Robot::pinDigitalRead(byte pin)
+bool ExplorerRobot::pinDigitalRead(byte pin)
 {
     return digitalRead(pin);
 }
 
-void Ivotek_Robot::pinAnalogWrite(byte pin, double value)
+void ExplorerRobot::pinAnalogWrite(int pin, double value)
 {
     return analogWrite(pin, value);
 }
 
-void Ivotek_Robot::pinDigitalWrite(byte pin, bool value)
+void ExplorerRobot::pinDigitalWrite(byte pin, bool value)
 {
     return digitalWrite(pin, value);
 }
 
-double Ivotek_Robot::light(byte pin)
+//TODO DA Variare in base alla BOARD
+double ExplorerRobot::light(byte pin)
 {
     double vFoto = 0;
     vFoto = analogRead(pin);
-    return vFoto * (voltageMCU / numADconvertArduinoUno);
+    return vFoto * (RobotInfo::getVoltageMCU() / RobotInfo::getNumADconvertArduinoUno());
 }
 
 //TODO Inserire inverisone del valore
 
-double Ivotek_Robot::lightSx()
+double ExplorerRobot::lightSx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return light(a1);
-    }
+    return light(arduinoPins.a1);
 }
 
-double Ivotek_Robot::lightCx()
+double ExplorerRobot::lightCx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return light(a2);
-    }
+    return light(arduinoPins.a2);
 }
 
-double Ivotek_Robot::lightDx()
+double ExplorerRobot::lightDx()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return light(a3);
-    }
+    return light(arduinoPins.a3);
 }
 
+/*
 bool Ivotek_Robot::light(byte pin, double threshold)
 {
     double vFoto = 0;
