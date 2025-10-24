@@ -85,6 +85,23 @@ public:
     void pinDigitalOn(byte pin);
     void pinDigitalOff(byte pin);
 
+    void ledSoundOn();
+    void ledSoundOff();
+    void ledLightOn();
+    void ledLightOff();
+    void ledGasOn();
+    void ledGasOff();
+
+    double sound();
+    bool sound(double threshold);
+    bool sound(double threshold, bool invert);
+    bool sound(int pin, double threshold);
+
+    double gasAlcool();
+    bool gasAlcool(double threshold);
+    bool gasAlcool(int pin, double threshold);
+    bool gasAlcool(double threshold, bool invert);
+
 
 };
 

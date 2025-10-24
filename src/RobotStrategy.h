@@ -78,6 +78,24 @@ public:
     virtual void pinDigitalOn(byte pin) = 0;
     virtual void pinDigitalOff(byte pin) = 0;
 
+
+    virtual void ledSoundOn() = 0;
+    virtual void ledSoundOff() = 0;
+    virtual void ledLightOn() = 0;
+    virtual void ledLightOff() = 0;
+    virtual void ledGasOn() = 0;
+    virtual void ledGasOff() = 0;
+
+    virtual double sound() = 0;
+    virtual bool sound(double threshold) = 0;
+    virtual bool sound(double threshold, bool invert) = 0;
+    virtual bool sound(int pin, double threshold) = 0;
+
+    virtual double gasAlcool() = 0;
+    virtual bool gasAlcool(double threshold) = 0;
+    virtual bool gasAlcool(int pin, double threshold) = 0;
+    virtual bool gasAlcool(double threshold, bool invert) = 0;
+
     virtual void stop() = 0;
 
     /*

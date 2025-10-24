@@ -413,51 +413,49 @@ void ExplorerRobot::pinDigitalOff(byte pin)
     digitalWrite(pin, LOW);
 }
 
-/*
-
-void Ivotek_Robot::ledSoundOn()
+void ExplorerRobot::ledSoundOn()
 {
-    pinDigitalOn(d8);
+    pinDigitalOn(arduinoPins.d8);
 }
 
-void Ivotek_Robot::ledSoundOff()
+void ExplorerRobot::ledSoundOff()
 {
-    pinDigitalOff(d8);
+    pinDigitalOff(arduinoPins.d8);
 }
 
-void Ivotek_Robot::ledLightOn()
+void ExplorerRobot::ledLightOn()
 {
-    pinDigitalOn(d2);
+    pinDigitalOn(arduinoPins.d2);
 }
 
-void Ivotek_Robot::ledLightOff()
+void ExplorerRobot::ledLightOff()
 {
-    pinDigitalOff(d2);
+    pinDigitalOff(arduinoPins.d2);
 }
 
-void Ivotek_Robot::ledGasOn()
+void ExplorerRobot::ledGasOn()
 {
-    pinAnalogOn(a0);
+    pinAnalogOn(arduinoPins.a0);
 }
 
-void Ivotek_Robot::ledGasOff()
+void ExplorerRobot::ledGasOff()
 {
-    pinAnalogOff(a0);
+    pinAnalogOff(arduinoPins.a0);
 }
 
-double Ivotek_Robot::sound()
+double ExplorerRobot::sound()
 {
-    return pinAnalogRead(a4);
+    return pinAnalogRead(arduinoPins.a4);
 }
 
-bool Ivotek_Robot::sound(double threshold)
+bool ExplorerRobot::sound(double threshold)
 {
     double trigger = 0;
     trigger = sound();
     return trigger < threshold ? true : false;
 }
 
-bool Ivotek_Robot::sound(double threshold, bool invert)
+bool ExplorerRobot::sound(double threshold, bool invert)
 {
     double trigger = 0;
     trigger = sound();
@@ -471,13 +469,14 @@ bool Ivotek_Robot::sound(double threshold, bool invert)
     }
 }
 
-bool Ivotek_Robot::sound(int pin, double threshold)
+bool ExplorerRobot::sound(int pin, double threshold)
 {
     double trigger = 0;
     trigger = pinAnalogRead(pin);
     return trigger < threshold ? true : false;
 }
 
+/*
 #if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
 double Ivotek_Robot::sound_1()
 {
@@ -513,26 +512,29 @@ bool Ivotek_Robot::sound_1(int pin, double threshold)
 }
 #endif
 
-double Ivotek_Robot::gasAlcool()
+*/
+
+
+double ExplorerRobot::gasAlcool()
 {
-    return pinAnalogRead(a5);
+    return pinAnalogRead(arduinoPins.a5);
 }
 
-bool Ivotek_Robot::gasAlcool(double threshold)
+bool ExplorerRobot::gasAlcool(double threshold)
 {
     double trigger = 0;
     trigger = sound();
     return trigger < threshold ? true : false;
 }
 
-bool Ivotek_Robot::gasAlcool(int pin, double threshold)
+bool ExplorerRobot::gasAlcool(int pin, double threshold)
 {
     double trigger = 0;
     trigger = pinAnalogRead(pin);
     return trigger < threshold ? true : false;
 }
 
-bool Ivotek_Robot::gasAlcool(double threshold, bool invert)
+bool ExplorerRobot::gasAlcool(double threshold, bool invert)
 {
     double trigger = 0;
     trigger = gasAlcool();
@@ -546,6 +548,7 @@ bool Ivotek_Robot::gasAlcool(double threshold, bool invert)
     }
 }
 
+/*
 #if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
 double Ivotek_Robot::gasAlcool_1()
 {

@@ -34,6 +34,7 @@ void Ivotek_Robot::turnRight(byte speedSx, byte speedDx) { if (robot) robot->tur
 void Ivotek_Robot::turnLeft() { if (robot) robot->turnLeft(); }
 void Ivotek_Robot::turnLeft(byte speed) { if (robot) robot->turnLeft(speed); }
 void Ivotek_Robot::turnLeft(byte speedSx, byte speedDx) { if (robot) robot->turnLeft(speedSx, speedDx); }
+void Ivotek_Robot::stop() { if (robot) robot->stop(); }
 
 void Ivotek_Robot::button(bool direction) { if (robot) robot->button(direction); }
 void Ivotek_Robot::analog(double threshold) { if (robot) robot->analog(threshold); }
@@ -89,7 +90,24 @@ void Ivotek_Robot::pinAnalogOff(byte pin) { if (robot) robot->pinAnalogOff(pin);
 void Ivotek_Robot::pinDigitalOn(byte pin)  { if (robot) robot->pinDigitalOn(pin); };
 void Ivotek_Robot::pinDigitalOff(byte pin)  { if (robot) robot->pinDigitalOff(pin); };
 
-void Ivotek_Robot::stop() { if (robot) robot->stop(); }
+
+void Ivotek_Robot::ledSoundOn() { if (robot) robot->ledSoundOn(); };
+void Ivotek_Robot::ledSoundOff() { if (robot) robot->ledSoundOff(); };
+void Ivotek_Robot::ledLightOn() { if (robot) robot->ledLightOn(); }; 
+void Ivotek_Robot::ledLightOff() { if (robot) robot->ledLightOff(); };
+void Ivotek_Robot::ledGasOn() { if (robot) robot->ledGasOn(); };
+void Ivotek_Robot::ledGasOff() { if (robot) robot->ledGasOff(); };
+
+double Ivotek_Robot::sound() { if (robot) robot->sound(); };
+bool Ivotek_Robot:: sound(double threshold) { if (robot) robot->sound(threshold); };
+bool Ivotek_Robot:: sound(double threshold, bool invert) { if (robot) robot->sound(threshold, invert); };
+bool Ivotek_Robot:: sound(int pin, double threshold) { if (robot) robot->sound(pin, threshold); };
+
+double Ivotek_Robot::gasAlcool() { if (robot) robot->gasAlcool(); };
+bool Ivotek_Robot::gasAlcool(double threshold) { if (robot) robot->gasAlcool(threshold); };
+bool Ivotek_Robot::gasAlcool(int pin, double threshold) { if (robot) robot->gasAlcool(pin, threshold); };
+bool Ivotek_Robot::gasAlcool(double threshold, bool invert) { if (robot) robot->gasAlcool(threshold, invert); };
+
 void Ivotek_Robot::getVersion() { if (robot) robot->getVersion(); }
 
 

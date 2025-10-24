@@ -83,6 +83,23 @@ public:
     void pinDigitalOn(byte pin) override;
     void pinDigitalOff(byte pin) override;
 
+    void ledSoundOn() override;
+    void ledSoundOff() override;
+    void ledLightOn() override;
+    void ledLightOff() override;
+    void ledGasOn() override;
+    void ledGasOff() override;
+
+    double sound() override;
+    bool sound(double threshold) override;
+    bool sound(double threshold, bool invert) override;
+    bool sound(int pin, double threshold) override;
+
+    double gasAlcool() override;
+    bool gasAlcool(double threshold) override;
+    bool gasAlcool(int pin, double threshold) override;
+    bool gasAlcool(double threshold, bool invert) override;
+
     void getVersion() override;
 };
 #endif
