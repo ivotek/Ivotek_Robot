@@ -73,6 +73,11 @@ public:
     virtual int humidity(byte pin) = 0;
     virtual bool humidity(byte pin, double threshold) = 0;
 
+    virtual void pinAnalogOn(byte pin) = 0;
+    virtual void pinAnalogOff(byte pin) = 0;
+    virtual void pinDigitalOn(byte pin) = 0;
+    virtual void pinDigitalOff(byte pin) = 0;
+
     virtual void stop() = 0;
 
     /*

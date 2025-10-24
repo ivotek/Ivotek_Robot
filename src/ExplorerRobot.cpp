@@ -393,28 +393,27 @@ bool Ivotek_Robot::switchDxRear(bool invert)
 #endif // BOARD
 */
 
-
-
-/*
-void Ivotek_Robot::pinAnalogOn(byte pin)
+void ExplorerRobot::pinAnalogOn(byte pin)
 {
     analogWrite(pin, 255);
 }
 
-void Ivotek_Robot::pinAnalogOff(byte pin)
+void ExplorerRobot::pinAnalogOff(byte pin)
 {
     analogWrite(pin, 0);
 }
 
-void Ivotek_Robot::pinDigitalOn(byte pin)
+void ExplorerRobot::pinDigitalOn(byte pin)
 {
     digitalWrite(pin, 255);
 }
 
-void Ivotek_Robot::pinDigitalOff(byte pin)
+void ExplorerRobot::pinDigitalOff(byte pin)
 {
     digitalWrite(pin, LOW);
 }
+
+/*
 
 void Ivotek_Robot::ledSoundOn()
 {

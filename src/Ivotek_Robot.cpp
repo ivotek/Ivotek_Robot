@@ -84,6 +84,11 @@ int Ivotek_Robot::humidity()  { if (robot) robot->humidity(); };
 int Ivotek_Robot::humidity(byte pin)  { if (robot) robot->humidity(pin); };
 bool Ivotek_Robot::humidity(byte pin, double threshold)  { if (robot) robot->humidity(pin, threshold); };
 
+void Ivotek_Robot::pinAnalogOn(byte pin) { if (robot) robot->pinAnalogOn(pin); };
+void Ivotek_Robot::pinAnalogOff(byte pin) { if (robot) robot->pinAnalogOff(pin); };
+void Ivotek_Robot::pinDigitalOn(byte pin)  { if (robot) robot->pinDigitalOn(pin); };
+void Ivotek_Robot::pinDigitalOff(byte pin)  { if (robot) robot->pinDigitalOff(pin); };
+
 void Ivotek_Robot::stop() { if (robot) robot->stop(); }
 void Ivotek_Robot::getVersion() { if (robot) robot->getVersion(); }
 

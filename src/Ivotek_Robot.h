@@ -80,6 +80,11 @@ public:
     int humidity(byte pin);
     bool humidity(byte pin, double threshold);
 
+    void pinAnalogOn(byte pin);
+    void pinAnalogOff(byte pin);
+    void pinDigitalOn(byte pin);
+    void pinDigitalOff(byte pin);
+
 
 };
 

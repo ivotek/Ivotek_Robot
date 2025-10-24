@@ -78,6 +78,11 @@ public:
     int humidity(byte pin) override;
     bool humidity(byte pin, double threshold) override;
 
+    void pinAnalogOn(byte pin) override;
+    void pinAnalogOff(byte pin) override;
+    void pinDigitalOn(byte pin) override;
+    void pinDigitalOff(byte pin) override;
+
     void getVersion() override;
 };
 #endif
