@@ -54,9 +54,18 @@ public:
     double lightSx() override;
     double lightCx() override;
     double lightDx() override;
+    bool light(byte pin, double threshold) override;
+    bool lightSx(double threshold) override;
+    bool lightCx(double threshold) override;
+    bool lightDx(double threshold) override;
+
+    double batteryStatus() override;
+    double batteryStatus(byte pin) override;
+    bool batteryStatus(double threshold) override;
+    bool batteryStatus(byte pin, double threshold) override;
 
     void getVersion() override;
-};
 
+};
 #endif
 

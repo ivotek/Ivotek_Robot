@@ -51,15 +51,24 @@ bool Ivotek_Robot::ultrasoundSx(double threshold) { if (robot) robot->ultrasound
 bool Ivotek_Robot::ultrasoundCx(double threshold) { if (robot) robot->ultrasoundCx(threshold); }
 bool Ivotek_Robot::ultrasoundDx(double threshold) { if (robot) robot->ultrasoundDx(threshold); }
 
-double Ivotek_Robot::pinAnalogRead(int pin) { if (robot) robot->pinAnalogRead(pin); };
-bool Ivotek_Robot::pinDigitalRead(byte pin) { if (robot) robot->pinDigitalRead(pin); };
-void Ivotek_Robot::pinAnalogWrite(int pin, double value) { if (robot) robot->pinAnalogWrite(pin, value); };
-void Ivotek_Robot::pinDigitalWrite(byte pin, bool value) { if (robot) robot->pinDigitalWrite(pin, value); };
+double Ivotek_Robot::pinAnalogRead(int pin) { if (robot) robot->pinAnalogRead(pin); }
+bool Ivotek_Robot::pinDigitalRead(byte pin) { if (robot) robot->pinDigitalRead(pin); }
+void Ivotek_Robot::pinAnalogWrite(int pin, double value) { if (robot) robot->pinAnalogWrite(pin, value); }
+void Ivotek_Robot::pinDigitalWrite(byte pin, bool value) { if (robot) robot->pinDigitalWrite(pin, value); }
 
-double Ivotek_Robot::light(byte pin) { if (robot) robot->light(pin); };;
-double Ivotek_Robot::lightSx() { if (robot) robot->lightSx(); };;
-double Ivotek_Robot::lightCx() { if (robot) robot->lightCx(); };;
-double Ivotek_Robot::lightDx() { if (robot) robot->lightDx(); };;
+double Ivotek_Robot::light(byte pin) { if (robot) robot->light(pin); }
+double Ivotek_Robot::lightSx() { if (robot) robot->lightSx(); }
+double Ivotek_Robot::lightCx() { if (robot) robot->lightCx(); }
+double Ivotek_Robot::lightDx() { if (robot) robot->lightDx(); }
+bool Ivotek_Robot::light(byte pin, double threshold) { if (robot) robot->light(pin, threshold); }
+bool Ivotek_Robot::lightSx(double threshold) { if (robot) robot->lightSx(threshold); }
+bool Ivotek_Robot::lightCx(double threshold) { if (robot) robot->lightCx(threshold); }
+bool Ivotek_Robot::lightDx(double threshold) { if (robot) robot->lightDx(threshold); }
+
+double Ivotek_Robot::batteryStatus() { if (robot) robot->batteryStatus(); };
+double Ivotek_Robot::batteryStatus(byte pin) { if (robot) robot->batteryStatus(pin); };
+bool Ivotek_Robot::batteryStatus(double threshold) { if (robot) robot->batteryStatus(threshold); };
+bool Ivotek_Robot::batteryStatus(byte pin, double threshold) { if (robot) robot->batteryStatus(pin, threshold); };
 
 void Ivotek_Robot::stop() { if (robot) robot->stop(); }
 void Ivotek_Robot::getVersion() { if (robot) robot->getVersion(); }

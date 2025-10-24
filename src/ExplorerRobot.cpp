@@ -67,7 +67,6 @@ void ExplorerRobot::backwards()
     analogWrite(arduinoPins.d10, 255);
 }
 
-
 void ExplorerRobot::backwards(byte speed)
 {
     analogWrite(arduinoPins.d5,0);
@@ -257,73 +256,58 @@ double ExplorerRobot::lightDx()
     return light(arduinoPins.a3);
 }
 
-/*
-bool Ivotek_Robot::light(byte pin, double threshold)
+bool ExplorerRobot::light(byte pin, double threshold)
 {
     double vFoto = 0;
     vFoto = light(pin);
     return vFoto < threshold ? true: false;
 }
 
-bool Ivotek_Robot::lightSx(double threshold)
+bool ExplorerRobot::lightSx(double threshold)
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return light(a1,threshold);
-    }
+    return light(arduinoPins.a1,threshold);
 }
 
-bool Ivotek_Robot::lightCx(double threshold)
+bool ExplorerRobot::lightCx(double threshold)
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return light(a2,threshold);
-    }
+    return light(arduinoPins.a2,threshold);
 }
 
-bool Ivotek_Robot::lightDx(double threshold)
+bool ExplorerRobot::lightDx(double threshold)
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return light(a3,threshold);
-    }
+    return light(arduinoPins.a3,threshold);
 }
 
-double Ivotek_Robot::batteryStatus()
+double ExplorerRobot::batteryStatus()
 {
-    if(robotName=="POORV2" || robotName=="EXPLORER")
-    {
-        return batteryStatus(a0);
-    }
+        return batteryStatus(arduinoPins.a0);
     return 0;
 }
 
-double Ivotek_Robot::batteryStatus(byte pin)
+double ExplorerRobot::batteryStatus(byte pin)
 {
     double alim_digit = 0;
     double alimentazione = 0;
     alim_digit = analogRead(pin);
-    alimentazione= alim_digit * (voltageMCU / numADconvertArduinoUno);
+    alimentazione= alim_digit * (RobotInfo::getVoltageMCU() / RobotInfo::getNumADconvertArduinoUno());
     return alimentazione * 2;
 }
 
-bool Ivotek_Robot::batteryStatus(double threshold)
+bool ExplorerRobot::batteryStatus(double threshold)
 {
     double trigger = 0;
-    if(robotName=="POORV2")
-    {
-        trigger = batteryStatus(a0);
-    }
+        trigger = batteryStatus(arduinoPins.a0);
     return trigger < threshold?true:false;
 }
 
-bool Ivotek_Robot::batteryStatus(byte pin, double threshold)
+bool ExplorerRobot::batteryStatus(byte pin, double threshold)
 {
     double trigger = 0;
     trigger = batteryStatus(pin);
     return trigger < threshold?true:false;
 }
 
+/*
 bool Ivotek_Robot::genericSwitch(byte pin)
 {
     bool value;

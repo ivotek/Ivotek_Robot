@@ -50,6 +50,14 @@ public:
     virtual double lightSx() = 0;
     virtual double lightCx() = 0;
     virtual double lightDx() = 0;
+    virtual bool light(byte pin, double threshold) = 0;
+    virtual bool lightSx(double threshold) = 0;
+    virtual bool lightCx(double threshold) = 0;
+    virtual bool lightDx(double threshold) = 0;
+    virtual double batteryStatus() = 0;
+    virtual double batteryStatus(byte pin) = 0;
+    virtual bool batteryStatus(double threshold) = 0;
+    virtual bool batteryStatus(byte pin, double threshold) = 0;
 
     virtual void stop() = 0;
 

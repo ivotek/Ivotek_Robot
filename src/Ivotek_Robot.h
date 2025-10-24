@@ -56,6 +56,15 @@ public:
     double lightSx();
     double lightCx();
     double lightDx();
+    bool light(byte pin, double threshold);
+    bool lightSx(double threshold);
+    bool lightCx(double threshold);
+    bool lightDx(double threshold);
+
+    double batteryStatus();
+    double batteryStatus(byte pin);
+    bool batteryStatus(double threshold);
+    bool batteryStatus(byte pin, double threshold);
 
 
 };
