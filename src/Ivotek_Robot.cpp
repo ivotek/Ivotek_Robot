@@ -77,6 +77,13 @@ bool Ivotek_Robot::switchDxFront() { if (robot) robot->switchDxFront(); };
 bool Ivotek_Robot::switchSxFront(bool invert) { if (robot) robot->switchSxFront(invert); };
 bool Ivotek_Robot::switchDxFront(bool invert) { if (robot) robot->switchDxFront(invert); };
 
+byte Ivotek_Robot::temperature()  { if (robot) robot->temperature(); };
+byte Ivotek_Robot::temperature(byte pin)  { if (robot) robot->temperature(pin); };
+bool Ivotek_Robot::temperature(byte pin, double threshold)  { if (robot) robot->temperature(pin, threshold); };
+int Ivotek_Robot::humidity()  { if (robot) robot->humidity(); };
+int Ivotek_Robot::humidity(byte pin)  { if (robot) robot->humidity(pin); };
+bool Ivotek_Robot::humidity(byte pin, double threshold)  { if (robot) robot->humidity(pin, threshold); };
+
 void Ivotek_Robot::stop() { if (robot) robot->stop(); }
 void Ivotek_Robot::getVersion() { if (robot) robot->getVersion(); }
 

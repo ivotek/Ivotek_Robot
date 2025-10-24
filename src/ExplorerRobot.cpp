@@ -137,6 +137,13 @@ void ExplorerRobot::stop()
     analogWrite(arduinoPins.d10, 0);
 }
 
+//TODO DA TERMINARE
+byte ExplorerRobot::temperature() {}
+byte ExplorerRobot::temperature(byte pin) {}
+bool ExplorerRobot::temperature(byte pin, double threshold) {}
+int ExplorerRobot::humidity() {}
+int ExplorerRobot::humidity(byte pin) {}
+bool ExplorerRobot::humidity(byte pin, double threshold) {}
 void ExplorerRobot::button(bool direction) {}
 void ExplorerRobot::analog(double threshold) {}
 int ExplorerRobot::compass() {}
@@ -344,6 +351,8 @@ bool ExplorerRobot::switchDxFront(bool invert)
     return false;
 }
 
+
+//TODO ABilitare nuove schede
 /*
 #if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
 bool Ivotek_Robot::switchSxRear()
@@ -382,14 +391,11 @@ bool Ivotek_Robot::switchDxRear(bool invert)
     return false;
 }
 #endif // BOARD
+*/
 
-byte Ivotek_Robot::temperature() {}
-byte Ivotek_Robot::temperature(byte pin) {}
-bool Ivotek_Robot::temperature(byte pin, double threshold) {}
-int Ivotek_Robot::humidity() {}
-int Ivotek_Robot::humidity(byte pin) {}
-bool Ivotek_Robot::humidity(byte pin, double threshold) {}
 
+
+/*
 void Ivotek_Robot::pinAnalogOn(byte pin)
 {
     analogWrite(pin, 255);

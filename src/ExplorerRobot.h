@@ -71,6 +71,13 @@ public:
     bool switchSxFront(bool invert) override;
     bool switchDxFront(bool invert) override;
 
+    byte temperature() override;
+    byte temperature(byte pin) override;
+    bool temperature(byte pin, double threshold) override;
+    int humidity() override;
+    int humidity(byte pin) override;
+    bool humidity(byte pin, double threshold) override;
+
     void getVersion() override;
 };
 #endif

@@ -73,6 +73,13 @@ public:
     bool switchSxFront(bool invert);
     bool switchDxFront(bool invert);
 
+    byte temperature();
+    byte temperature(byte pin) ;
+    bool temperature(byte pin, double threshold);
+    int humidity();
+    int humidity(byte pin);
+    bool humidity(byte pin, double threshold);
+
 
 };
 

@@ -66,6 +66,13 @@ public:
     virtual bool switchSxFront(bool invert) = 0;
     virtual bool switchDxFront(bool invert) = 0;
 
+    virtual byte temperature() = 0;
+    virtual byte temperature(byte pin) = 0;
+    virtual bool temperature(byte pin, double threshold) = 0;
+    virtual int humidity() = 0;
+    virtual int humidity(byte pin) = 0;
+    virtual bool humidity(byte pin, double threshold) = 0;
+
     virtual void stop() = 0;
 
     /*
