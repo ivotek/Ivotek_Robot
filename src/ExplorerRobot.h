@@ -26,7 +26,7 @@ public:
     void turnRight(byte speedSx, byte speedDx) override;
     void turnLeft() override;
     void turnLeft(byte speed) override;
-    void turnLeft(byte speedSx,byte speedDx) override;
+    void turnLeft(byte speedSx, byte speedDx) override;
     void stop() override;
 
     void button(bool direction) override;
@@ -40,10 +40,10 @@ public:
     double ultrasoundSx() override;
     double ultrasoundCx() override;
     double ultrasoundDx() override;
-    bool ultrasound (byte trigger, byte echo, double threshold) override;
-    bool ultrasoundSx (double threshold) override;
-    bool ultrasoundCx (double threshold) override;
-    bool ultrasoundDx (double threshold) override;
+    bool ultrasound(byte trigger, byte echo, double threshold) override;
+    bool ultrasoundSx(double threshold) override;
+    bool ultrasoundCx(double threshold) override;
+    bool ultrasoundDx(double threshold) override;
 
     double pinAnalogRead(int pin) override;
     bool pinDigitalRead(byte pin) override;
@@ -64,8 +64,13 @@ public:
     bool batteryStatus(double threshold) override;
     bool batteryStatus(byte pin, double threshold) override;
 
-    void getVersion() override;
+    bool genericSwitch(byte pin) override;
+    bool genericSwitch(bool invert, byte pin) override;
+    bool switchSxFront() override;
+    bool switchDxFront() override;
+    bool switchSxFront(bool invert) override;
+    bool switchDxFront(bool invert) override;
 
+    void getVersion() override;
 };
 #endif
-

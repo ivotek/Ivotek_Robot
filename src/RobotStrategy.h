@@ -58,6 +58,13 @@ public:
     virtual double batteryStatus(byte pin) = 0;
     virtual bool batteryStatus(double threshold) = 0;
     virtual bool batteryStatus(byte pin, double threshold) = 0;
+        
+    virtual bool genericSwitch(byte pin) = 0;
+    virtual bool genericSwitch(bool invert, byte pin) = 0;
+    virtual bool switchSxFront() = 0;
+    virtual bool switchDxFront() = 0;
+    virtual bool switchSxFront(bool invert) = 0;
+    virtual bool switchDxFront(bool invert) = 0;
 
     virtual void stop() = 0;
 

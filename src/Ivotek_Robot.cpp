@@ -70,6 +70,13 @@ double Ivotek_Robot::batteryStatus(byte pin) { if (robot) robot->batteryStatus(p
 bool Ivotek_Robot::batteryStatus(double threshold) { if (robot) robot->batteryStatus(threshold); };
 bool Ivotek_Robot::batteryStatus(byte pin, double threshold) { if (robot) robot->batteryStatus(pin, threshold); };
 
+bool Ivotek_Robot::genericSwitch(byte pin) { if (robot) robot->genericSwitch(pin); };
+bool Ivotek_Robot::genericSwitch(bool invert, byte pin) { if (robot) robot->genericSwitch(invert, pin); };
+bool Ivotek_Robot::switchSxFront() { if (robot) robot->switchSxFront(); };
+bool Ivotek_Robot::switchDxFront() { if (robot) robot->switchDxFront(); };
+bool Ivotek_Robot::switchSxFront(bool invert) { if (robot) robot->switchSxFront(invert); };
+bool Ivotek_Robot::switchDxFront(bool invert) { if (robot) robot->switchDxFront(invert); };
+
 void Ivotek_Robot::stop() { if (robot) robot->stop(); }
 void Ivotek_Robot::getVersion() { if (robot) robot->getVersion(); }
 

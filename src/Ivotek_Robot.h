@@ -66,6 +66,13 @@ public:
     bool batteryStatus(double threshold);
     bool batteryStatus(byte pin, double threshold);
 
+    bool genericSwitch(byte pin);
+    bool genericSwitch(bool invert, byte pin);
+    bool switchSxFront();
+    bool switchDxFront();
+    bool switchSxFront(bool invert);
+    bool switchDxFront(bool invert);
+
 
 };
 
