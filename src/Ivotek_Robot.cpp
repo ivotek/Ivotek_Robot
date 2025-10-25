@@ -77,6 +77,12 @@ bool Ivotek_Robot::switchSxFront() { if (robot) robot->switchSxFront(); };
 bool Ivotek_Robot::switchDxFront() { if (robot) robot->switchDxFront(); };
 bool Ivotek_Robot::switchSxFront(bool invert) { if (robot) robot->switchSxFront(invert); };
 bool Ivotek_Robot::switchDxFront(bool invert) { if (robot) robot->switchDxFront(invert); };
+#if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    bool Ivotek_Robot::switchSxRear() { if (robot) robot->switchSxRear(); };
+    bool Ivotek_Robot::switchDxRear() { if (robot) robot->switchDxRear(); };
+    bool Ivotek_Robot::switchSxRear(bool invert) { if (robot) robot->switchSxRear(); };
+    bool Ivotek_Robot::switchDxRear(bool invert) { if (robot) robot->switchDxRear(); };
+#endif
 
 byte Ivotek_Robot::temperature()  { if (robot) robot->temperature(); };
 byte Ivotek_Robot::temperature(byte pin)  { if (robot) robot->temperature(pin); };
@@ -102,11 +108,24 @@ double Ivotek_Robot::sound() { if (robot) robot->sound(); };
 bool Ivotek_Robot:: sound(double threshold) { if (robot) robot->sound(threshold); };
 bool Ivotek_Robot:: sound(double threshold, bool invert) { if (robot) robot->sound(threshold, invert); };
 bool Ivotek_Robot:: sound(int pin, double threshold) { if (robot) robot->sound(pin, threshold); };
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    double Ivotek_Robot::sound_1() { if (robot) robot->sound_1(); };
+    bool Ivotek_Robot::sound_1(double threshold) { if (robot) robot->sound_1(threshold); };
+    bool Ivotek_Robot::sound_1(double threshold, bool invert) { if (robot) robot->sound_1(threshold, invert); };
+    bool Ivotek_Robot::sound_1(int pin, double threshold) { if (robot) robot->sound_1(pin, threshold); };
+#endif
 
 double Ivotek_Robot::gasAlcool() { if (robot) robot->gasAlcool(); };
 bool Ivotek_Robot::gasAlcool(double threshold) { if (robot) robot->gasAlcool(threshold); };
 bool Ivotek_Robot::gasAlcool(int pin, double threshold) { if (robot) robot->gasAlcool(pin, threshold); };
 bool Ivotek_Robot::gasAlcool(double threshold, bool invert) { if (robot) robot->gasAlcool(threshold, invert); };
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    double Ivotek_Robot::gasAlcool_1(){ if (robot) robot->gasAlcool_1(); };
+    bool Ivotek_Robot::gasAlcool_1(double threshold){ if (robot) robot->gasAlcool_1(threshold); };
+    bool Ivotek_Robot::gasAlcool_1(int pin, double threshold){ if (robot) robot->gasAlcool_1(pin, threshold); };
+    bool Ivotek_Robot::gasAlcool_1(double threshold, bool invert){ if (robot) robot->gasAlcool_1(threshold, invert); };
+#endif
+
 
 void Ivotek_Robot::getVersion() { if (robot) robot->getVersion(); }
 

@@ -2,6 +2,7 @@
 #define ROBOT_STRATEGY_H
 
 #include <Arduino.h>
+#include "../Config/Config.h"
 
 class RobotStrategy
 {
@@ -58,13 +59,19 @@ public:
     virtual double batteryStatus(byte pin) = 0;
     virtual bool batteryStatus(double threshold) = 0;
     virtual bool batteryStatus(byte pin, double threshold) = 0;
-        
+
     virtual bool genericSwitch(byte pin) = 0;
     virtual bool genericSwitch(bool invert, byte pin) = 0;
     virtual bool switchSxFront() = 0;
     virtual bool switchDxFront() = 0;
     virtual bool switchSxFront(bool invert) = 0;
     virtual bool switchDxFront(bool invert) = 0;
+#if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    virtual bool switchSxRear() = 0;
+    virtual bool switchDxRear() = 0;
+    virtual bool switchSxRear(bool invert) = 0;
+    virtual bool switchDxRear(bool invert) = 0;
+#endif
 
     virtual byte temperature() = 0;
     virtual byte temperature(byte pin) = 0;
@@ -78,7 +85,6 @@ public:
     virtual void pinDigitalOn(byte pin) = 0;
     virtual void pinDigitalOff(byte pin) = 0;
 
-
     virtual void ledSoundOn() = 0;
     virtual void ledSoundOff() = 0;
     virtual void ledLightOn() = 0;
@@ -90,11 +96,23 @@ public:
     virtual bool sound(double threshold) = 0;
     virtual bool sound(double threshold, bool invert) = 0;
     virtual bool sound(int pin, double threshold) = 0;
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    virtual double sound_1() = 0;
+    virtual bool sound_1(double threshold) = 0;
+    virtual bool sound_1(double threshold, bool invert) = 0;
+    virtual bool sound_1(int pin, double threshold) = 0;
+#endif
 
     virtual double gasAlcool() = 0;
     virtual bool gasAlcool(double threshold) = 0;
     virtual bool gasAlcool(int pin, double threshold) = 0;
     virtual bool gasAlcool(double threshold, bool invert) = 0;
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    virtual double gasAlcool_1() = 0;
+    virtual bool gasAlcool_1(double threshold) = 0;
+    virtual bool gasAlcool_1(int pin, double threshold) = 0;
+    virtual bool gasAlcool_1(double threshold, bool invert) = 0;
+#endif
 
     virtual void stop() = 0;
 
@@ -189,7 +207,6 @@ public:
         virtual bool genericSwitch(byte pin);
         virtual bool genericSwitch(bool invert, byte pin);
     */
-
 };
 
 #endif

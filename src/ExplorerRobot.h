@@ -70,6 +70,12 @@ public:
     bool switchDxFront() override;
     bool switchSxFront(bool invert) override;
     bool switchDxFront(bool invert) override;
+#if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    bool switchSxRear() override;
+    bool switchDxRear() override;
+    bool switchSxRear(bool invert) override;
+    bool switchDxRear(bool invert) override;
+#endif
 
     byte temperature() override;
     byte temperature(byte pin) override;
@@ -95,10 +101,23 @@ public:
     bool sound(double threshold, bool invert) override;
     bool sound(int pin, double threshold) override;
 
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    double sound_1() override;
+    bool sound_1(double threshold) override;
+    bool sound_1(double threshold, bool invert) override;
+    bool sound_1(int pin, double threshold) override;
+#endif
+
     double gasAlcool() override;
     bool gasAlcool(double threshold) override;
     bool gasAlcool(int pin, double threshold) override;
     bool gasAlcool(double threshold, bool invert) override;
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    double gasAlcool_1();
+    bool gasAlcool_1(double threshold);
+    bool gasAlcool_1(int pin, double threshold);
+    bool gasAlcool_1(double threshold, bool invert);
+#endif
 
     void getVersion() override;
 };

@@ -7,13 +7,13 @@
 class Ivotek_Robot
 {
 private:
-    RobotStrategy* robot = nullptr;
+    RobotStrategy *robot = nullptr;
 
 public:
     Ivotek_Robot() = default;
 
     void initialization(String name);
-    void setStrategy(RobotStrategy* strategy);
+    void setStrategy(RobotStrategy *strategy);
     void getVersion();
 
     void forwards();
@@ -72,9 +72,15 @@ public:
     bool switchDxFront();
     bool switchSxFront(bool invert);
     bool switchDxFront(bool invert);
+#if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    bool switchSxRear();
+    bool switchDxRear();
+    bool switchSxRear(bool invert);
+    bool switchDxRear(bool invert);
+#endif
 
     byte temperature();
-    byte temperature(byte pin) ;
+    byte temperature(byte pin);
     bool temperature(byte pin, double threshold);
     int humidity();
     int humidity(byte pin);
@@ -96,12 +102,23 @@ public:
     bool sound(double threshold);
     bool sound(double threshold, bool invert);
     bool sound(int pin, double threshold);
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    double sound_1();
+    bool sound_1(double threshold);
+    bool sound_1(double threshold, bool invert);
+    bool sound_1(int pin, double threshold);
+#endif
 
     double gasAlcool();
     bool gasAlcool(double threshold);
     bool gasAlcool(int pin, double threshold);
     bool gasAlcool(double threshold, bool invert);
-
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    double gasAlcool_1();
+    bool gasAlcool_1(double threshold);
+    bool gasAlcool_1(int pin, double threshold);
+    bool gasAlcool_1(double threshold, bool invert);
+#endif
 
 };
 

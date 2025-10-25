@@ -17,7 +17,7 @@ ExplorerRobot::ExplorerRobot()
     arduinoPins.a7 = A7;
 #endif
 
-#if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+#if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
     stNucleoPins.pc2 = PC2;
     stNucleoPins.pc3 = PC3;
     stNucleoPins.pc15 = PC15;
@@ -137,7 +137,7 @@ void ExplorerRobot::stop()
     analogWrite(arduinoPins.d10, 0);
 }
 
-//TODO DA TERMINARE
+// TODO DA TERMINARE
 byte ExplorerRobot::temperature() {}
 byte ExplorerRobot::temperature(byte pin) {}
 bool ExplorerRobot::temperature(byte pin, double threshold) {}
@@ -155,7 +155,7 @@ double ExplorerRobot::ultrasound(byte trigger, byte ultrasound)
 {
     double tempoEcho = 0;
 
-    // I generate a 10 micro second pulse for the trigger
+    // Generate a 10 micro second pulse for the trigger
     digitalWrite(trigger, LOW);  // Reset output
     delayMicroseconds(3);        // Wait 3 microseconds
     digitalWrite(trigger, HIGH); // Up level
@@ -233,7 +233,7 @@ void ExplorerRobot::pinDigitalWrite(byte pin, bool value)
     return digitalWrite(pin, value);
 }
 
-// TODO DA Variare in base alla BOARD
+// TODO Da variare in base alla BOARD
 double ExplorerRobot::light(byte pin)
 {
     double vFoto = 0;
@@ -351,47 +351,29 @@ bool ExplorerRobot::switchDxFront(bool invert)
     return false;
 }
 
-
-//TODO ABilitare nuove schede
-/*
 #if BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
-bool Ivotek_Robot::switchSxRear()
+bool ExplorerRobot::switchSxRear()
 {
-    if(robotName=="EXPLORER")
-    {
-        return genericSwitch(nucleoSwitchSxRear);
-    }
-    return false;
+    return genericSwitch(stNucleoPins.pc15);
 }
 
-bool Ivotek_Robot::switchDxRear()
+bool ExplorerRobot::switchDxRear()
 {
-    if(robotName=="EXPLORER")
-    {
-        return genericSwitch(nucleoSwitchDxRear);
-    }
-    return false;
+    return genericSwitch(stNucleoPins.pc14);
 }
 
-bool Ivotek_Robot::switchSxRear(bool invert)
+bool ExplorerRobot::switchSxRear(bool invert)
 {
-    if(robotName=="EXPLORER")
-    {
-        return genericSwitch(nucleoSwitchSxRear, invert);
-    }
-    return false;
+    bool value = genericSwitch(stNucleoPins.pc15, invert);
+    return invert ? !value : value;
 }
 
-bool Ivotek_Robot::switchDxRear(bool invert)
+bool ExplorerRobot::switchDxRear(bool invert)
 {
-    if(robotName=="EXPLORER")
-    {
-        return genericSwitch(nucleoSwitchDxRear, invert);
-    }
-    return false;
+    bool value = genericSwitch(stNucleoPins.pc14, invert);
+    return invert ? !value : value;
 }
 #endif // BOARD
-*/
 
 void ExplorerRobot::pinAnalogOn(byte pin)
 {
@@ -476,21 +458,24 @@ bool ExplorerRobot::sound(int pin, double threshold)
     return trigger < threshold ? true : false;
 }
 
-/*
 #if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
-double Ivotek_Robot::sound_1()
+double ExplorerRobot::sound_1()
 {
-    return pinAnalogRead(a6);
+#if BOARD == ARDUINO_NANO
+    return pinAnalogRead(arduinoPins.a6);
+#elif BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    return pinAnalogRead(stNucleoPins.pc2);
+#endif
 }
 
-bool Ivotek_Robot::sound_1(double threshold)
+bool ExplorerRobot::sound_1(double threshold)
 {
     double trigger = 0;
     trigger = sound();
     return trigger < threshold ? true : false;
 }
 
-bool Ivotek_Robot::sound_1(double threshold, bool invert)
+bool ExplorerRobot::sound_1(double threshold, bool invert)
 {
     double trigger = 0;
     trigger = sound();
@@ -504,16 +489,13 @@ bool Ivotek_Robot::sound_1(double threshold, bool invert)
     }
 }
 
-bool Ivotek_Robot::sound_1(int pin, double threshold)
+bool ExplorerRobot::sound_1(int pin, double threshold)
 {
     double trigger = 0;
     trigger = pinAnalogRead(pin);
     return trigger < threshold ? true : false;
 }
 #endif
-
-*/
-
 
 double ExplorerRobot::gasAlcool()
 {
@@ -548,28 +530,32 @@ bool ExplorerRobot::gasAlcool(double threshold, bool invert)
     }
 }
 
-/*
 #if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
-double Ivotek_Robot::gasAlcool_1()
+double ExplorerRobot::gasAlcool_1()
 {
-    return pinAnalogRead(a7);
+    return pinAnalogRead(arduinoPins.a7);
+#if BOARD == ARDUINO_NANO
+    return pinAnalogRead(arduinoPins.a7);
+#elif BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+    return pinAnalogRead(stNucleoPins.pc3);
+#endif
 }
 
-bool Ivotek_Robot::gasAlcool_1(double threshold)
+bool ExplorerRobot::gasAlcool_1(double threshold)
 {
     double trigger = 0;
     trigger = sound();
     return trigger < threshold ? true : false;
 }
 
-bool Ivotek_Robot::gasAlcool_1(int pin, double threshold)
+bool ExplorerRobot::gasAlcool_1(int pin, double threshold)
 {
     double trigger = 0;
     trigger = pinAnalogRead(pin);
     return trigger < threshold ? true : false;
 }
 
-bool Ivotek_Robot::gasAlcool_1(double threshold, bool invert)
+bool ExplorerRobot::gasAlcool_1(double threshold, bool invert)
 {
     double trigger = 0;
     trigger = gasAlcool();
@@ -583,8 +569,6 @@ bool Ivotek_Robot::gasAlcool_1(double threshold, bool invert)
     }
 }
 #endif
-
-*/
 
     void ExplorerRobot::getVersion()
 {
