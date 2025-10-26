@@ -43,6 +43,9 @@ void ExplorerRobot::forwards()
 
 void ExplorerRobot::forwards(byte speed)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("Speed: ");
+    DEBUG_PRINTLN(speed);
     analogWrite(arduinoPins.d5, speed);
     analogWrite(arduinoPins.d6, 0);
     analogWrite(arduinoPins.d9, speed);
@@ -51,6 +54,11 @@ void ExplorerRobot::forwards(byte speed)
 
 void ExplorerRobot::forwards(byte speedSx, byte speedDx)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("SpeedSx: ");
+    DEBUG_PRINT(speedSx);
+    DEBUG_PRINT(" --- SpeedDx: ");
+    DEBUG_PRINTLN(speedDx);
     analogWrite(arduinoPins.d5, speedSx);
     analogWrite(arduinoPins.d6, 0);
     analogWrite(arduinoPins.d9, speedDx);
@@ -67,6 +75,9 @@ void ExplorerRobot::backwards()
 
 void ExplorerRobot::backwards(byte speed)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("Speed: ");
+    DEBUG_PRINTLN(speed);
     analogWrite(arduinoPins.d5, 0);
     analogWrite(arduinoPins.d6, speed);
     analogWrite(arduinoPins.d9, 0);
@@ -75,6 +86,11 @@ void ExplorerRobot::backwards(byte speed)
 
 void ExplorerRobot::backwards(byte speedSx, byte speedDx)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("SpeedSx: ");
+    DEBUG_PRINT(speedSx);
+    DEBUG_PRINT(" --- SpeedDx: ");
+    DEBUG_PRINTLN(speedDx);
     analogWrite(arduinoPins.d5, 0);
     analogWrite(arduinoPins.d6, speedSx);
     analogWrite(arduinoPins.d9, 0);
@@ -91,6 +107,9 @@ void ExplorerRobot::turnRight()
 
 void ExplorerRobot::turnRight(byte speed)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("Speed: ");
+    DEBUG_PRINTLN(speed);
     analogWrite(arduinoPins.d5, speed);
     analogWrite(arduinoPins.d6, 0);
     analogWrite(arduinoPins.d9, 0);
@@ -99,6 +118,11 @@ void ExplorerRobot::turnRight(byte speed)
 
 void ExplorerRobot::turnRight(byte speedSx, byte speedDx)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("SpeedSx: ");
+    DEBUG_PRINT(speedSx);
+    DEBUG_PRINT(" --- SpeedDx: ");
+    DEBUG_PRINTLN(speedDx);
     analogWrite(arduinoPins.d5, speedSx);
     analogWrite(arduinoPins.d6, 0);
     analogWrite(arduinoPins.d9, 0);
@@ -115,6 +139,9 @@ void ExplorerRobot::turnLeft()
 
 void ExplorerRobot::turnLeft(byte speed)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("Speed: ");
+    DEBUG_PRINTLN(speed);
     analogWrite(arduinoPins.d5, 0);
     analogWrite(arduinoPins.d6, speed);
     analogWrite(arduinoPins.d9, speed);
@@ -123,6 +150,11 @@ void ExplorerRobot::turnLeft(byte speed)
 
 void ExplorerRobot::turnLeft(byte speedSx, byte speedDx)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("SpeedSx: ");
+    DEBUG_PRINT(speedSx);
+    DEBUG_PRINT(" --- SpeedDx: ");
+    DEBUG_PRINTLN(speedDx);
     analogWrite(arduinoPins.d5, 0);
     analogWrite(arduinoPins.d6, speedSx);
     analogWrite(arduinoPins.d9, speedDx);
@@ -140,65 +172,82 @@ void ExplorerRobot::stop()
 // TODO DA TERMINARE
 byte ExplorerRobot::temperature()
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return 0;
 }
 byte ExplorerRobot::temperature(byte pin)
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return 0;
 }
 bool ExplorerRobot::temperature(byte pin, double threshold)
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return false;
 }
 int ExplorerRobot::humidity()
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return 0;
 }
 int ExplorerRobot::humidity(byte pin)
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return 0;
 }
 bool ExplorerRobot::humidity(byte pin, double threshold)
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return false;
 }
 void ExplorerRobot::button(bool direction)
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
 }
 void ExplorerRobot::analog(double threshold)
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
 }
 int ExplorerRobot::compass()
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return 0;
 }
 int ExplorerRobot::compass(byte pin)
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return 0;
 }
 int ExplorerRobot::accelerometer()
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return 0;
 }
 int ExplorerRobot::accelerometer(byte pin)
 {
+    DEBUG_PRINT_FUNC();
     DEBUG_PRINTLN("Function not yet implemented");
     return 0;
 }
 
 double ExplorerRobot::ultrasound(byte trigger, byte ultrasound)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("Trigger: ");
+    DEBUG_PRINT(trigger);
+    DEBUG_PRINT(" --- Ultrasound: ");
+    DEBUG_PRINT(ultrasound);
     double tempoEcho = 0;
 
     // Generate a 10 micro second pulse for the trigger
@@ -209,6 +258,8 @@ double ExplorerRobot::ultrasound(byte trigger, byte ultrasound)
     digitalWrite(trigger, LOW);  // Reset output
     // Get the sensor time
     tempoEcho = pulseIn(ultrasound, HIGH, 38000);
+    DEBUG_PRINT(" --- tempoEcho: ");
+    DEBUG_PRINTLN(tempoEcho);
     delay(10);
 
     // Convert the time in centimeter
@@ -232,8 +283,17 @@ double ExplorerRobot::ultrasoundDx()
 
 bool ExplorerRobot::ultrasound(byte trigger, byte echo, double threshold)
 {
+    DEBUG_PRINT_FUNC();
+    DEBUG_PRINT("Trigger: ");
+    DEBUG_PRINT(trigger);
+    DEBUG_PRINT(" --- Echo: ");
+    DEBUG_PRINT(echo);
+    DEBUG_PRINT(" --- threshold: ");
+    DEBUG_PRINT(threshold);
     double distance = 0;
     distance = ExplorerRobot::ultrasound(trigger, echo);
+    DEBUG_PRINT(" --- distance: ");
+    DEBUG_PRINTLN(distance);
     return distance < threshold && distance > 0 ? true : false;
 }
 
