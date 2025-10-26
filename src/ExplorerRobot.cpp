@@ -138,18 +138,64 @@ void ExplorerRobot::stop()
 }
 
 // TODO DA TERMINARE
-byte ExplorerRobot::temperature() {}
-byte ExplorerRobot::temperature(byte pin) {}
-bool ExplorerRobot::temperature(byte pin, double threshold) {}
-int ExplorerRobot::humidity() {}
-int ExplorerRobot::humidity(byte pin) {}
-bool ExplorerRobot::humidity(byte pin, double threshold) {}
-void ExplorerRobot::button(bool direction) {}
-void ExplorerRobot::analog(double threshold) {}
-int ExplorerRobot::compass() {}
-int ExplorerRobot::compass(byte pin) {}
-int ExplorerRobot::accelerometer() {}
-int ExplorerRobot::accelerometer(byte pin) {}
+byte ExplorerRobot::temperature()
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return 0;
+}
+byte ExplorerRobot::temperature(byte pin)
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return 0;
+}
+bool ExplorerRobot::temperature(byte pin, double threshold)
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return false;
+}
+int ExplorerRobot::humidity()
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return 0;
+}
+int ExplorerRobot::humidity(byte pin)
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return 0;
+}
+bool ExplorerRobot::humidity(byte pin, double threshold)
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return false;
+}
+void ExplorerRobot::button(bool direction)
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+}
+void ExplorerRobot::analog(double threshold)
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+}
+int ExplorerRobot::compass()
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return 0;
+}
+int ExplorerRobot::compass(byte pin)
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return 0;
+}
+int ExplorerRobot::accelerometer()
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return 0;
+}
+int ExplorerRobot::accelerometer(byte pin)
+{
+    DEBUG_PRINTLN("Function not yet implemented");
+    return 0;
+}
 
 double ExplorerRobot::ultrasound(byte trigger, byte ultrasound)
 {
@@ -570,7 +616,7 @@ bool ExplorerRobot::gasAlcool_1(double threshold, bool invert)
 }
 #endif
 
-    void ExplorerRobot::getVersion()
+void ExplorerRobot::getVersion()
 {
     Serial.print("Robot: ");
     Serial.print(RobotInfo::getRobotName());
