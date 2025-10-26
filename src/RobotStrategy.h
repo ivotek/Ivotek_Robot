@@ -96,7 +96,7 @@ public:
     virtual bool sound(double threshold) = 0;
     virtual bool sound(double threshold, bool invert) = 0;
     virtual bool sound(int pin, double threshold) = 0;
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE || BOARD == ARDUINO_MEGA
     virtual double sound_1() = 0;
     virtual bool sound_1(double threshold) = 0;
     virtual bool sound_1(double threshold, bool invert) = 0;
@@ -107,7 +107,7 @@ public:
     virtual bool gasAlcool(double threshold) = 0;
     virtual bool gasAlcool(int pin, double threshold) = 0;
     virtual bool gasAlcool(double threshold, bool invert) = 0;
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE || BOARD == ARDUINO_MEGA
     virtual double gasAlcool_1() = 0;
     virtual bool gasAlcool_1(double threshold) = 0;
     virtual bool gasAlcool_1(int pin, double threshold) = 0;
@@ -116,97 +116,6 @@ public:
 
     virtual void stop() = 0;
 
-    /*
-        virtual void turnRight(byte speed);
-        virtual void turnLeft(byte speed);
-        virtual void turnRight(byte speedSx, byte speedDx);
-        virtual void turnLeft(byte speedSx, byte speedDx);
-        virtual void forwards(byte speedSx, byte speedDx);
-        virtual void backwards(byte speedSx, byte speedDx);
-
-        //TODO da sostituire o sistemare
-        virtual void button(bool direction);
-        virtual void analog(double threshold);
-        virtual void ledSoundOn();
-        virtual void ledSoundOff();
-        virtual void ledLightOn();
-        virtual void ledLightOff();
-        virtual void ledGasOn();
-        virtual void ledGasOff();
-        virtual void pinAnalogOn(byte pin);
-        virtual void pinAnalogOff(byte pin);
-        virtual void pinDigitalOn(byte pin);
-        virtual void pinDigitalOff(byte pin);
-        virtual double pinAnalogRead(int pin);
-        virtual bool pinDigitalRead(byte pin);
-        virtual void pinAnalogWrite(byte pin, double value);
-        virtual void pinDigitalWrite(byte pin, bool value);
-
-
-        virtual int compass();
-        virtual int compass(byte pin);
-        virtual int accelerometer();
-        virtual int accelerometer(byte pin);
-
-
-        virtual double ultrasound(byte trigger, byte ultrasound);
-        virtual bool ultrasound (byte trigger, byte ultrasound, double threshold);
-        virtual double ultrasoundSx();
-        virtual bool ultrasoundSx(double threshold);
-        virtual double ultrasoundDx();
-        virtual bool ultrasoundDx(double threshold);
-        virtual double ultrasoundCx();
-        virtual bool ultrasoundCx(double threshold);
-
-
-        virtual double lightSx();
-        virtual double lightCx();
-        virtual double lightDx();
-        virtual double light(byte pin);
-        virtual bool light(byte pin, double threshold);
-        virtual bool lightSx(double threshold);
-        virtual bool lightCx(double threshold);
-        virtual bool lightDx(double threshold);
-        virtual double sound();
-        virtual bool sound(double threshold);
-        virtual bool sound(double threshold, bool invert);
-        virtual bool sound(int pin, double threshold);
-        virtual double sound_1();
-        virtual bool sound_1(double threshold);
-        virtual bool sound_1(double threshold, bool invert);
-        virtual bool sound_1(int pin, double threshold);
-        virtual double gasAlcool();
-        virtual bool gasAlcool(double threshold);
-        virtual bool gasAlcool(double threshold, bool invert);
-        virtual bool gasAlcool(int pin, double threshold);
-        virtual double gasAlcool_1();
-        virtual bool gasAlcool_1(double threshold);
-        virtual bool gasAlcool_1(double threshold, bool invert);
-        virtual bool gasAlcool_1(int pin, double threshold);
-
-        virtual double batteryStatus();
-        virtual double batteryStatus(byte pin);
-        virtual bool batteryStatus(double threshold);
-        virtual bool batteryStatus(byte pin, double threshold);
-
-        virtual byte temperature();
-        virtual byte temperature(byte pin);
-        virtual bool temperature(byte pin, double threshold);
-        virtual int humidity();
-        virtual int humidity(byte pin);
-        virtual bool humidity(byte pin, double threshold);
-
-        virtual bool switchSxFront();
-        virtual bool switchDxFront();
-        virtual bool switchSxFront(bool invert);
-        virtual bool switchDxFront(bool invert);
-        virtual bool switchSxRear();
-        virtual bool switchDxRear();
-        virtual bool switchSxRear(bool invert);
-        virtual bool switchDxRear(bool invert);
-        virtual bool genericSwitch(byte pin);
-        virtual bool genericSwitch(bool invert, byte pin);
-    */
 };
 
 #endif

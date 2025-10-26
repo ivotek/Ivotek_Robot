@@ -1,9 +1,6 @@
 #include "Ivotek_Robot.h"
 #include "ExplorerRobot.h"
 #include "../Config/RobotInfo.h"
-//#include "Robot/PoorV2Robot.h"
-//#include "Robot/SnailRobot.h"
-//#include "Robot/DefaultRobot.h"
 
 void Ivotek_Robot::setStrategy(RobotStrategy* strategy)
 {
@@ -108,7 +105,7 @@ double Ivotek_Robot::sound() { if (robot) robot->sound(); };
 bool Ivotek_Robot:: sound(double threshold) { if (robot) robot->sound(threshold); };
 bool Ivotek_Robot:: sound(double threshold, bool invert) { if (robot) robot->sound(threshold, invert); };
 bool Ivotek_Robot:: sound(int pin, double threshold) { if (robot) robot->sound(pin, threshold); };
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE || BOARD == ARDUINO_MEGA
     double Ivotek_Robot::sound_1() { if (robot) robot->sound_1(); };
     bool Ivotek_Robot::sound_1(double threshold) { if (robot) robot->sound_1(threshold); };
     bool Ivotek_Robot::sound_1(double threshold, bool invert) { if (robot) robot->sound_1(threshold, invert); };
@@ -119,7 +116,7 @@ double Ivotek_Robot::gasAlcool() { if (robot) robot->gasAlcool(); };
 bool Ivotek_Robot::gasAlcool(double threshold) { if (robot) robot->gasAlcool(threshold); };
 bool Ivotek_Robot::gasAlcool(int pin, double threshold) { if (robot) robot->gasAlcool(pin, threshold); };
 bool Ivotek_Robot::gasAlcool(double threshold, bool invert) { if (robot) robot->gasAlcool(threshold, invert); };
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE || BOARD == ARDUINO_MEGA
     double Ivotek_Robot::gasAlcool_1(){ if (robot) robot->gasAlcool_1(); };
     bool Ivotek_Robot::gasAlcool_1(double threshold){ if (robot) robot->gasAlcool_1(threshold); };
     bool Ivotek_Robot::gasAlcool_1(int pin, double threshold){ if (robot) robot->gasAlcool_1(pin, threshold); };

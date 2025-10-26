@@ -102,7 +102,7 @@ public:
     bool sound(double threshold);
     bool sound(double threshold, bool invert);
     bool sound(int pin, double threshold);
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE || BOARD == ARDUINO_MEGA
     double sound_1();
     bool sound_1(double threshold);
     bool sound_1(double threshold, bool invert);
@@ -113,7 +113,7 @@ public:
     bool gasAlcool(double threshold);
     bool gasAlcool(int pin, double threshold);
     bool gasAlcool(double threshold, bool invert);
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE || BOARD == ARDUINO_MEGA
     double gasAlcool_1();
     bool gasAlcool_1(double threshold);
     bool gasAlcool_1(int pin, double threshold);

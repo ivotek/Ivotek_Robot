@@ -5,14 +5,14 @@
 ExplorerRobot::ExplorerRobot()
 {
     // Inizializzazione dei pin
-#if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8
+#if BOARD == ARDUINO_UNO || BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == ARDUINO_MEGA
     arduinoPins.d5 = 5;
     arduinoPins.d6 = 6;
     arduinoPins.d9 = 9;
     arduinoPins.d10 = 10;
 #endif
 
-#if BOARD == ARDUINO_NANO
+#if BOARD == ARDUINO_NANO || BOARD == ARDUINO_MEGA
     arduinoPins.a6 = A6;
     arduinoPins.a7 = A7;
 #endif
@@ -458,7 +458,7 @@ bool ExplorerRobot::sound(int pin, double threshold)
     return trigger < threshold ? true : false;
 }
 
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE || BOARD == ARDUINO_MEGA
 double ExplorerRobot::sound_1()
 {
 #if BOARD == ARDUINO_NANO
@@ -530,7 +530,7 @@ bool ExplorerRobot::gasAlcool(double threshold, bool invert)
     }
 }
 
-#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE
+#if BOARD == ARDUINO_NANO || BOARD == NUCLEO_F030R8 || BOARD == NUCLEO_F401RE || BOARD == ARDUINO_MEGA
 double ExplorerRobot::gasAlcool_1()
 {
     return pinAnalogRead(arduinoPins.a7);
